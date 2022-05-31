@@ -9,16 +9,16 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
+	private void OnSearchButtonClicked(object sender, EventArgs e)
 	{
 		count++;
 
 		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
+            SearchBtn.Text = $"Clicked {count} time";
 		else
-			CounterBtn.Text = $"Clicked {count} times";
+            SearchBtn.Text = $"Clicked {count} times";
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
+		SemanticScreenReader.Announce(SearchBtn.Text);
 	}
 }
 
