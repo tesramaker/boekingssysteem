@@ -2,28 +2,70 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Boekingssysteem.MainPage"
-             Title="Boekingssysteem" >
+             Title="Boekingssysteem" 
+             BackgroundImageSource="background.jpg">
 
-    <ScrollView>
-        <VerticalStackLayout 
-            Spacing="25" 
-            Padding="30,0" 
-            VerticalOptions="Center">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-            <Label 
-                Text="Zoek uw vakantie"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+        <Border Grid.Row="1" Grid.Column="1" BackgroundColor="#DDFFFFFF"/>
 
+        <StackLayout Grid.Column="1" Grid.Row="1" HorizontalOptions="Center">
+            
+            <Label TextColor="#707070" FontSize="25" FontAttributes="Bold" Margin="0, 40, 0, 0" HorizontalTextAlignment="Center" Text="Zoek uw vakantie"/>
+            <HorizontalStackLayout Margin="10, 80, 10, 0" HorizontalOptions="Center">
+                
+                <DatePicker 
+                    WidthRequest="150"/>
+
+                <Label 
+                    Text="t/m"/>
+
+                <DatePicker 
+                    WidthRequest="150"/>
+
+                <Entry 
+                    MaxLength="20"
+                    WidthRequest="150"
+                    Placeholder="Locatie"/>
+
+                <HorizontalStackLayout Padding="0">
+                    
+                    <CheckBox 
+                        x:Name="McCheckBox"
+                        HorizontalOptions="End"
+                        MaximumWidthRequest="50"
+                        Margin="0"/>
+                    <!--<Label HorizontalOptions="Start" Margin="0" Text="Willekeurige locatie"/>-->
+                    
+                </HorizontalStackLayout>
+
+                <Entry 
+                    WidthRequest="150"
+                    Placeholder="Aantal personen"
+                    Keyboard="Numeric"
+                    x:DataType="x:Int16"/>
+                
+            </HorizontalStackLayout>
+            
             <Button 
                 x:Name="SearchBtn"
+                Margin="0, 80, 0, 0"
                 Text="Zoek vakantie"
-                SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnSearchButtonClicked"
                 HorizontalOptions="Center" />
+            
+        </StackLayout>
+        
+    </Grid>
 
-        </VerticalStackLayout>
-    </ScrollView>
- 
 </ContentPage>
