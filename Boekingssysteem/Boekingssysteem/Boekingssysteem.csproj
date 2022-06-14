@@ -52,4 +52,14 @@
 	  <None Remove="Resources\Images\background.jpg" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="VacationOptions.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="NewFolder\" />
+	</ItemGroup>
+
 </Project>

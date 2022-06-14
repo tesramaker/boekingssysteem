@@ -9,7 +9,7 @@ public partial class MainPage : ContentPage
 
 	private void OnSearchButtonClicked(object sender, EventArgs e)
 	{
-		//SemanticScreenReader.Announce(SearchBtn.Text);
+		
 	}
 }
 
