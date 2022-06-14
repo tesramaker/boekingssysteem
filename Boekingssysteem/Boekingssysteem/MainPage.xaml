@@ -25,35 +25,36 @@
             <HorizontalStackLayout Margin="10, 80, 10, 0" HorizontalOptions="Center">
                 
                 <DatePicker 
-                    WidthRequest="150"/>
+                    WidthRequest="150"
+                    TextColor="Black"/>
 
                 <Label 
                     Text="t/m"/>
 
                 <DatePicker 
-                    WidthRequest="150"/>
+                    WidthRequest="150"
+                    TextColor="Black"/>
 
                 <Entry 
                     MaxLength="20"
+                    TextColor="Black"
                     WidthRequest="150"
+                    BackgroundColor="White"
                     Placeholder="Locatie"/>
 
-                <HorizontalStackLayout Padding="0">
-                    
-                    <CheckBox 
+                <CheckBox 
                         x:Name="McCheckBox"
                         HorizontalOptions="End"
                         MaximumWidthRequest="50"
+                        Color="DarkRed"
                         Margin="0"/>
-                    <!--<Label HorizontalOptions="Start" Margin="0" Text="Willekeurige locatie"/>-->
-                    
-                </HorizontalStackLayout>
 
                 <Entry 
                     WidthRequest="150"
+                    TextColor="Black"
                     Placeholder="Aantal personen"
                     Keyboard="Numeric"
-                    x:DataType="x:Int16"/>
+                    BackgroundColor="White"/>
                 
             </HorizontalStackLayout>
             
