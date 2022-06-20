@@ -3,37 +3,39 @@ using BoekingssysteemAPI.Views;
 
 namespace BoekingssysteemAPI.BuisinessLogic
 {
-    public class Manager
+    public class FlightManager
     {
-        private Service _service = new Service();
+        private FlightService _flightService;
+
+        public FlightManager()
+        {
+            _flightService = new FlightService();
+        }
 
         public List<Flight> GetAllFLights()
         {
-            return _service.GetAllFlights();
+            return _flightService.GetAllFlights();
         }
 
         public Vacation GetVacationById(int id)
         {
-
+            return _flightService.GetVacationById(id);
         }
         public Vacation GetVacationByUserId(int userId)
         {
-
+            return _flightService.GetVacationByUserId(userId);
         }
 
         public Flight GetFlightById(int id)
         {
-
+            return _flightService.GetFlightById(id);
         }
 
-        public Hotel GetHotelByName(string name)
-        {
 
-        }
 
         public Plane GetPlaneById(int id)
         {
-
+            return _flightService.GetPlaneById(id);
         }
 
     }

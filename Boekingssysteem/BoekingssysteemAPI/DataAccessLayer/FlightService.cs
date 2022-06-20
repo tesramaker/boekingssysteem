@@ -2,20 +2,11 @@
 
 namespace BoekingssysteemAPI.DataAccessLayer
 {
-    public class Service
+    public class FlightService
     {
         private DbConnection _dbConnect;
 
         public List<Flight> GetAllFlights()
-        {
-
-        }
-
-        public Vacation GetVacationById(int id)
-        {
-
-        }
-        public Vacation GetVacationByUserId(int userId)
         {
 
         }

@@ -1,38 +1,38 @@
 ﻿using BoekingssysteemAPI.BuisinessLogic;
-using BoekingssysteemAPI.Views;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BoekingssysteemAPI.Controllers
 {
-    public class Controller : Microsoft.AspNetCore.Mvc.Controller
+    public class VacationController : Controller
     {
-        private Manager _manager = new Manager();
+        private VacationManager _vacationManager;
+
+        public VacationController()
+        {
+            _vacationManager = new VacationManager();
+        }
+
         /// <summary>
         /// Get API requests
         /// </summary>
 
-        // GET: FlightAPIController
-        public ActionResult<List<Flight>> GetAllFlights()
-        {
-            return _manager.GetAllFLights();
-        }
-
-        // GET: FlightAPIController/Details/5
-        public ActionResult GetFlightById(int id)
+        // GET: VacationController
+        [HttpGet]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index()
         {
             return View();
         }
-
 
         /// <summary>
         /// POST API requests
         /// </summary>
 
-        // POST: FlightAPIController/Create
+        // POST: VacationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateNewFlight(IFormCollection collection)
+        public ActionResult Create(IFormCollection collection)
         {
             try
             {
@@ -48,22 +48,29 @@ namespace BoekingssysteemAPI.Controllers
         /// PUT API requests
         /// </summary>
 
-        // PUT: FlightAPIController/Edit/5
-
+        // POST: VacationController/Edit/5
         [HttpPut]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, IFormCollection collection)
         {
-            return View();
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         /// <summary>
         /// DELETE API requests
         /// </summary>
 
+        // DELETE: VacationController/Delete/5
         [HttpDelete]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteFlightById(int id, IFormCollection collection)
+        public ActionResult Delete(int id, IFormCollection collection)
         {
             try
             {
