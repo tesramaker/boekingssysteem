@@ -4,27 +4,27 @@ namespace BoekingssysteemAPI.DataAccessLayer
 {
     public class FlightService
     {
-        private DbConnection _dbConnect;
+        private DbConnect _dbConnect;
 
-        public List<Flight> GetAllFlights()
+        public FlightService()
         {
+            _dbConnect = new DbConnect();
+        }
 
+        public List<Flight> GetAllFlightsToCity(string city)
+        {
+            List<Flight> flights = new List<Flight>();
+            return flights;
         }
 
         public Flight GetFlightById(int id)
         {
-
-        }
-
-        public Hotel GetHotelByName(string name)
-        {
-
+            return new Flight();
         }
 
         public Plane GetPlaneById(int id)
         {
-
+            return new Plane();
         }
-
     }
 }

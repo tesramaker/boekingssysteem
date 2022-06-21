@@ -12,19 +12,20 @@ namespace BoekingssysteemAPI.BuisinessLogic
             _flightService = new FlightService();
         }
 
-        public List<Flight> GetAllFLights()
+        public List<Flight> GetAllFLightsToCity(string city)
         {
-            return _flightService.GetAllFlights();
+            return _flightService.GetAllFlights(city);
         }
 
-        public Vacation GetVacationById(int id)
-        {
-            return _flightService.GetVacationById(id);
-        }
-        public Vacation GetVacationByUserId(int userId)
-        {
-            return _flightService.GetVacationByUserId(userId);
-        }
+        //public Vacation GetVacationById(int id)
+        //{
+        //    return _flightService.GetVacationById(id);
+        //}
+
+        //public Vacation GetVacationByUserId(int userId)
+        //{
+        //    return _flightService.GetVacationByUserId(userId);
+        //}
 
         public Flight GetFlightById(int id)
         {

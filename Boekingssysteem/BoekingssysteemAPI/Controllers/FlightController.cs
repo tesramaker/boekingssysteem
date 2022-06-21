@@ -5,7 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BoekingssysteemAPI.Controllers
 {
-    public class FlightController : Microsoft.AspNetCore.Mvc.Controller
+    [ApiController]
+    [Route("[controller]")]
+    public class FlightController : ControllerBase
     {
         private FlightManager _flightManager;
 
@@ -19,19 +21,19 @@ namespace BoekingssysteemAPI.Controllers
         /// </summary>
 
         // GET: FlightAPIController
-        [HttpGet]
-        [ValidateAntiForgeryToken]
-        public ActionResult<List<Flight>> GetAllFlights()
+        [HttpGet("Get All flights to {city}")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult<List<Flight>> GetAllFlightsToCity(string city)
         {
-            return _flightManager.GetAllFLights();
+            return _flightManager.GetAllFlightsToCity(city);
         }
 
         // GET: FlightAPIController/Details/5
-        [HttpGet]
-        [ValidateAntiForgeryToken]
-        public ActionResult GetFlightById(int id)
+        [HttpGet("Get Flight by {id}")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult<Flight> GetFlightById(int id)
         {
-            return View();
+            return new Flight();
         }
 
         /// <summary>
@@ -39,9 +41,9 @@ namespace BoekingssysteemAPI.Controllers
         /// </summary>
 
         // POST: FlightAPIController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        [HttpPost("Create new flight")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult<Flight> Create(IFormCollection collection)
         {
             try
             {
@@ -49,7 +51,7 @@ namespace BoekingssysteemAPI.Controllers
             }
             catch
             {
-                return View();
+                return new Flight();
             }
         }
 
@@ -58,28 +60,28 @@ namespace BoekingssysteemAPI.Controllers
         /// </summary>
 
         // PUT: FlightAPIController/Edit/5
-        [HttpPut]
-        [ValidateAntiForgeryToken]
-        public ActionResult EditName(int id)
+        [HttpPut("Edit excisting flight")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult<Flight> Edit(int id)
         {
-            return View();
+            return new Flight();
         }
 
         /// <summary>
         /// DELETE API requests
         /// </summary>
 
-        [HttpDelete]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteFlightById(int id, IFormCollection collection)
+        [HttpDelete("Delete flight")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult<bool> DeleteFlightById(int id, IFormCollection collection)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return true;
             }
-            catch
+            catch (Exception)
             {
-                return View();
+                throw;
             }
         }
     }

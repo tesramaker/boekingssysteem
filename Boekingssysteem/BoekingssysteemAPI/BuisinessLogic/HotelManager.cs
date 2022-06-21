@@ -17,7 +17,7 @@ namespace BoekingssysteemAPI.BuisinessLogic
             return _hotelService.GetHotelByName(name);
         }
 
-        public Hotel GetAllHotelNearCity(string city)
+        public List<Hotel> GetAllHotelNearCity(string city)
         {
             return _hotelService.GetAllHotelNearCity(city);
         }

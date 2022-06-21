@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BoekingssysteemAPI.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class HotelController : Controller
     {
         private HotelManager _hotelManager;
@@ -19,17 +21,19 @@ namespace BoekingssysteemAPI.Controllers
         /// </summary>
 
         // GET: GetAllHotelsNearCity
-        [HttpGet]
-        [ValidateAntiForgeryToken]
-        public ActionResult<Hotel> GetAllHotelsNearCity(string city)
+        [HttpGet("Get All Hotels Near {city}")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult<List<Hotel>> GetAllHotelsNearCity(string city)
         {
             return _hotelManager.GetAllHotelNearCity(city);
         }
 
         // GET: HotelController/Details/5
-        public ActionResult Details(int id)
+        [HttpGet("Get Hotel by {id}")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult<Hotel> GetHotelById(int id)
         {
-            return View();
+            return new Hotel();
         }
 
         /// <summary>
@@ -37,17 +41,17 @@ namespace BoekingssysteemAPI.Controllers
         /// </summary>
         
         // POST: HotelController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        [HttpPost("Create new hotel")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult<Hotel> Create(IFormCollection collection)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return new Hotel();
             }
-            catch
+            catch(Exception)
             {
-                return View();
+                throw;
             }
         }
 
@@ -56,9 +60,9 @@ namespace BoekingssysteemAPI.Controllers
         /// </summary>
 
         // PUT: FlightAPIController/Edit/5
-        [HttpPut]
-        [ValidateAntiForgeryToken]
-        public ActionResult EditName(int id)
+        [HttpPut("Edit excisting hotel")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Edit(int id)
         {
             return View();
         }
@@ -68,17 +72,17 @@ namespace BoekingssysteemAPI.Controllers
         /// </summary>
 
         // DELETE: HotelController/Delete/5
-        [HttpDelete]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        [HttpDelete("Delete hotel")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult<bool> Delete(int id, IFormCollection collection)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return true;
             }
-            catch
+            catch(Exception)
             {
-                return View();
+                throw;
             }
         }
     }

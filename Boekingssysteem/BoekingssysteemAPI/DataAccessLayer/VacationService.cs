@@ -5,17 +5,18 @@ namespace BoekingssysteemAPI.DataAccessLayer
 {
     public class VacationService
     {
-        private DbConnection _dbConnection;
+        private DbConnect _dbConnection;
 
         public VacationService()
         {
-            //_dbConnection = new DbConnection
+            _dbConnection = new DbConnect();
         }
 
         public Vacation GetVacationById(int id)
         {
             return new Vacation();
         }
+
         public Vacation GetVacationByUserId(int userId)
         {
             return new Vacation();

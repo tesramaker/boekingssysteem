@@ -4,11 +4,11 @@ namespace BoekingssysteemAPI.DataAccessLayer
 {
     public class PlaneService
     {
-        private DbConnection _dbConnection;
+        private DbConnect _dbConnection;
 
         public PlaneService()
         {
-            //_dbConnection = new DbConnection();
+            _dbConnection = new DbConnect();
         }
     }
 }
