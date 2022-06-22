@@ -1,30 +1,50 @@
-﻿using BoekingssysteemAPI.Model;
+﻿using BoekingssysteemAPI.DbConnection;
+using BoekingssysteemAPI.Model;
+using System.Linq;
 
 namespace BoekingssysteemAPI.DataAccessLayer
 {
     public class FlightService
     {
-        //private DbConnect _dbConnect;
+        private BoekingssysteemContext dbConnection;
 
         public FlightService()
         {
-            //_dbConnect = new DbConnect();
+            dbConnection = new BoekingssysteemContext(@"Server = localhost; Database = Boekingssysteem; Trusted_Connection = True;");
         }
 
         public List<Flight> GetAllFlightsToCity(string city)
         {
-            List<Flight> flights = new List<Flight>();
-            return flights;
+            try
+            {
+                // TODO This needs to be tested
+                return dbConnection.Flight.Where<Flight>(item => item.toLocation == city).ToList<Flight>();
+            }
+            catch(Exception)
+            {
+                throw;
+            }
         }
 
         public Flight GetFlightById(int id)
         {
-            return new Flight();
+            try
+            {
+                return dbConnection.Flight.Single<Flight>(item => item.id == id);
+            }
+            catch(Exception)
+            {
+                throw;
+            }
         }
 
         public List<Flight> GetAllFlights()
         {
-            return new List<Flight>();
+            try
+            {
+                return dbConnection.Flight.ToList<Flight>();
+            }
         }
+        //TODO create update and delete
     }
 }

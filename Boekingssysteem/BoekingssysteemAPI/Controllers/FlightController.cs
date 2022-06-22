@@ -19,47 +19,44 @@ namespace BoekingssysteemAPI.Controllers
         /// <summary>
         /// Get API requests
         /// </summary>
-        /// 
 
-        // GET: FlightAPIController
-        [HttpGet("Get all flights")]
+        // GET: api/<Flightcontroller>/GetAllFLights
+        [HttpGet("GetAllflights")]
         public ActionResult<IEnumerable<Flight>> GetAllFLights()
         {
             return _flightManager.GetAllFlights();
         }
 
-        // GET: FlightAPIController
-        [HttpGet("Get All flights to {city}")]
-        //[ValidateAntiForgeryToken]
+        // GET: api/<FlightController>/GetAllFlightsToCity/<city>
+        [HttpGet("GetAllFlightsToCity/{city}")]
         public ActionResult<IEnumerable<Flight>> GetAllFlightsToCity(string city)
         {
             return _flightManager.GetAllFlightsToCity(city);
         }
 
-        // GET: FlightAPIController/Details/5
-        [HttpGet("Get Flight by {id}")]
-        //[ValidateAntiForgeryToken]
+        // GET: api/<FlightController>/GetFlightById/<id>
+        [HttpGet("GetFlightById/{id}")]
         public ActionResult<Flight> GetFlightById(int id)
         {
-            return new Flight();
+            return _flightManager.GetFlightById(id);
         }
 
         /// <summary>
         /// POST API requests
         /// </summary>
 
-        // POST: FlightAPIController/Create
+        // POST: api/<FlightController>/Create/[Body]<Flight>
         [HttpPost("Create new flight")]
         //[ValidateAntiForgeryToken]
-        public ActionResult<Flight> Create(IFormCollection collection)
+        public ActionResult<bool> Create([FromBody] Flight flight)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return _flightManager.Create(flight);
             }
-            catch
+            catch(Exception)
             {
-                return new Flight();
+                throw;
             }
         }
 
@@ -67,21 +64,28 @@ namespace BoekingssysteemAPI.Controllers
         /// PUT API requests
         /// </summary>
 
-        // PUT: FlightAPIController/Edit/5
+        // PUT: api/<FlightAPIController>/Edit/[Body]<Flight>
         [HttpPut("Edit excisting flight")]
         //[ValidateAntiForgeryToken]
-        public ActionResult<Flight> Edit(int id)
+        public ActionResult<bool> Edit([FromBody] Flight flight)
         {
-            return new Flight();
+            try
+            {
+                _flightManager.Edit(fligth);
+            }
+            catch(Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
         /// DELETE API requests
         /// </summary>
-
-        [HttpDelete("Delete flight")]
-        //[ValidateAntiForgeryToken]
-        public ActionResult<bool> DeleteFlightById(int id, IFormCollection collection)
+        
+        // DELETE: api/<FlightController>/DeleteFlight/<id>
+        [HttpDelete("Delete/id")]
+        public ActionResult<bool> Delete(int id)
         {
             try
             {

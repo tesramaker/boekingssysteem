@@ -18,14 +18,14 @@ namespace BoekingssysteemAPI.Controllers
         /// Get API requests
         /// </summary>
 
+        //TODO Add ProducesResponseTypes AND handeling of them
+
         // GET: PlaneController
         [HttpGet("GetPlaneById/id")]
-        //[ValidateAntiForgeryToken]
         public ActionResult<Plane> GetPlaneById(int id)
         {
             return _planeManager.GetPlaneById(id);
         }
-
 
         /// <summary>
         /// POST API requests
@@ -53,7 +53,6 @@ namespace BoekingssysteemAPI.Controllers
         
         // POST: PlaneController/Edit/5
         [HttpPut("EditPlane")]
-        //[ValidateAntiForgeryToken]
         public ActionResult<bool> Edit([FromBody] Plane plane)
         {
             try
@@ -72,10 +71,16 @@ namespace BoekingssysteemAPI.Controllers
 
         // POST: PlaneController/Delete/5
         [HttpDelete("delete/id")]
-        //[ValidateAntiForgeryToken]
         public ActionResult<bool> Delete(int id)
         {
-            return _planeManager.Delete(id);
+            try
+            {
+                return _planeManager.Delete(id);
+            }
+            catch(Exception)
+            {
+                throw;
+            }
         }
     }
 }

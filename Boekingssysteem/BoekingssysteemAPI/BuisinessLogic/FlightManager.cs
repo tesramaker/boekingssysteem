@@ -17,16 +17,6 @@ namespace BoekingssysteemAPI.BuisinessLogic
             return _flightService.GetAllFlightsToCity(city);
         }
 
-        //public Vacation GetVacationById(int id)
-        //{
-        //    return _flightService.GetVacationById(id);
-        //}
-
-        //public Vacation GetVacationByUserId(int userId)
-        //{
-        //    return _flightService.GetVacationByUserId(userId);
-        //}
-
         public Flight GetFlightById(int id)
         {
             return _flightService.GetFlightById(id);
@@ -37,5 +27,19 @@ namespace BoekingssysteemAPI.BuisinessLogic
             return _flightService.GetAllFlights();
         }
 
+        public bool Create(Flight flight)
+        {
+            return _flightService.Create(flight);
+        }
+
+        public bool Edit(Flight flight)
+        {
+            return _flightService.Edit(flight);
+        }
+
+        public bool Delete(Flight flight)
+        {
+            return _flightService.Delete(flight);
+        }
     }
 }
