@@ -6,14 +6,14 @@
              BackgroundImageSource="background.jpg">
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="15*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
         <Border Grid.Row="1" Grid.Column="1" BackgroundColor="#DDFFFFFF"/>
@@ -24,7 +24,7 @@
             TextColor="#707070" 
             FontSize="25" 
             FontAttributes="Bold" 
-            Margin="0, 40, 0, 0" 
+            Margin="0, 20, 0, 0" 
             VerticalOptions="Start"
             HorizontalTextAlignment="Center" 
             Text="Vind uw vakantie"/>
@@ -37,11 +37,12 @@
                 <ColumnDefinition Width="20"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
             <Label Grid.Row="1"
@@ -131,7 +132,111 @@
                 </Grid>
             </VerticalStackLayout>
 
-        </Grid>
+            <Label Grid.Row="3"
+                   Grid.Column="1"
+                   Margin="20, 20, 0, 0"
+                   Text="Gevonden vluchten:"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Start"/>
 
+            <VerticalStackLayout 
+                Grid.Row="4"
+                Grid.Column="1"
+                Grid.ColumnSpan="2">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton 
+                        Content="Vlucht 1"
+                        GroupName="Flights"
+                        VerticalOptions="Center"
+                        IsChecked="True"
+                        HorizontalOptions="Start"/>
+                    <Label Text="Vlucht heen"
+                           Grid.Column="1"
+                           HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                    <Label Text="Vlucht terug"
+                           Grid.Column="2"
+                           HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                    <Label Text="Prijs"
+                           Grid.Column="3"
+                           HorizontalOptions="End"
+                        VerticalOptions="Center"/>
+                </Grid>
+
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton 
+                        Content="Vlucht 2"
+                        GroupName="Flights"
+                        VerticalOptions="Center"
+                        IsChecked="True"
+                        HorizontalOptions="Start"/>
+                    <Label Text="Vlucht heen"
+                           Grid.Column="1"
+                           HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                    <Label Text="Vlucht terug"
+                           Grid.Column="2"
+                           HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                    <Label Text="Prijs"
+                           Grid.Column="3"
+                           HorizontalOptions="End"
+                        VerticalOptions="Center"/>
+                </Grid>
+
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton 
+                        Content="Vlucht 3"
+                        GroupName="Flights"
+                        VerticalOptions="Center"
+                        IsChecked="True"
+                        HorizontalOptions="Start"/>
+                    <Label Text="Vlucht heen"
+                           Grid.Column="1"
+                           HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                    <Label Text="Vlucht terug"
+                           Grid.Column="2"
+                           HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                    <Label Text="Prijs"
+                           Grid.Column="3"
+                           HorizontalOptions="End"
+                        VerticalOptions="Center"/>
+                </Grid>
+            </VerticalStackLayout>
+
+            <Button 
+            Grid.Row="5"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            VerticalOptions="End"
+            x:Name="SearchBtn"
+            Margin="0, 0, 0, 20"
+            Text="Ga door"
+            HorizontalOptions="Center" />
+        </Grid>
     </Grid>
 </ContentPage>

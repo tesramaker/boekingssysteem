@@ -88,7 +88,7 @@
                 x:Name="McCheckBox"
                 HorizontalOptions="End"
                 MaximumWidthRequest="50"
-                Color="DarkRed"
+                Color="#A4765E"
                 Margin="0"/>
 
             <Label 
