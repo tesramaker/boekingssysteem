@@ -7,9 +7,8 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
 	}
 
-	private void OnSearchButtonClicked(object sender, EventArgs e)
+	async void OnSearchButtonClicked ( object sender, EventArgs e)
 	{
-		
-	}
+        await Navigation.PushAsync ( new FindVacation ( ) );
+    }
 }
-

@@ -12,16 +12,17 @@ namespace Boekingssysteem
         String city;
         double xCoord;
         double yCoord;
+        Room room;
         List<Room> rooms;
 
     public Room GetRoom()
         {
-             
+            return room;
         }
 
         public List<Room> GetListAvailableRooms()
         {
-
+            return rooms;
         }
     }
 }

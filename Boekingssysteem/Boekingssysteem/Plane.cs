@@ -15,7 +15,7 @@ namespace Boekingssysteem
 
         public int OpenSeats()
         {
-
+            return seats;
         }
     }
 }

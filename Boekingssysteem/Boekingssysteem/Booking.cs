@@ -15,6 +15,7 @@ namespace Boekingssysteem
         public Vacation CreateVacation()
         {
             //return een Vacation
+            return vacation;
         }
     }
 }

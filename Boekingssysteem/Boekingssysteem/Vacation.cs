@@ -17,24 +17,24 @@ namespace Boekingssysteem
         DateTime endDate;
         double extrabagageInKG;
 
-        public double GetTotalPrice(type)
+        public double GetTotalPrice()
         {
-
+            return 0.0;
         }
 
         public Hotel GetHotel()
         {
-
+            return hotel;
         }
 
         public Flight getOutboundTrip()
         {
-
+            return outboundTrip;
         }
 
         public Flight GetreturnTrip()
         {
-
+            return returnTrip;
         }
     }
 }

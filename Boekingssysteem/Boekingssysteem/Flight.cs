@@ -19,7 +19,7 @@ namespace Boekingssysteem
 
         public Plane GetPlane()
         {
-
+            return plane;
         }
 
         public void AddFlight()
