@@ -1,5 +1,5 @@
 ﻿using BoekingssysteemAPI.DataAccessLayer;
-using BoekingssysteemAPI.Views;
+using BoekingssysteemAPI.Model;
 
 namespace BoekingssysteemAPI.BuisinessLogic
 {
@@ -12,9 +12,9 @@ namespace BoekingssysteemAPI.BuisinessLogic
             _flightService = new FlightService();
         }
 
-        public List<Flight> GetAllFLightsToCity(string city)
+        public List<Flight> GetAllFlightsToCity(string city)
         {
-            return _flightService.GetAllFlights(city);
+            return _flightService.GetAllFlightsToCity(city);
         }
 
         //public Vacation GetVacationById(int id)
@@ -32,11 +32,9 @@ namespace BoekingssysteemAPI.BuisinessLogic
             return _flightService.GetFlightById(id);
         }
 
-
-
-        public Plane GetPlaneById(int id)
+        public List<Flight> GetAllFlights()
         {
-            return _flightService.GetPlaneById(id);
+            return _flightService.GetAllFlights();
         }
 
     }

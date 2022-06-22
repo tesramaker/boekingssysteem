@@ -1,18 +1,18 @@
-﻿using BoekingssysteemAPI.Views;
+﻿using BoekingssysteemAPI.Model;
 using System.Data.Common;
 
 namespace BoekingssysteemAPI.DataAccessLayer
 {
     public class HotelService
     {
-        private DbConnect _dbConnect;
+        //private DbConnect _dbConnect;
     
         public HotelService()
         {
-            _dbConnect = new DbConnect();
+           //_dbConnect = new DbConnect();
         }
 
-        public List<Hotel> GetAllHotelNearCity(string name)
+        public List<Hotel> GetAllHotelsNearCity(string name)
         {
             return new List<Hotel>();
         }

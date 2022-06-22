@@ -1,5 +1,5 @@
 ﻿using BoekingssysteemAPI.DataAccessLayer;
-using BoekingssysteemAPI.Views;
+using BoekingssysteemAPI.Model;
 
 namespace BoekingssysteemAPI.BuisinessLogic
 {
@@ -19,6 +19,13 @@ namespace BoekingssysteemAPI.BuisinessLogic
         public Vacation GetVacationByUserId(int userId)
         {
             return _vacationService.GetVacationByUserId(userId);    
+        }
+
+        public bool Create(IFormCollection collection)
+        {
+            //TODO Create Create methode in _vacationService
+            //_vacationService.Create(collection);
+            return true;
         }
     }
 }

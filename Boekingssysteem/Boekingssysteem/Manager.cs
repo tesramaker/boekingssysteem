@@ -1,38 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
-namespace Boekingssysteem
-{
-    internal class Manager
-    {
-        Service service;
+//namespace Boekingssysteem
+//{
+//    internal class Manager
+//    {
+//        Service service;
 
-        public Vacation GetVacation() 
-        {
+//        public Vacation GetVacation() 
+//        {
 
-        }
+//        }
 
-        public Flight GetFlightById()
-        {
+//        public Flight GetFlightById()
+//        {
 
-        }
+//        }
 
-        public Hotel GetHotelById()
-        {
+//        public Hotel GetHotelById()
+//        {
 
-        }
+//        }
 
-        public Plane GetPlaneById()
-        {
+//        public Plane GetPlaneById()
+//        {
 
-        }
+//        }
 
-        public Vacation GetVacationByUserId()
-        {
+//        public Vacation GetVacationByUserId()
+//        {
 
-        }
-    }
-}
+//        }
+//    }
+//}

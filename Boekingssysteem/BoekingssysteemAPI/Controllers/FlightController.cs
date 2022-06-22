@@ -1,5 +1,5 @@
 ﻿using BoekingssysteemAPI.BuisinessLogic;
-using BoekingssysteemAPI.Views;
+using BoekingssysteemAPI.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,11 +19,19 @@ namespace BoekingssysteemAPI.Controllers
         /// <summary>
         /// Get API requests
         /// </summary>
+        /// 
+
+        // GET: FlightAPIController
+        [HttpGet("Get all flights")]
+        public ActionResult<IEnumerable<Flight>> GetAllFLights()
+        {
+            return _flightManager.GetAllFlights();
+        }
 
         // GET: FlightAPIController
         [HttpGet("Get All flights to {city}")]
         //[ValidateAntiForgeryToken]
-        public ActionResult<List<Flight>> GetAllFlightsToCity(string city)
+        public ActionResult<IEnumerable<Flight>> GetAllFlightsToCity(string city)
         {
             return _flightManager.GetAllFlightsToCity(city);
         }

@@ -1,15 +1,15 @@
-﻿using BoekingssysteemAPI.Views;
+﻿using BoekingssysteemAPI.Model;
 using System.Data.Common;
 
 namespace BoekingssysteemAPI.DataAccessLayer
 {
     public class VacationService
     {
-        private DbConnect _dbConnection;
+        //private DbConnect _dbConnection;
 
         public VacationService()
         {
-            _dbConnection = new DbConnect();
+           // _dbConnection = new DbConnect();
         }
 
         public Vacation GetVacationById(int id)

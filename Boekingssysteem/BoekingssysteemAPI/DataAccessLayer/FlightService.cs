@@ -1,14 +1,14 @@
-﻿using BoekingssysteemAPI.Views;
+﻿using BoekingssysteemAPI.Model;
 
 namespace BoekingssysteemAPI.DataAccessLayer
 {
     public class FlightService
     {
-        private DbConnect _dbConnect;
+        //private DbConnect _dbConnect;
 
         public FlightService()
         {
-            _dbConnect = new DbConnect();
+            //_dbConnect = new DbConnect();
         }
 
         public List<Flight> GetAllFlightsToCity(string city)
@@ -22,9 +22,9 @@ namespace BoekingssysteemAPI.DataAccessLayer
             return new Flight();
         }
 
-        public Plane GetPlaneById(int id)
+        public List<Flight> GetAllFlights()
         {
-            return new Plane();
+            return new List<Flight>();
         }
     }
 }

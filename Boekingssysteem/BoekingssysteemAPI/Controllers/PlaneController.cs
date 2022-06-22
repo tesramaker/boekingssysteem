@@ -1,5 +1,5 @@
 ﻿using BoekingssysteemAPI.BuisinessLogic;
-using BoekingssysteemAPI.Views;
+using BoekingssysteemAPI.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,29 +19,31 @@ namespace BoekingssysteemAPI.Controllers
         /// </summary>
 
         // GET: PlaneController
-        [HttpGet]
-        [ValidateAntiForgeryToken]
-        public ActionResult<List<Plane>> GetFlightToCity([FromBody] string city)
+        [HttpGet("GetPlaneById/id")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult<Plane> GetPlaneById(int id)
         {
-            return _planeManager.GetFlightToCity(city);
+            return _planeManager.GetPlaneById(id);
         }
+
 
         /// <summary>
         /// POST API requests
         /// </summary>
-
-        // POST: PlaneController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        
+        // POST: api/<PlaneController/<Plane>
+        [HttpPost("CreatePlane")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<bool> Create([FromBody] Plane plane)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return _planeManager.Create(plane);
             }
-            catch
+            catch(Exception)
             {
-                return View();
+                throw;
             }
         }
 
@@ -50,17 +52,17 @@ namespace BoekingssysteemAPI.Controllers
         /// </summary>
         
         // POST: PlaneController/Edit/5
-        [HttpPut]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        [HttpPut("EditPlane")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult<bool> Edit([FromBody] Plane plane)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return _planeManager.Edit(plane);
             }
-            catch
+            catch(Exception)
             {
-                return View();
+                throw;
             }
         }
 
@@ -69,18 +71,11 @@ namespace BoekingssysteemAPI.Controllers
         /// </summary>
 
         // POST: PlaneController/Delete/5
-        [HttpDelete]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        [HttpDelete("delete/id")]
+        //[ValidateAntiForgeryToken]
+        public ActionResult<bool> Delete(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return _planeManager.Delete(id);
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "N5sBB9EoIcJTNdqVARsBBDnF94IMXw5+jrjw+a+NwFVDZlyeIhtPL1dF0eM08cC0uVuF/L+ROFKa3LfU79pYUA==",
+  "dgSpecHash": "6LCqNwnCoe67T1G8x58iTkonuXNOSELfUdxydHl7Cg5unrSdHbVoQmHugGYMPNHGeGjkN8YFwbvi0B4UpCBw4Q==",
   "success": true,
   "projectFilePath": "C:\\Repos\\boekingssysteem\\Boekingssysteem\\Boekingssysteem\\Boekingssysteem.csproj",
   "expectedPackageFiles": [
@@ -104,6 +104,9 @@
     "C:\\Users\\Arjan\\.nuget\\packages\\xamarin.kotlin.stdlib.jdk8\\1.6.20.1\\xamarin.kotlin.stdlib.jdk8.1.6.20.1.nupkg.sha512",
     "C:\\Users\\Arjan\\.nuget\\packages\\xamarin.kotlinx.coroutines.android\\1.6.0.1\\xamarin.kotlinx.coroutines.android.1.6.0.1.nupkg.sha512",
     "C:\\Users\\Arjan\\.nuget\\packages\\xamarin.kotlinx.coroutines.core.jvm\\1.6.0.1\\xamarin.kotlinx.coroutines.core.jvm.1.6.0.1.nupkg.sha512",
+    "C:\\Users\\Arjan\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\6.0.5\\microsoft.netcore.app.host.linux-x64.6.0.5.nupkg.sha512",
+    "C:\\Users\\Arjan\\.nuget\\packages\\microsoft.netcore.app.host.linux-arm64\\6.0.5\\microsoft.netcore.app.host.linux-arm64.6.0.5.nupkg.sha512",
+    "C:\\Users\\Arjan\\.nuget\\packages\\microsoft.netcore.app.host.linux-arm\\6.0.5\\microsoft.netcore.app.host.linux-arm.6.0.5.nupkg.sha512",
     "C:\\Users\\Arjan\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.5\\microsoft.netcore.app.runtime.win-x64.6.0.5.nupkg.sha512",
     "C:\\Users\\Arjan\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.5\\microsoft.aspnetcore.app.runtime.win-x64.6.0.5.nupkg.sha512",
     "C:\\Users\\Arjan\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.5\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.5.nupkg.sha512",

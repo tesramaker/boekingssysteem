@@ -1,5 +1,5 @@
 ﻿using BoekingssysteemAPI.BuisinessLogic;
-using BoekingssysteemAPI.Views;
+using BoekingssysteemAPI.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,9 +23,9 @@ namespace BoekingssysteemAPI.Controllers
         // GET: GetAllHotelsNearCity
         [HttpGet("Get All Hotels Near {city}")]
         //[ValidateAntiForgeryToken]
-        public ActionResult<List<Hotel>> GetAllHotelsNearCity(string city)
+        public ActionResult<IEnumerable<Hotel>> GetAllHotelsNearCity(string city)
         {
-            return _hotelManager.GetAllHotelNearCity(city);
+            return _hotelManager.GetAllHotelsNearCity(city);
         }
 
         // GET: HotelController/Details/5
