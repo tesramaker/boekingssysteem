@@ -1,5 +1,8 @@
-﻿namespace BoekingssysteemAPI.Model
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace BoekingssysteemAPI.Model
 {
+    [Table("Plane")]
     public class Plane
     {
         public int? id { get; set; }
