@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Boekingssysteem
-{
-    internal class Vacation
     {
+    internal class Vacation
+        {
         int id;
         Hotel hotel;
         Flight outboundTrip;
@@ -19,7 +19,7 @@ namespace Boekingssysteem
 
         public double GetTotalPrice()
         {
-            return 0.0;
+            return extrabagageInKG;
         }
 
         public Hotel GetHotel()

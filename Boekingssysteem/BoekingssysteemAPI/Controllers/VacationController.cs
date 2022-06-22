@@ -1,4 +1,5 @@
 ﻿using BoekingssysteemAPI.BuisinessLogic;
+using BoekingssysteemAPI.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,15 +33,15 @@ namespace BoekingssysteemAPI.Controllers
         // POST: VacationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult<bool> Create(IFormCollection collection)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return _vacationManager.Create(collection);
             }
-            catch
+            catch(Exception)
             {
-                return View();
+                throw;
             }
         }
 

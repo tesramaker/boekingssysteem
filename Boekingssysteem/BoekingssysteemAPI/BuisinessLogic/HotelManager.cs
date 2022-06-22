@@ -1,5 +1,5 @@
 ﻿using BoekingssysteemAPI.DataAccessLayer;
-using BoekingssysteemAPI.Views;
+using BoekingssysteemAPI.Model;
 
 namespace BoekingssysteemAPI.BuisinessLogic
 {
@@ -17,9 +17,9 @@ namespace BoekingssysteemAPI.BuisinessLogic
             return _hotelService.GetHotelByName(name);
         }
 
-        public List<Hotel> GetAllHotelNearCity(string city)
+        public List<Hotel> GetAllHotelsNearCity(string city)
         {
-            return _hotelService.GetAllHotelNearCity(city);
+            return _hotelService.GetAllHotelsNearCity(city);
         }
     }
 }

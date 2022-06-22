@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Boekingssysteem
-{
-    internal class Flight
     {
+    internal class Flight
+        {
         int FlightNumber;
         Plane plane;
         double price;
@@ -17,14 +17,15 @@ namespace Boekingssysteem
         DateTime arrivalDate;
         int amountOfPlaces;
 
-        public Plane GetPlane()
-        {
+
+        public Plane GetPlane ( )
+            {
             return plane;
-        }
+            }
 
-        public void AddFlight()
-        {
+        public void AddFlight ( )
+            {
 
+            }
         }
     }
-}

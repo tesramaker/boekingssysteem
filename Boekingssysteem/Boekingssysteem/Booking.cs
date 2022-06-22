@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Boekingssysteem
-{
-    internal class Booking
     {
+    internal class Booking
+        {
         int id;
         List<User> users;
         Vacation vacation;

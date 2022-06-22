@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Boekingssysteem
-{
-    internal class Plane
     {
+    internal class Plane
+        {
         int Id;
         String airline;
         int seats;
