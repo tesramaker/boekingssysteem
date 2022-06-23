@@ -9,6 +9,8 @@ namespace BoekingssysteemAPI.Model
         public int roomNumber { get; set; }
         public int amountOfPeople { get; set; }
         public decimal price { get; set; }
+        public DateTime reservedFrom { get; set; }
+        public DateTime reservedTill { get; set; }
 
         //public Room(int roomNumber, int amountOfPeople, decimal price)
         //{

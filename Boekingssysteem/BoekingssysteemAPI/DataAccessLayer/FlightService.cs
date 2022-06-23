@@ -17,7 +17,6 @@ namespace BoekingssysteemAPI.DataAccessLayer
         {
             try
             {
-                // TODO This needs to be tested
                 return dbConnection.Flight.Where<Flight>(item => item.toLocation == city).ToList<Flight>();
             }
             catch(Exception)

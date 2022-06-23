@@ -51,7 +51,7 @@ namespace BoekingssysteemAPI.Controllers
             }
         }
 
-        // Get: api/<HotelController/GetHotelByName/{name}
+        // Get: api/<HotelController>/GetHotelByName/{name}
         [HttpGet("GetHotelByName/{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -70,7 +70,7 @@ namespace BoekingssysteemAPI.Controllers
         /// <summary>
         /// POST API requests
         /// </summary>
-        
+
         // POST: api/<HotelController>/Create/[Body]<Hotel>
         [HttpPost("Create")]
         [ProducesResponseType(StatusCodes.Status200OK)]

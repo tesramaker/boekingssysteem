@@ -3,20 +3,20 @@ using BoekingssysteemAPI.Model;
 
 namespace BoekingssysteemAPI.DataAccessLayer
 {
-    public class VacationService
+    public class RoomService
     {
         private BoekingssysteemContext dbConnection;
 
-        public VacationService()
+        public RoomService()
         {
             dbConnection = new BoekingssysteemContext(@"Server = localhost; Database = Boekingssysteem; Trusted_Connection = True;");
         }
 
-        public Vacation GetVacationById(int id)
+        public List<Room> GetRoomsByHotelId(int id)
         {
             try
             {
-                return dbConnection.Vacation.Single(item => item.id.Equals(id));
+                return dbConnection.Room.Where<Room>(item => item.hotelId == id).ToList<Room>();
             }
             catch (Exception)
             {
@@ -24,30 +24,11 @@ namespace BoekingssysteemAPI.DataAccessLayer
             }
         }
 
-        public Vacation GetVacationByUserId(int userId)
-        {
-            //TODO Get UserId from User
-            return new Vacation();
-        }
-
-        public List<Vacation> GetAllVacations()
+        public bool Create(Room room)
         {
             try
             {
-                return dbConnection.Vacation.ToList<Vacation>();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-        }
-
-        public bool Create(Vacation vacation)
-        {
-            try
-            {
-                dbConnection.Vacation.Add(vacation);
+                dbConnection.Room.Add(room);
                 dbConnection.SaveChanges();
                 return true;
             }
@@ -57,11 +38,11 @@ namespace BoekingssysteemAPI.DataAccessLayer
             }
         }
 
-        public bool Edit(Vacation vacation)
+        public bool Edit(Room room)
         {
             try
             {
-                dbConnection.Vacation.Update(vacation);
+                dbConnection.Room.Update(room);
                 dbConnection.SaveChanges();
                 return true;
             }
@@ -71,11 +52,11 @@ namespace BoekingssysteemAPI.DataAccessLayer
             }
         }
 
-        public bool Delete(Vacation vacation)
+        public bool Delete(Room room)
         {
             try
             {
-                dbConnection.Vacation.Remove(vacation);
+                dbConnection.Room.Remove(room);
                 dbConnection.SaveChanges();
                 return true;
             }
@@ -86,4 +67,3 @@ namespace BoekingssysteemAPI.DataAccessLayer
         }
     }
 }
-
