@@ -17,6 +17,7 @@ namespace BoekingssysteemAPI.DbConnection
         public BoekingssysteemContext(string connectionString)
         {
             _connectionString = connectionString;
+
         }
 
         public string GetConnectionString()
@@ -30,5 +31,9 @@ namespace BoekingssysteemAPI.DbConnection
         }
 
 
+        //protected override void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataContext dataContext)
+        //{
+        //    dataContext.Database.Migrate();
+        //}
     }
 }

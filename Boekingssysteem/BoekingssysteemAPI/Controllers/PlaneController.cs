@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BoekingssysteemAPI.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class PlaneController : Controller
     {
         private PlaneManager _planeManager;
@@ -20,30 +22,39 @@ namespace BoekingssysteemAPI.Controllers
 
         //TODO Add ProducesResponseTypes AND handeling of them
 
-        // GET: PlaneController
+        // GET: api/<PlaneController>/GetPlaneById/id
         [HttpGet("GetPlaneById/id")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<Plane> GetPlaneById(int id)
         {
-            return _planeManager.GetPlaneById(id);
+            try
+            {
+                return Ok(_planeManager.GetPlaneById(id));
+            }
+            catch(Exception)
+            {
+                return NotFound("Something went wrong!");
+            }
         }
 
         /// <summary>
         /// POST API requests
         /// </summary>
         
-        // POST: api/<PlaneController/<Plane>
-        [HttpPost("CreatePlane")]
+        // POST: api/<PlaneController>/Create/[Body] Plane
+        [HttpPost("Create")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<bool> Create([FromBody] Plane plane)
         {
             try
             {
-                return _planeManager.Create(plane);
+                return Ok(_planeManager.Create(plane));
             }
             catch(Exception)
             {
-                throw;
+                return NotFound("Something went wrong!");
             }
         }
 
@@ -51,17 +62,19 @@ namespace BoekingssysteemAPI.Controllers
         /// PUT API requests
         /// </summary>
         
-        // POST: PlaneController/Edit/5
+        // POST: PlaneController/Edit/[body]Hotel
         [HttpPut("EditPlane")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<bool> Edit([FromBody] Plane plane)
         {
             try
             {
-                return _planeManager.Edit(plane);
+                return Ok(_planeManager.Edit(plane));
             }
             catch(Exception)
             {
-                throw;
+                return NotFound("Something went wrong!");
             }
         }
 
@@ -69,17 +82,35 @@ namespace BoekingssysteemAPI.Controllers
         /// DELETE API requests
         /// </summary>
 
-        // POST: PlaneController/Delete/5
-        [HttpDelete("delete/id")]
-        public ActionResult<bool> Delete(int id)
+        // POST: PlaneController/DeleteById/id
+        [HttpDelete("DeleteById/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<bool> DeleteById(int id)
         {
             try
             {
-                return _planeManager.Delete(id);
+                return Ok(_planeManager.DeleteById(id));
             }
             catch(Exception)
             {
-                throw;
+                return NotFound("Something went wrong!");
+            }
+        }        
+        
+        // POST: PlaneController/Delete/[body] Plane
+        [HttpDelete("Delete")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<bool> Delete([FromBody] Plane plane)
+        {
+            try
+            {
+                return Ok(_planeManager.Delete(plane));
+            }
+            catch(Exception)
+            {
+                return NotFound("Something went wrong!");
             }
         }
     }

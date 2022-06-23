@@ -27,9 +27,14 @@ namespace BoekingssysteemAPI.BuisinessLogic
             return _planeService.Edit(plane);
         }
 
-        public bool Delete(int id)
+        public bool DeleteById(int id)
         {
             Plane plane = _planeService.GetPlaneById(id);
+            return _planeService.Delete(plane);
+        }
+
+        public bool Delete(Plane plane)
+        {
             return _planeService.Delete(plane);
         }
     }

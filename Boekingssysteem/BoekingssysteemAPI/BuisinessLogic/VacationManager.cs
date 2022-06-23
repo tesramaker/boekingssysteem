@@ -16,16 +16,37 @@ namespace BoekingssysteemAPI.BuisinessLogic
         {
             return _vacationService.GetVacationById(id);
         }
+
         public Vacation GetVacationByUserId(int userId)
         {
             return _vacationService.GetVacationByUserId(userId);    
         }
 
-        public bool Create(IFormCollection collection)
+        public List<Vacation> GetAllVacations()
         {
-            //TODO Create Create methode in _vacationService
-            //_vacationService.Create(collection);
-            return true;
+            return _vacationService.GetAllVacations();
+        }
+
+        public bool Create(Vacation vacation)
+        {
+            return _vacationService.Create(vacation);
+        }
+
+        public bool Edit(Vacation vacation)
+        {
+            return _vacationService.Edit(vacation);
+        }
+
+        public bool DeleteById(int id)
+        {
+            Vacation vacation = _vacationService.GetVacationById(id);
+            return _vacationService.Delete(vacation);
+            
+        }
+
+        public bool Delete(Vacation vacation)
+        {
+            return _vacationService.Delete(vacation);
         }
     }
 }

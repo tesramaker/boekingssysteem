@@ -44,7 +44,52 @@ namespace BoekingssysteemAPI.DataAccessLayer
             {
                 return dbConnection.Flight.ToList<Flight>();
             }
+            catch(Exception)
+            {
+                throw;
+            }
         }
-        //TODO create update and delete
+
+        public bool Create(Flight flight)
+        {
+            try
+            {
+                dbConnection.Flight.Add(flight);
+                dbConnection.SaveChanges();
+                return true;
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool Edit(Flight flight)
+        {
+            try
+            {
+                dbConnection.Flight.Update(flight);
+                dbConnection.SaveChanges();
+                return true;
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool Delete(Flight flight)
+        {
+            try
+            {
+                dbConnection.Flight.Remove(flight);
+                dbConnection.SaveChanges();
+                return true;
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -1,25 +1,94 @@
-﻿using BoekingssysteemAPI.Model;
-using System.Data.Common;
+﻿using BoekingssysteemAPI.DbConnection;
+using BoekingssysteemAPI.Model;
+using System.Linq;
 
 namespace BoekingssysteemAPI.DataAccessLayer
 {
     public class HotelService
     {
-        //private DbConnect _dbConnect;
-    
+        private BoekingssysteemContext dbConnection;
+
         public HotelService()
         {
-           //_dbConnect = new DbConnect();
+            dbConnection = new BoekingssysteemContext(@"Server = localhost; Database = Boekingssysteem; Trusted_Connection = True;");
         }
 
-        public List<Hotel> GetAllHotelsNearCity(string name)
+        public Hotel GetHotelById(int id)
         {
-            return new List<Hotel>();
+            try
+            {
+                return dbConnection.Hotel.Single<Hotel>(item => item.id == id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Hotel> GetAllHotelsInCity(string city)
+        {
+            try
+            {
+                return dbConnection.Hotel.Where(item => item.city == city).ToList<Hotel>();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public Hotel GetHotelByName(string name)
         {
-            return new Hotel();
+            try
+            {
+                return dbConnection.Hotel.Single<Hotel>(item => item.name == name);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool Create(Hotel hotel)
+        {
+            try
+            {
+                dbConnection.Hotel.Add(hotel);
+                dbConnection.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool Edit(Hotel hotel)
+        {
+            try
+            {
+                dbConnection.Hotel.Update(hotel);
+                dbConnection.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public bool Delete(Hotel hotel)
+        {
+            try
+            {
+                dbConnection.Hotel.Remove(hotel);
+                dbConnection.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

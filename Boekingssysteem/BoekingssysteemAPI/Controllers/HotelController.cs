@@ -1,6 +1,5 @@
 ﻿using BoekingssysteemAPI.BuisinessLogic;
 using BoekingssysteemAPI.Model;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BoekingssysteemAPI.Controllers
@@ -20,38 +19,71 @@ namespace BoekingssysteemAPI.Controllers
         /// Get API requests
         /// </summary>
 
-        // GET: GetAllHotelsNearCity
-        [HttpGet("Get All Hotels Near {city}")]
-        //[ValidateAntiForgeryToken]
-        public ActionResult<IEnumerable<Hotel>> GetAllHotelsNearCity(string city)
+        // GET: api/<HotelController>/GetAllHotelsInCity/<city>
+        [HttpGet("GetAllHotelsIsCity/{city}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<IEnumerable<Hotel>> GetAllHotelsInCity(string city)
         {
-            return _hotelManager.GetAllHotelsNearCity(city);
+            try
+            {
+                return Ok(_hotelManager.GetAllHotelsInCity(city));
+            }
+            catch(Exception)
+            {
+                return NotFound("Something went wrong!");
+            }
         }
 
-        // GET: HotelController/Details/5
-        [HttpGet("Get Hotel by {id}")]
-        //[ValidateAntiForgeryToken]
+        // GET: api/<HotelController>/GetHotelById/{id}
+        [HttpGet("GetHotelById/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<Hotel> GetHotelById(int id)
         {
-            return new Hotel();
+            try
+            {
+                return Ok(_hotelManager.GetHotelById(id));
+            }
+            catch(Exception)
+            {
+                return NotFound("Something went wrong!");
+            }
+        }
+
+        // Get: api/<HotelController/GetHotelByName/{name}
+        [HttpGet("GetHotelByName/{name}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<Hotel> GetHotelByName(string name)
+        {
+            try
+            {
+                return Ok(_hotelManager.GetHotelByName(name));
+            }
+            catch(Exception)
+            {
+                return NotFound("Something went wrong!");
+            }
         }
 
         /// <summary>
         /// POST API requests
         /// </summary>
         
-        // POST: HotelController/Create
-        [HttpPost("Create new hotel")]
-        //[ValidateAntiForgeryToken]
-        public ActionResult<Hotel> Create(IFormCollection collection)
+        // POST: api/<HotelController>/Create/[Body]<Hotel>
+        [HttpPost("Create")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<bool> Create([FromBody] Hotel hotel)
         {
             try
             {
-                return new Hotel();
+                return Ok(_hotelManager.Create(hotel));
             }
             catch(Exception)
             {
-                throw;
+                return NotFound("Something went wrong!");
             }
         }
 
@@ -59,30 +91,55 @@ namespace BoekingssysteemAPI.Controllers
         /// PUT API requests
         /// </summary>
 
-        // PUT: FlightAPIController/Edit/5
-        [HttpPut("Edit excisting hotel")]
-        //[ValidateAntiForgeryToken]
-        public ActionResult Edit(int id)
+        // PUT: api/<HotelController>/Edit/[body]Hotel
+        [HttpPut("Edit")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<bool> Edit([FromBody] Hotel hotel)
         {
-            return View();
+            try
+            {
+                return Ok(_hotelManager.Edit(hotel));
+            }
+            catch(Exception)
+            {
+                return NotFound("Something went wrong!");
+            }
         }
 
         /// <summary>
         /// DELETE API requests
         /// </summary>
 
-        // DELETE: HotelController/Delete/5
-        [HttpDelete("Delete hotel")]
-        //[ValidateAntiForgeryToken]
-        public ActionResult<bool> Delete(int id, IFormCollection collection)
+        // DELETE: api/<HotelController>/DeleteById/{id}
+        [HttpDelete("DeleteHotelById/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<bool> DeleteById(int id)
         {
             try
             {
-                return true;
+                return Ok(_hotelManager.DeleteById(id));
             }
             catch(Exception)
             {
-                throw;
+                return NotFound("Something went wrong!");
+            }
+        }
+
+        //DELETE: api/<HotelController>/Delete/[Body] hotel
+        [HttpDelete("Delete")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<bool> Delete([FromBody] Hotel hotel)
+        {
+            try
+            {
+                return Ok(_hotelManager.Delete(hotel));
+            }
+            catch (Exception)
+            {
+                return NotFound("Something went wrong!");
             }
         }
     }

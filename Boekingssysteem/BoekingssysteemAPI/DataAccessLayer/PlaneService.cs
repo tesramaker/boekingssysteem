@@ -45,7 +45,7 @@ namespace BoekingssysteemAPI.DataAccessLayer
             try
             {
                 dbConnection.Plane.Update(plane);
-                dbConnection.SaveChangesAsync();
+                dbConnection.SaveChanges();
                 return true;
             }
             catch(Exception)

@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BoekingssysteemAPI.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class VacationController : Controller
     {
         private VacationManager _vacationManager;
@@ -18,30 +20,73 @@ namespace BoekingssysteemAPI.Controllers
         /// Get API requests
         /// </summary>
 
-        // GET: VacationController
-        [HttpGet]
-        [ValidateAntiForgeryToken]
-        public ActionResult Index()
+        // GET: api/<VacationController>/GetVacationById/<id>
+        [HttpGet("GetVacationById/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<Vacation> GetVacationById(int id)
         {
-            return View();
+            try
+            {
+                return Ok(_vacationManager.GetVacationById(id));
+            }
+            catch(Exception)
+            {
+                return NotFound("Something went wrong!");
+            }
+        }
+
+
+        // GET: api/<VacationController>/GetVacationByUserId/<id>
+        [HttpGet("GetVacationByUserId/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<Vacation> GetVacationByUserId(int id)
+        {
+            try
+            {
+                return Ok(_vacationManager.GetVacationByUserId(id));
+            }
+            catch (Exception)
+            {
+                return NotFound("Something went wrong!");
+            }
+        }
+
+
+        // GET: api/<VacationController>/GetAllVacations
+        [HttpGet("GetAllVacations")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<Vacation> GetAllVacations()
+        {
+            try
+            {
+                return Ok(_vacationManager.GetAllVacations());
+            }
+            catch (Exception)
+            {
+                return NotFound("Something went wrong!");
+            }
         }
 
         /// <summary>
         /// POST API requests
         /// </summary>
 
-        // POST: VacationController/Create
+        // POST: api/<VacationController>/Create/[Body]<Hotel>
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult<bool> Create(IFormCollection collection)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<bool> Create([FromBody] Vacation vacation)
         {
             try
             {
-                return _vacationManager.Create(collection);
+                return Ok(_vacationManager.Create(vacation));
             }
             catch(Exception)
             {
-                throw;
+                return NotFound("Something went wrong");
             }
         }
 
@@ -49,18 +94,19 @@ namespace BoekingssysteemAPI.Controllers
         /// PUT API requests
         /// </summary>
 
-        // POST: VacationController/Edit/5
-        [HttpPut]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        // POST: api/<VacationController>/Edit/[Body]<Hotel>
+        [HttpPut("Edit")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult Edit([FromBody] Vacation vacation)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return Ok(_vacationManager.Edit(vacation));
             }
-            catch
+            catch (Exception)
             {
-                return View();
+                return NotFound("Something went wrong");
             }
         }
 
@@ -68,18 +114,32 @@ namespace BoekingssysteemAPI.Controllers
         /// DELETE API requests
         /// </summary>
 
-        // DELETE: VacationController/Delete/5
-        [HttpDelete]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        // POST: api/<VacationController>/Delete/{id}
+        [HttpDelete("DeleteById/{id}")]
+        public ActionResult Delete(int id)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return Ok(_vacationManager.DeleteById(id));
             }
-            catch
+            catch (Exception)
             {
-                return View();
+                return NotFound("Something went wrong");
+            }
+        }
+
+
+        // POST: api/<VacationController>/Delete/[Body]<Hotel>
+        [HttpDelete("Delete")]
+        public ActionResult Delete([FromBody] Vacation vacation)
+        {
+            try
+            {
+                return Ok(_vacationManager.Delete(vacation));
+            }
+            catch (Exception)
+            {
+                return NotFound("Something went wrong");
             }
         }
     }
