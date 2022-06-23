@@ -2,9 +2,9 @@
 
 namespace BoekingssysteemAPI.Model
 {
-    [Keyless]
     public class Room
     {
+        public int id { get; set; }
         public int hotelId { get; set; }
         public int roomNumber { get; set; }
         public int amountOfPeople { get; set; }
@@ -12,11 +12,14 @@ namespace BoekingssysteemAPI.Model
         public DateTime reservedFrom { get; set; }
         public DateTime reservedTill { get; set; }
 
-        //public Room(int roomNumber, int amountOfPeople, decimal price)
-        //{
-        //    this.roomNumber = roomNumber;
-        //    this.amountOfPeople = amountOfPeople;
-        //    this.price = price;
-        //}
+        public Room(int hotelId, int roomNumber, int amountOfPeople, decimal price, DateTime reservedFrom, DateTime reservedTill)
+        {
+            this.hotelId = hotelId;
+            this.roomNumber = roomNumber;
+            this.amountOfPeople = amountOfPeople;
+            this.price = price;
+            this.reservedFrom = reservedFrom;
+            this.reservedTill = reservedTill;
+        }   
     }
 }
