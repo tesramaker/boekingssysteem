@@ -1,38 +1,43 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-//namespace Boekingssysteem
-//{
-//    internal class Service
-//    {
-//        DbConn DBconnection;
+namespace Boekingssysteem
+{
 
-//        public Vacation GetVacationById()
-//        {
+    internal class Service
+    {
+        //DbConn DBconnection;
+        Vacation vacation;
+        Flight flight;
+        Plane plane;
+        Hotel hotel;
 
-//        }
+        public Vacation GetVacationById()
+        {
+            return vacation;
+        }
 
-//        public Flight GetFlightById()
-//        {
+        public Flight GetFlightById()
+        {
+            return flight;
+        }
 
-//        }
+        public Vacation GetVacationByUserId()
+        {
+            return vacation;
+        }
 
-//        public Vacation GetVacationByUserId()
-//        {
+        public Plane GetPlaneById()
+        {
+            return plane;
+        }
 
-//        }
-
-//        public Plane GetPlaneById()
-//        {
-
-//        }
-
-//        public Hotel GethotelByName()
-//        {
-
-//        }
-//    }
-//}
+        public Hotel GethotelByName()
+        {
+            return hotel;
+        }
+    }
+}

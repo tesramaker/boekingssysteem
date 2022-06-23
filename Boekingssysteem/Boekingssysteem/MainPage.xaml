@@ -19,54 +19,108 @@
 
         <Border Grid.Row="1" Grid.Column="1" BackgroundColor="#DDFFFFFF"/>
 
-        <StackLayout Grid.Column="1" Grid.Row="1" HorizontalOptions="Center">
-            
-            <Label TextColor="#707070" FontSize="25" FontAttributes="Bold" Margin="0, 40, 0, 0" HorizontalTextAlignment="Center" Text="Zoek uw vakantie"/>
-            <HorizontalStackLayout Margin="10, 80, 10, 0" HorizontalOptions="Center">
-                
-                <DatePicker 
-                    WidthRequest="150"
-                    TextColor="Black"/>
 
-                <Label 
-                    Text="t/m"/>
+        <Label 
+            Grid.Column="1"
+            Grid.Row="1"
+            TextColor="#707070" 
+            FontSize="25" 
+            FontAttributes="Bold" 
+            Margin="0, 40, 0, 0" 
+            VerticalOptions="Start"
+            HorizontalTextAlignment="Center" 
+            Text="Zoek uw vakantie"/>
 
-                <DatePicker 
-                    WidthRequest="150"
-                    TextColor="Black"/>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-                <Entry 
-                    MaxLength="20"
-                    TextColor="Black"
-                    WidthRequest="150"
-                    BackgroundColor="White"
-                    Placeholder="Locatie"/>
+            <DatePicker 
+                Grid.Column="1"
+                Grid.Row="1"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                TextColor="Black"/>
 
-                <CheckBox 
-                        x:Name="McCheckBox"
-                        HorizontalOptions="End"
-                        MaximumWidthRequest="50"
-                        Color="DarkRed"
-                        Margin="0"/>
+            <Label 
+                Grid.Row="1"
+                Grid.Column="2"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Text="t/m"/>
 
-                <Entry 
-                    WidthRequest="150"
-                    TextColor="Black"
-                    Placeholder="Aantal personen"
-                    Keyboard="Numeric"
-                    BackgroundColor="White"/>
-                
-            </HorizontalStackLayout>
-            
+            <DatePicker 
+                Grid.Row="1"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Grid.Column="3"
+                TextColor="Black"/>
+
+            <Entry 
+                Grid.Row="1"
+                Grid.Column="4"
+                MaxLength="20"
+                VerticalOptions="Center"
+                TextColor="Black"
+                HeightRequest="20"
+                BackgroundColor="White"
+                Placeholder="Locatie"/>
+
+            <CheckBox 
+                Grid.Row="1"
+                Grid.Column="6"
+                VerticalOptions="Center"
+                x:Name="McCheckBox"
+                HorizontalOptions="End"
+                MaximumWidthRequest="50"
+                Color="#A4765E"
+                Margin="0"/>
+
+            <Label 
+                Grid.Row="1"
+                Grid.Column="7"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Text="Willekeurige locatie"/>
+
+
+            <Entry 
+                Grid.Row="1"
+                Grid.Column="8"
+                HeightRequest="20"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Placeholder="Aantal personen"
+                Keyboard="Numeric"
+                BackgroundColor="White"/>
+
             <Button 
+                Grid.Row="2"
+                Grid.Column="4"
+                VerticalOptions="Start"
                 x:Name="SearchBtn"
                 Margin="0, 80, 0, 0"
                 Text="Zoek vakantie"
                 Clicked="OnSearchButtonClicked"
                 HorizontalOptions="Center" />
-            
-        </StackLayout>
-        
+
+        </Grid>
+
     </Grid>
 
 </ContentPage>
