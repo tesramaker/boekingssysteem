@@ -1,6 +1,5 @@
 ﻿using BoekingssysteemAPI.BuisinessLogic;
 using BoekingssysteemAPI.Model;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BoekingssysteemAPI.Controllers
@@ -19,8 +18,6 @@ namespace BoekingssysteemAPI.Controllers
         /// <summary>
         /// Get API requests
         /// </summary>
-
-        //TODO Add ProducesResponseTypes AND handeling of them
 
         // GET: api/<PlaneController>/GetPlaneById/id
         [HttpGet("GetPlaneById/id")]

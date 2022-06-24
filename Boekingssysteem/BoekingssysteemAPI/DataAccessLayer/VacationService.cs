@@ -24,10 +24,16 @@ namespace BoekingssysteemAPI.DataAccessLayer
             }
         }
 
-        public Vacation GetVacationByUserId(int userId)
+        public List<Vacation> GetVacationsByUserId(int id)
         {
-            //TODO Get UserId from User
-            return new Vacation();
+            try
+            {
+                return dbConnection.Vacation.Where<Vacation>(item => item.userId == id).ToList<Vacation>();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public List<Vacation> GetAllVacations()
@@ -40,7 +46,6 @@ namespace BoekingssysteemAPI.DataAccessLayer
             {
                 throw;
             }
-
         }
 
         public bool Create(Vacation vacation)

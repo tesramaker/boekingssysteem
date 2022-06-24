@@ -1,6 +1,5 @@
 ﻿using BoekingssysteemAPI.BuisinessLogic;
 using BoekingssysteemAPI.Model;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BoekingssysteemAPI.Controllers

@@ -3,76 +3,79 @@ using BoekingssysteemAPI.Model;
 
 namespace BoekingssysteemAPI.DataAccessLayer
 {
-    public class RoomService
+    public class UserService
     {
         private BoekingssysteemContext dbConnection;
 
-        public RoomService()
+        public UserService()
         {
             dbConnection = new BoekingssysteemContext(@"Server = localhost; Database = Boekingssysteem; Trusted_Connection = True;");
         }
 
-        public Room GetRoomById(int id)
+        public User Login(User user)
         {
             try
             {
-                return dbConnection.Room.Single<Room>(item => item.id == id);
+                User tempUser = new User();
+                User dbUser = dbConnection.User.Single<User>(item => item.name == user.name);
+                tempUser = dbUser;
+                return tempUser;
             }
-            catch (Exception)
+            catch(Exception)
             {
                 throw;
             }
         }
 
-        public List<Room> GetRoomsByHotelId(int id)
+        public User GetUserById(int id)
         {
             try
             {
-                return dbConnection.Room.Where<Room>(item => item.hotelId == id).ToList<Room>();
+                return dbConnection.User.Single<User>(item => item.id.Equals(id));
             }
-            catch (Exception)
+            catch(Exception)
             {
                 throw;
             }
         }
 
-        public bool Create(Room room)
+        public bool Create(User user)
         {
             try
             {
-                dbConnection.Room.Add(room);
+                dbConnection.User.Add(user);
                 dbConnection.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch(Exception)
             {
                 throw;
             }
         }
 
-        public bool Edit(Room room)
+        public bool Edit(User user)
         {
             try
             {
-                dbConnection.Room.Update(room);
+                dbConnection.User.Update(user);
                 dbConnection.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch(Exception)
             {
                 throw;
             }
         }
 
-        public bool Delete(Room room)
+        public bool Delete(User user)
         {
             try
             {
-                dbConnection.Room.Remove(room);
+                dbConnection.User.Remove(user);
                 dbConnection.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch(Exception)
             {
                 throw;
             }

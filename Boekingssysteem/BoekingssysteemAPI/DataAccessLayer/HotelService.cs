@@ -1,6 +1,5 @@
 ﻿using BoekingssysteemAPI.DbConnection;
 using BoekingssysteemAPI.Model;
-using System.Linq;
 
 namespace BoekingssysteemAPI.DataAccessLayer
 {

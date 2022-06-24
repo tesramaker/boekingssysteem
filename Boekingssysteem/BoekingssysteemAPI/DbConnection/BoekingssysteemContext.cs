@@ -12,6 +12,7 @@ namespace BoekingssysteemAPI.DbConnection
         public DbSet<Hotel> Hotel { get; set; }
         public DbSet<Room> Room { get; set; }
         public DbSet<Vacation> Vacation { get; set; }
+        public DbSet<User> User { get; set; }
 
 
         public BoekingssysteemContext(string connectionString)

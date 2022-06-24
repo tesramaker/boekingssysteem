@@ -17,9 +17,9 @@ namespace BoekingssysteemAPI.BuisinessLogic
             return _vacationService.GetVacationById(id);
         }
 
-        public Vacation GetVacationByUserId(int userId)
+        public List<Vacation> GetVacationsByUserId(int userId)
         {
-            return _vacationService.GetVacationByUserId(userId);    
+            return _vacationService.GetVacationsByUserId(userId);    
         }
 
         public List<Vacation> GetAllVacations()
@@ -40,8 +40,7 @@ namespace BoekingssysteemAPI.BuisinessLogic
         public bool DeleteById(int id)
         {
             Vacation vacation = _vacationService.GetVacationById(id);
-            return _vacationService.Delete(vacation);
-            
+            return _vacationService.Delete(vacation);            
         }
 
         public bool Delete(Vacation vacation)
