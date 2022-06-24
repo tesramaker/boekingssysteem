@@ -28,11 +28,7 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="80"/>
-                <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
             <Label 
@@ -53,6 +49,12 @@
             Text="Hotels in deze regio"/>
 
             <!--Kaart-->
+            <WebView
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                Grid.Row="2"
+                Margin="20,0,20,50"
+                Source="https://earth.google.com/web/search/Hotel+parijs/@48.85614567,2.33881605,42.34266202a,15275.576229d,35y,306.7545344h,60t,0r/data=CigiJgokCTp-OXAztDRAEWPDp_cRpjRAGat1sfou2VnAIc_hFGcG3FnAKAI" />
             
         </Grid>
     </Grid>
