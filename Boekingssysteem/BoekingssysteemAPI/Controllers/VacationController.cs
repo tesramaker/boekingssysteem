@@ -36,23 +36,21 @@ namespace BoekingssysteemAPI.Controllers
             }
         }
 
-
-        // GET: api/<VacationController>/GetVacationByUserId/<id>
-        [HttpGet("GetVacationByUserId/{id}")]
+        // GET: api/<VacationController>/GetVacationsByUserId/<id>
+        [HttpGet("GetVacationsByUserId/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<Vacation> GetVacationByUserId(int id)
+        public ActionResult<Vacation> GetVacationsByUserId(int id)
         {
             try
             {
-                return Ok(_vacationManager.GetVacationByUserId(id));
+                return Ok(_vacationManager.GetVacationsByUserId(id));
             }
             catch (Exception)
             {
                 return NotFound("Something went wrong!");
             }
         }
-
 
         // GET: api/<VacationController>/GetAllVacations
         [HttpGet("GetAllVacations")]

@@ -24,6 +24,18 @@ namespace BoekingssysteemAPI.DataAccessLayer
             }
         }
 
+        public List<Vacation> GetVacationsByUserId(int id)
+        {
+            try
+            {
+                return dbConnection.Vacation.Where<Vacation>(item => item.userId == id).ToList<Vacation>();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public List<Vacation> GetAllVacations()
         {
             try
