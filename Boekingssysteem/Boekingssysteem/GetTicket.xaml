@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Boekingssysteem.GetTicket"
+             Title="Boekingssysteem"
+             BackgroundImageSource="background.jpg">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="1" Grid.Column="1" BackgroundColor="#DDFFFFFF"/>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label 
+            Grid.Column="1"
+            TextColor="#707070" 
+            FontSize="25" 
+            FontAttributes="Bold" 
+            HorizontalTextAlignment="Center" 
+            VerticalOptions="Center"
+            Text="Uw vakantie"/>
+
+            <Label 
+            Grid.Column="1"
+            Grid.Row="1"
+            TextColor="#707070" 
+            HorizontalTextAlignment="Center" 
+            VerticalOptions="Center"
+            Text="Scan de QR-code voor uw tickets."/>
+
+            <!--QR-code-->
+
+        </Grid>
+    </Grid>
+
+</ContentPage>

@@ -48,11 +48,14 @@
             <Label Grid.Row="1"
                    Grid.Column="1"
                    Margin="20, 0, 0, 0"
+                   FontAttributes="Bold"
                    Text="Gevonden hotels:"
                    HorizontalOptions="Start"
                    VerticalOptions="Start"/>
 
             <Label Grid.Row="1"
+                   x:Name="seeMap"
+                   TextDecorations="Underline"
                    Grid.Column="2"
                    Text="Zie kaart >"
                    HorizontalOptions="End"
@@ -72,15 +75,19 @@
                     <RadioButton 
                         Content="Hotel 1"
                         GroupName="Hotels"
+                        TextColor="#A4765E"
+                        FontAttributes="Bold" 
                         VerticalOptions="Center"
                         IsChecked="True"
                         HorizontalOptions="Start"/>
                     <Label Text="Locatie/wijk"
+                       FontAttributes="Italic"
                            Grid.Column="1"
                            HorizontalOptions="Center"
                         VerticalOptions="Center"/>
                     <Label Text="Prijs per nacht"
                            Grid.Column="2"
+                           FontAttributes="Bold" 
                            HorizontalOptions="End"
                         VerticalOptions="Center"/>
                 </Grid>
@@ -95,15 +102,18 @@
                     <RadioButton 
                         Content="Hotel 2"
                         GroupName="Hotels"
+                        TextColor="#A4765E"
+                        FontAttributes="Bold" 
                         VerticalOptions="Center"
-                        IsChecked="True"
                         HorizontalOptions="Start"/>
                     <Label Text="Locatie/wijk"
+                       FontAttributes="Italic"
                            Grid.Column="1"
                            HorizontalOptions="Center"
                         VerticalOptions="Center"/>
                     <Label Text="Prijs per nacht"
                            Grid.Column="2"
+                           FontAttributes="Bold" 
                            HorizontalOptions="End"
                         VerticalOptions="Center"/>
                 </Grid>
@@ -118,15 +128,18 @@
                     <RadioButton 
                         Content="Hotel 3"
                         GroupName="Hotels"
+                        TextColor="#A4765E"
+                        FontAttributes="Bold" 
                         VerticalOptions="Center"
-                        IsChecked="True"
                         HorizontalOptions="Start"/>
                     <Label Text="Locatie/wijk"
+                       FontAttributes="Italic"
                            Grid.Column="1"
                            HorizontalOptions="Center"
                         VerticalOptions="Center"/>
                     <Label Text="Prijs per nacht"
                            Grid.Column="2"
+                           FontAttributes="Bold" 
                            HorizontalOptions="End"
                         VerticalOptions="Center"/>
                 </Grid>
@@ -136,6 +149,7 @@
                    Grid.Column="1"
                    Margin="20, 20, 0, 0"
                    Text="Gevonden vluchten:"
+                   FontAttributes="Bold" 
                    HorizontalOptions="Start"
                    VerticalOptions="Start"/>
 
@@ -154,19 +168,24 @@
                     <RadioButton 
                         Content="Vlucht 1"
                         GroupName="Flights"
+                        TextColor="#A4765E"
+                        FontAttributes="Bold" 
                         VerticalOptions="Center"
                         IsChecked="True"
                         HorizontalOptions="Start"/>
                     <Label Text="Vlucht heen"
                            Grid.Column="1"
+                       FontAttributes="Italic"
                            HorizontalOptions="Center"
                         VerticalOptions="Center"/>
                     <Label Text="Vlucht terug"
                            Grid.Column="2"
+                       FontAttributes="Italic"
                            HorizontalOptions="Center"
                         VerticalOptions="Center"/>
                     <Label Text="Prijs"
                            Grid.Column="3"
+                           FontAttributes="Bold" 
                            HorizontalOptions="End"
                         VerticalOptions="Center"/>
                 </Grid>
@@ -182,19 +201,23 @@
                     <RadioButton 
                         Content="Vlucht 2"
                         GroupName="Flights"
+                        TextColor="#A4765E"
+                        FontAttributes="Bold" 
                         VerticalOptions="Center"
-                        IsChecked="True"
                         HorizontalOptions="Start"/>
                     <Label Text="Vlucht heen"
                            Grid.Column="1"
+                       FontAttributes="Italic"
                            HorizontalOptions="Center"
                         VerticalOptions="Center"/>
                     <Label Text="Vlucht terug"
+                       FontAttributes="Italic"
                            Grid.Column="2"
                            HorizontalOptions="Center"
                         VerticalOptions="Center"/>
                     <Label Text="Prijs"
                            Grid.Column="3"
+                           FontAttributes="Bold" 
                            HorizontalOptions="End"
                         VerticalOptions="Center"/>
                 </Grid>
@@ -210,19 +233,23 @@
                     <RadioButton 
                         Content="Vlucht 3"
                         GroupName="Flights"
+                        TextColor="#A4765E"
+                        FontAttributes="Bold" 
                         VerticalOptions="Center"
-                        IsChecked="True"
                         HorizontalOptions="Start"/>
                     <Label Text="Vlucht heen"
                            Grid.Column="1"
+                       FontAttributes="Italic"
                            HorizontalOptions="Center"
                         VerticalOptions="Center"/>
                     <Label Text="Vlucht terug"
+                       FontAttributes="Italic"
                            Grid.Column="2"
                            HorizontalOptions="Center"
                         VerticalOptions="Center"/>
                     <Label Text="Prijs"
                            Grid.Column="3"
+                           FontAttributes="Bold" 
                            HorizontalOptions="End"
                         VerticalOptions="Center"/>
                 </Grid>
@@ -234,6 +261,7 @@
             Grid.ColumnSpan="2"
             VerticalOptions="End"
             x:Name="SearchBtn"
+            Clicked="OnGoOnButtonClicked"
             Margin="0, 0, 0, 20"
             Text="Ga door"
             HorizontalOptions="Center" />

@@ -21,11 +21,29 @@ build_metadata.AdditionalFiles.ManifestResourceName = Boekingssysteem.AppShell.x
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
+[C:/Users/Tessa/C\#/boekingssysteem/Boekingssysteem/Boekingssysteem/BookVacation.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Boekingssysteem.BookVacation.xaml
+build_metadata.AdditionalFiles.TargetPath = BookVacation.xaml
+build_metadata.AdditionalFiles.RelativePath = BookVacation.xaml
+
 [C:/Users/Tessa/C\#/boekingssysteem/Boekingssysteem/Boekingssysteem/FindVacation.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Boekingssysteem.FindVacation.xaml
 build_metadata.AdditionalFiles.TargetPath = FindVacation.xaml
 build_metadata.AdditionalFiles.RelativePath = FindVacation.xaml
+
+[C:/Users/Tessa/C\#/boekingssysteem/Boekingssysteem/Boekingssysteem/GetTicket.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Boekingssysteem.GetTicket.xaml
+build_metadata.AdditionalFiles.TargetPath = GetTicket.xaml
+build_metadata.AdditionalFiles.RelativePath = GetTicket.xaml
+
+[C:/Users/Tessa/C\#/boekingssysteem/Boekingssysteem/Boekingssysteem/HotelsMap.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Boekingssysteem.HotelsMap.xaml
+build_metadata.AdditionalFiles.TargetPath = HotelsMap.xaml
+build_metadata.AdditionalFiles.RelativePath = HotelsMap.xaml
 
 [C:/Users/Tessa/C\#/boekingssysteem/Boekingssysteem/Boekingssysteem/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

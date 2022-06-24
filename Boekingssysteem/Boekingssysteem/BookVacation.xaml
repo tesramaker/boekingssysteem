@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Boekingssysteem.BookVacation"
+             Title="Boekingssysteem"
+             BackgroundImageSource="background.jpg">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="1" Grid.Column="1" BackgroundColor="#DDFFFFFF"/>
+
+        <Grid Grid.Row="1" Grid.Column="1" Padding="20,0,20,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label 
+            Grid.Column="2"
+            TextColor="#707070" 
+            FontSize="25" 
+            FontAttributes="Bold" 
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Center" 
+            Text="Boek uw vakantie"/>
+
+            <Label Grid.Row="1"
+                   Grid.Column="1"
+            FontAttributes="Bold" 
+                   Text="Gekozen hotel:"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"/>
+            <Grid Grid.Row="2"
+                  Grid.Column="1"
+                  VerticalOptions="Center"
+                  Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label 
+                        Text="Hotel 1"
+                        VerticalOptions="Center"
+                    TextColor="#A4765E"
+            FontAttributes="Bold" 
+                        HorizontalOptions="Start"/>
+                <Label Text="Locatie/wijk"
+                           Grid.Column="1"
+                       FontAttributes="Italic"
+                           HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                <Label Text="Prijs per nacht"
+                           Grid.Column="2"
+                           HorizontalOptions="End"
+            FontAttributes="Bold" 
+                        VerticalOptions="Center"/>
+            </Grid>
+
+            <Label Grid.Row="3"
+                   Grid.Column="1"
+                   Text="Gekozen vluchten:"
+                   HorizontalOptions="Start"
+            FontAttributes="Bold" 
+                   VerticalOptions="Center"/>
+
+            <Grid Grid.Row="4"
+                  Grid.Column="1"
+                  VerticalOptions="Center"
+                  Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label 
+                        Text="Vlucht 1"
+                        VerticalOptions="Center"
+                TextColor="#A4765E"
+                FontAttributes="Bold" 
+                        HorizontalOptions="Start"/>
+                <Label Text="Vlucht heen"
+                           Grid.Column="1"
+                       FontAttributes="Italic"
+                           HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                <Label Text="Vlucht terug"
+                           Grid.Column="2"
+                       FontAttributes="Italic"
+                           HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                <Label Text="Prijs"
+            FontAttributes="Bold" 
+                           Grid.Column="3"
+                           HorizontalOptions="End"
+                        VerticalOptions="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="5"
+                  Grid.Column="1"
+                  VerticalOptions="Center"
+                  Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <CheckBox 
+                VerticalOptions="Center"
+                x:Name="CheckBoxAnn"
+                HorizontalOptions="End"
+                MaximumWidthRequest="50"
+                Color="#A4765E"/>
+                <Label 
+                    Grid.Column="1"
+                    Text="Annuleringsverzekering"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"/>
+                <Label 
+                    Text="Prijs"
+                    Grid.Column="2"
+                    HorizontalOptions="End"
+            FontAttributes="Bold" 
+                    VerticalOptions="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="6"
+                  Grid.Column="1"
+                  VerticalOptions="Center"
+                  Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <CheckBox 
+                VerticalOptions="Center"
+                x:Name="CheckBoxBagage"
+                HorizontalOptions="End"
+                MaximumWidthRequest="50"
+                Color="#A4765E"/>
+                <Label 
+                    Grid.Column="1"
+                    Text="Ruimbagage"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"/>
+                <Label 
+                    Text="Prijs"
+                    Grid.Column="2"
+            FontAttributes="Bold" 
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="7"
+                  Grid.Column="3"
+                  VerticalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label 
+                    Text="Totaal:"
+                    VerticalOptions="Center"
+            FontAttributes="Bold" 
+                    HorizontalOptions="End"/>
+                <Label 
+                    Text="Prijs"
+                    Grid.Column="1"
+                    HorizontalOptions="End"
+            FontAttributes="Bold" 
+                    VerticalOptions="Center"/>
+            </Grid>
+
+            <Button 
+            Grid.Row="8"
+            Grid.Column="2"
+            VerticalOptions="End"
+            x:Name="SearchBtn"
+            Clicked="OnBookVacationButtonClicked"
+            Margin="0, 0, 0, 20"
+            Text="Boek vakantie"
+            HorizontalOptions="Center" />
+
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -29,13 +29,13 @@
     <AppXManifest Include="C:\Users\Tessa\C#\boekingssysteem\Boekingssysteem\Boekingssysteem\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-06-22T17:54:20.349</Modified>
+      <Modified>2022-06-24T14:03:38.608</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Tessa\C#\boekingssysteem\Boekingssysteem\Boekingssysteem\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-06-22T17:54:19.771</Modified>
+      <Modified>2022-06-24T14:03:38.037</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tessa\C#\boekingssysteem\Boekingssysteem\Boekingssysteem\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\Boekingssysteem.runtimeconfig.json">
       <PackagePath>Boekingssysteem.runtimeconfig.json</PackagePath>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tessa\C#\boekingssysteem\Boekingssysteem\Boekingssysteem\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\Boekingssysteem.dll">
       <PackagePath>Boekingssysteem.dll</PackagePath>
-      <Modified>2022-06-22T17:54:18.660</Modified>
+      <Modified>2022-06-24T14:03:36.772</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tessa\C#\boekingssysteem\Boekingssysteem\Boekingssysteem\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>Boekingssysteem.exe</PackagePath>
-      <Modified>2022-06-22T17:54:18.766</Modified>
+      <Modified>2022-06-24T14:03:36.886</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tessa\.nuget\packages\microsoft.netcore.app.runtime.win-x64\6.0.6\runtimes\win-x64\lib\net6.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -1051,7 +1051,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Tessa\C#\boekingssysteem\Boekingssysteem\Boekingssysteem\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\Boekingssysteem.deps.json">
       <PackagePath>Boekingssysteem.deps.json</PackagePath>
-      <Modified>2022-06-22T17:54:20.191</Modified>
+      <Modified>2022-06-24T14:03:38.406</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files\dotnet\packs\Microsoft.Maui.Controls.Ref.win\6.0.300-rc.3.5667\ref\net6.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>
