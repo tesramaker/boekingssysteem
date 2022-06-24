@@ -24,7 +24,6 @@ namespace BoekingssysteemAPI.DataAccessLayer
             }
         }
 
-
         public List<Room> GetRoomsByHotelId(int id)
         {
             try

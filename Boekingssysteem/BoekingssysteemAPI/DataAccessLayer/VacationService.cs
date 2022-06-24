@@ -24,12 +24,6 @@ namespace BoekingssysteemAPI.DataAccessLayer
             }
         }
 
-        public Vacation GetVacationByUserId(int userId)
-        {
-            //TODO Get UserId from User
-            return new Vacation();
-        }
-
         public List<Vacation> GetAllVacations()
         {
             try
@@ -40,7 +34,6 @@ namespace BoekingssysteemAPI.DataAccessLayer
             {
                 throw;
             }
-
         }
 
         public bool Create(Vacation vacation)

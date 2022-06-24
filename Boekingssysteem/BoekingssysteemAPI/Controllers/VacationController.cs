@@ -116,6 +116,8 @@ namespace BoekingssysteemAPI.Controllers
 
         // POST: api/<VacationController>/Delete/{id}
         [HttpDelete("DeleteById/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult Delete(int id)
         {
             try
@@ -131,6 +133,8 @@ namespace BoekingssysteemAPI.Controllers
 
         // POST: api/<VacationController>/Delete/[Body]<Hotel>
         [HttpDelete("Delete")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult Delete([FromBody] Vacation vacation)
         {
             try

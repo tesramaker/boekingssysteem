@@ -41,8 +41,7 @@ namespace BoekingssysteemAPI.Controllers
             }
             catch(Exception)
             {
-                //return NotFound("Something went wrong!");
-                throw;
+                return NotFound("Something went wrong!");
             }
         }
 

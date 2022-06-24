@@ -40,8 +40,7 @@ namespace BoekingssysteemAPI.BuisinessLogic
         public bool DeleteById(int id)
         {
             Vacation vacation = _vacationService.GetVacationById(id);
-            return _vacationService.Delete(vacation);
-            
+            return _vacationService.Delete(vacation);            
         }
 
         public bool Delete(Vacation vacation)
