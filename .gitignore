@@ -401,10 +401,6 @@ FodyWeavers.xsd
 *.sln.iml
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp
-Boekingssysteem/.vs/Boekingssysteem/v17/.suo
-Boekingssysteem/.vs/Boekingssysteem/v17/.suo
-Boekingssysteem/.vs/Boekingssysteem/v17/.suo
-Boekingssysteem/Boekingssysteem/bin/Debug/net6.0-windows10.0.19041.0/win10-x64/AppX/Boekingssysteem.dll
 *.appxrecipe
 *.dll
 *.dll
@@ -413,5 +409,4 @@ Boekingssysteem/Boekingssysteem/bin/Debug/net6.0-windows10.0.19041.0/win10-x64/A
 *.pdb
 *.v2
 *.dll
-Boekingssysteem/Boekingssysteem/bin/Debug/net6.0-windows10.0.19041.0/win10-x64/AppX/vs.appxrecipe
-Boekingssysteem/.vs/Boekingssysteem/v17/.suo
+Boekingssysteem/.vs/
