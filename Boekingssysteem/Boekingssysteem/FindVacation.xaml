@@ -45,6 +45,14 @@
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
+            <Label 
+            Grid.Column="1"
+            VerticalOptions="Center"
+            TextDecorations="Underline"
+            x:Name="Back"
+            HorizontalTextAlignment="Start" 
+            Text="&lt; Terug"/>
+
             <Label Grid.Row="1"
                    Grid.Column="1"
                    Margin="20, 0, 0, 0"

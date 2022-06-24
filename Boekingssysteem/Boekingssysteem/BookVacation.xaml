@@ -39,6 +39,14 @@
             </Grid.RowDefinitions>
 
             <Label 
+            Grid.Column="1"
+            VerticalOptions="Center"
+            TextDecorations="Underline"
+            x:Name="Back"
+            HorizontalTextAlignment="Start" 
+            Text="&lt; Terug"/>
+
+            <Label 
             Grid.Column="2"
             TextColor="#707070" 
             FontSize="25" 

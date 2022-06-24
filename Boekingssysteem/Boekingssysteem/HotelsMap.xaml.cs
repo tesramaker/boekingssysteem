@@ -10,7 +10,7 @@ public partial class HotelsMap : ContentPage
         var GoBackClick = new TapGestureRecognizer ( );
         GoBackClick.Tapped += async ( sender, e ) =>
         {
-            await Navigation.PushAsync ( new FindVacation ( ) );
+            await Navigation.PopAsync ( );
         };
         GoBack.GestureRecognizers.Add ( GoBackClick );
         }
