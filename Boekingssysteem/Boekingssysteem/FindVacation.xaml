@@ -113,6 +113,7 @@
                         GroupName="Hotels"
                         TextColor="#A4765E"
                         FontAttributes="Bold" 
+                        IsChecked="False"
                         VerticalOptions="Center"
                         HorizontalOptions="Start"/>
                     <Label Text="Locatie/wijk"
@@ -139,6 +140,7 @@
                         GroupName="Hotels"
                         TextColor="#A4765E"
                         FontAttributes="Bold" 
+                        IsChecked="False"
                         VerticalOptions="Center"
                         HorizontalOptions="Start"/>
                     <Label Text="Locatie/wijk"
@@ -213,6 +215,7 @@
                         GroupName="Flights"
                         TextColor="#A4765E"
                         FontAttributes="Bold" 
+                        IsChecked="False"
                         VerticalOptions="Center"
                         HorizontalOptions="Start"/>
                     <Label Text="Vlucht heen"
@@ -244,6 +247,7 @@
                         Content="Vlucht 3"
                         GroupName="Flights"
                         TextColor="#A4765E"
+                        IsChecked="False"
                         FontAttributes="Bold" 
                         VerticalOptions="Center"
                         HorizontalOptions="Start"/>
