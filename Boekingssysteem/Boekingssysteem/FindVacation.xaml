@@ -70,6 +70,7 @@
                    VerticalOptions="Start"/>
 
             <VerticalStackLayout 
+                x:Name="Hotels"
                 Grid.Row="2"
                 Grid.Column="1"
                 Grid.ColumnSpan="2">

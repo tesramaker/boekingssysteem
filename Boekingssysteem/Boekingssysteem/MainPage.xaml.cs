@@ -9,6 +9,6 @@ public partial class MainPage : ContentPage
 
 	async void OnSearchButtonClicked ( object sender, EventArgs e)
 	{
-        await Navigation.PushAsync ( new FindVacation ( ) );
+        await Navigation.PushAsync ( new FindVacation(startDate.Date, endDate.Date, location.Text, Int16.Parse(numberOfPeople.Text)) );
     }
 }
