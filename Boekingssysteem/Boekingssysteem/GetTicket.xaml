@@ -48,8 +48,15 @@
             VerticalOptions="Center"
             Text="Scan de QR-code voor uw tickets."/>
 
-            <!--QR-code-->
-
+            <Image
+                Source="qr_vb.png"
+                x:Name="qr"
+                VerticalOptions="Center"
+                SemanticProperties.Description="QR-code naar uw tickets"
+                HeightRequest="200"
+                HorizontalOptions="Center" 
+                Grid.Column="1"
+                Grid.Row="2"/>
         </Grid>
     </Grid>
 
