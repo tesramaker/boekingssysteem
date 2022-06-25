@@ -78,6 +78,7 @@
                 Grid.Row="1"
                 Grid.Column="4"
                 MaxLength="20"
+                IsEnabled="True"
                 VerticalOptions="Center"
                 TextColor="Black"
                 HeightRequest="20"
@@ -85,10 +86,10 @@
                 Placeholder="Locatie"/>
 
             <CheckBox 
+                x:Name="randomLocation"
                 Grid.Row="1"
                 Grid.Column="6"
                 VerticalOptions="Center"
-                x:Name="McCheckBox"
                 HorizontalOptions="End"
                 MaximumWidthRequest="50"
                 Color="#A4765E"
@@ -100,7 +101,6 @@
                 VerticalOptions="Center"
                 HorizontalOptions="Start"
                 Text="Willekeurige locatie"/>
-
 
             <Entry 
                 x:Name="numberOfPeople"
