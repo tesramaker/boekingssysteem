@@ -8,14 +8,23 @@ namespace Boekingssysteem
 {
     internal class Hotel
     {
-        String name;
-        String city;
+        public String name { get; set; }
+        public String city { get; set; }
         double xCoord;
         double yCoord;
         Room room;
         List<Room> rooms;
 
-    public Room GetRoom()
+        public Hotel(string name, string city, double xCoord, double yCoord, List<Room> rooms)
+        {
+            this.name = name;
+            this.city = city;
+            this.xCoord = xCoord;
+            this.yCoord = yCoord;
+            this.rooms = rooms;
+        }
+
+        public Room GetRoom()
         {
             return room;
         }

@@ -85,7 +85,6 @@
                 Placeholder="Locatie"/>
 
             <CheckBox 
-                x:Name="randomTextbox"
                 Grid.Row="1"
                 Grid.Column="6"
                 VerticalOptions="Center"
