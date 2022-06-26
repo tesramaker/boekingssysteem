@@ -3,9 +3,13 @@
 namespace Boekingssysteem;
 
 public partial class FindVacation : ContentPage
-    {
+{
+    Hotel hotelRadio;
+    Flight flightRadio;
+    int numberOfPeople;
     public FindVacation (DateTime startDate, DateTime endDate, string location, int numberOfPeople)
     {
+        this.numberOfPeople = numberOfPeople;
         InitializeComponent ( );
         pageLayout();
         addHotels(location, numberOfPeople);
@@ -46,12 +50,14 @@ public partial class FindVacation : ContentPage
         bool firstVlag = true;//This is used to set only one radiobutton
         foreach (var i in hotelsInLocation)
         {
-            Hotels.Add(hotelBuilder(firstVlag, i.name, i.city, (i.room.pricePerNightPerPerson * numberOfPeople)));
+            if (firstVlag)
+                hotelRadio = i;
+            Hotels.Add(hotelBuilder(i, firstVlag, i.name, i.city, (i.room.pricePerNightPerPerson * numberOfPeople)));
             firstVlag = false;
         }
     }
 
-    private Grid hotelBuilder(bool first, string name, string city, double pricePerNight)
+    private Grid hotelBuilder(Hotel hotel, bool first, string name, string city, double pricePerNight)
     {
         Grid grid = new Grid();
 
@@ -59,16 +65,19 @@ public partial class FindVacation : ContentPage
         grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
         grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
 
-        grid.Children.Add(new RadioButton
+        RadioButton rB = new RadioButton
         {
+            Value = hotel,
             Content = name,
-            GroupName = "Hotels",
+            GroupName = "Hotelsr",
             TextColor = Color.FromHex("A4765E"),
             FontAttributes = FontAttributes.Bold,
             VerticalOptions = LayoutOptions.Center,
-            IsChecked = first,
+            IsChecked = first,//For some reason, this doesn't work
             HorizontalOptions = LayoutOptions.Start
-        });
+        };
+        rB.CheckedChanged += hotelRadioChanged;
+        grid.Children.Add( rB );
 
         Label labelLocation = new Label
         {
@@ -114,20 +123,20 @@ public partial class FindVacation : ContentPage
         for (int i = 0; i < flights.Length; i++)
         {
             if (flights[i].destination == location && flights[i].departureDate == departureDate && flights[i].arrivalDate == arrivalDate)
-            {
                 flightToRightLocationsAtRightTimes.Add(flights[i]);
-            }
         }
 
         bool firstVlag = true;
         foreach (var flight in flightToRightLocationsAtRightTimes)
         {
-            Flights.Add(flightBuilder(firstVlag, flight.plane.airline, flight.departureDate, flight.arrivalDate));
+            if (firstVlag)
+                flightRadio = flight;
+            Flights.Add(flightBuilder(firstVlag, flight.plane.airline, flight.departureDate, flight.arrivalDate, flight.price));
             firstVlag = false;
         }
     }
 
-    private Grid flightBuilder(bool first, String airline, DateTime toDate, DateTime froDate)
+    private Grid flightBuilder(bool first, String airline, DateTime toDate, DateTime froDate, double priceFlight)
     {
         Grid grid = new Grid();
 
@@ -136,16 +145,18 @@ public partial class FindVacation : ContentPage
         grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
         grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
 
-        grid.Children.Add(new RadioButton
+        RadioButton rB = new RadioButton
         {
             Content = airline,
-            GroupName = "Flights",
+            GroupName = "Flightsr",
             TextColor = Color.FromHex("A4765E"),
             FontAttributes = FontAttributes.Bold,
             VerticalOptions = LayoutOptions.Center,
             IsChecked = first,
             HorizontalOptions = LayoutOptions.Start
-        });
+        };
+        rB.CheckedChanged += flightRadioChanged;
+        grid.Children.Add(rB);
 
         Label toFlight = new Label
         {
@@ -169,7 +180,7 @@ public partial class FindVacation : ContentPage
 
         Label price = new Label
         {
-            Text = "Prijs",
+            Text = priceFlight.ToString(),
             FontAttributes = FontAttributes.Bold,
             HorizontalOptions = LayoutOptions.End,
             VerticalOptions = LayoutOptions.Center
@@ -191,8 +202,22 @@ public partial class FindVacation : ContentPage
         return flights;
     }
 
+    void hotelRadioChanged(object sender, CheckedChangedEventArgs e)
+    {
+        RadioButton rb = (RadioButton)sender;
+        Hotel hotel = (Hotel)rb.Value;
+        hotelRadio = hotel;
+    }
+
+    void flightRadioChanged(object sender, CheckedChangedEventArgs e)
+    {
+        RadioButton rb = (RadioButton)sender;
+        Flight flight = (Flight)rb.Value;
+        flightRadio = flight;
+    }
+
     async void OnGoOnButtonClicked ( object sender, EventArgs e )
         {
-        await Navigation.PushAsync ( new BookVacation ( ) );
+            await Navigation.PushAsync ( new BookVacation  (hotelRadio, numberOfPeople, flightRadio) );
         }
     }

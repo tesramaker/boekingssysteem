@@ -10,7 +10,7 @@ namespace Boekingssysteem
         {
         int FlightNumber;
         public Plane plane { get; set; }
-        double price;
+        public double price { get; set; }
         String departurePlace;
         public DateTime departureDate { get; set; }
         public String destination { get; set; }

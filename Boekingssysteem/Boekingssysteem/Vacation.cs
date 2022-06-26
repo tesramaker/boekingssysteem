@@ -17,6 +17,18 @@ namespace Boekingssysteem
         DateTime endDate;
         double extrabagageInKG;
 
+        public Vacation(int id, Hotel hotel, Flight outboundTrip, Flight returnTrip, int amountOfPeople, DateTime startDate, DateTime endDate, double extrabagageInKG)
+        {
+            this.id = id;
+            this.hotel = hotel;
+            this.outboundTrip = outboundTrip;
+            this.returnTrip = returnTrip;
+            this.amountOfPeople = amountOfPeople;
+            this.startDate = startDate;
+            this.endDate = endDate;
+            this.extrabagageInKG = extrabagageInKG;
+        }
+
         public double GetTotalPrice()
         {
             return extrabagageInKG;

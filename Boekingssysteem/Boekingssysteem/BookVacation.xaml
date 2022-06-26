@@ -71,19 +71,24 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label 
-                        Text="Hotel 1"
-                        VerticalOptions="Center"
+                    x:Name="Hotel"
+                    Text="Hotel 1"
+                    VerticalOptions="Center"
                     TextColor="#A4765E"
-            FontAttributes="Bold" 
-                        HorizontalOptions="Start"/>
-                <Label Text="Locatie/wijk"
-                           Grid.Column="1"
-                       FontAttributes="Italic"
-                           HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
-                <Label Text="Prijs per nacht"
-                           Grid.Column="2"
-                           HorizontalOptions="End"
+                    FontAttributes="Bold" 
+                    HorizontalOptions="Start"/>
+                <Label 
+                    x:Name="Location"
+                    Text="Locatie/wijk"
+                    Grid.Column="1"
+                    FontAttributes="Italic"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+                <Label 
+                    x:Name="PriceHotel"
+                    Text="Prijs per nacht"
+                    Grid.Column="2"
+                    HorizontalOptions="End"
             FontAttributes="Bold" 
                         VerticalOptions="Center"/>
             </Grid>
@@ -106,26 +111,33 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label 
-                        Text="Vlucht 1"
-                        VerticalOptions="Center"
-                TextColor="#A4765E"
-                FontAttributes="Bold" 
-                        HorizontalOptions="Start"/>
-                <Label Text="Vlucht heen"
-                           Grid.Column="1"
-                       FontAttributes="Italic"
-                           HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
-                <Label Text="Vlucht terug"
-                           Grid.Column="2"
-                       FontAttributes="Italic"
-                           HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
-                <Label Text="Prijs"
-            FontAttributes="Bold" 
-                           Grid.Column="3"
-                           HorizontalOptions="End"
-                        VerticalOptions="Center"/>
+                    x:Name="Flight"
+                    Text="Vlucht 1"
+                    VerticalOptions="Center"
+                    TextColor="#A4765E"
+                    FontAttributes="Bold" 
+                    HorizontalOptions="Start"/>
+                <Label 
+                    x:Name="ToFlight"
+                    Text="Vlucht heen"
+                    Grid.Column="1"
+                    FontAttributes="Italic"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+                <Label 
+                    x:Name="FroFlight"
+                    Text="Vlucht terug"
+                    Grid.Column="2"
+                    FontAttributes="Italic"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+                <Label 
+                    x:Name="FlightPrice"
+                    Text="Prijs"
+                    FontAttributes="Bold" 
+                    Grid.Column="3"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"/>
             </Grid>
 
             <Grid Grid.Row="5"
@@ -138,18 +150,20 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <CheckBox 
-                VerticalOptions="Center"
-                x:Name="CheckBoxAnn"
-                HorizontalOptions="End"
-                MaximumWidthRequest="50"
-                Color="#A4765E"/>
+                    CheckedChanged="annChanged"
+                    VerticalOptions="Center"
+                    x:Name="CheckBoxAnn"
+                    HorizontalOptions="End"
+                    MaximumWidthRequest="50"
+                    Color="#A4765E"/>
                 <Label 
                     Grid.Column="1"
                     Text="Annuleringsverzekering"
                     VerticalOptions="Center"
                     HorizontalOptions="Start"/>
                 <Label 
-                    Text="Prijs"
+                    x:Name="AnnPrice"
+                    Text="0"
                     Grid.Column="2"
                     HorizontalOptions="End"
             FontAttributes="Bold" 
@@ -166,18 +180,20 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <CheckBox 
-                VerticalOptions="Center"
-                x:Name="CheckBoxBagage"
-                HorizontalOptions="End"
-                MaximumWidthRequest="50"
-                Color="#A4765E"/>
+                    CheckedChanged="bagageChanged"
+                    VerticalOptions="Center"
+                    x:Name="CheckBoxBagage"
+                    HorizontalOptions="End"
+                    MaximumWidthRequest="50"
+                    Color="#A4765E"/>
                 <Label 
                     Grid.Column="1"
                     Text="Ruimbagage"
                     VerticalOptions="Center"
                     HorizontalOptions="Start"/>
                 <Label 
-                    Text="Prijs"
+                    x:Name="bagagePrice"
+                    Text="0"
                     Grid.Column="2"
             FontAttributes="Bold" 
                     HorizontalOptions="End"
@@ -194,9 +210,10 @@
                 <Label 
                     Text="Totaal:"
                     VerticalOptions="Center"
-            FontAttributes="Bold" 
+                    FontAttributes="Bold" 
                     HorizontalOptions="End"/>
                 <Label 
+                    x:Name="Total"
                     Text="Prijs"
                     Grid.Column="1"
                     HorizontalOptions="End"
