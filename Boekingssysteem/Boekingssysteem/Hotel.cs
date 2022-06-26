@@ -12,16 +12,16 @@ namespace Boekingssysteem
         public String city { get; set; }
         double xCoord;
         double yCoord;
-        Room room;
-        List<Room> rooms;
+        public Room room { get; set; }//At this moment in time, a hotel has only one room. 
+        List<Room> rooms;//This list is not used yet
 
-        public Hotel(string name, string city, double xCoord, double yCoord, List<Room> rooms)
+        public Hotel(string name, string city, double xCoord, double yCoord, Room room)
         {
             this.name = name;
             this.city = city;
             this.xCoord = xCoord;
             this.yCoord = yCoord;
-            this.rooms = rooms;
+            this.room = room;
         }
 
         public Room GetRoom()

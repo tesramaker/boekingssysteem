@@ -9,8 +9,16 @@ namespace Boekingssysteem
     internal class Room
     {
         int roomnumber;
-        int amountOfPeople;
-        double pricePerNightPerPerson;
+        public int amountOfPeople { get; set; }
+        public double pricePerNightPerPerson { get; set; }
         int TypeOfRoom;
+
+        public Room(int roomnumber, int amountOfPeople, double pricePerNightPerPerson, int typeOfRoom)
+        {
+            this.roomnumber = roomnumber;
+            this.amountOfPeople = amountOfPeople;
+            this.pricePerNightPerPerson = pricePerNightPerPerson;
+            TypeOfRoom = typeOfRoom;
+        }
     }
 }

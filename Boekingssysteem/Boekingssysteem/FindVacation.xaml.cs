@@ -5,12 +5,12 @@ namespace Boekingssysteem;
 public partial class FindVacation : ContentPage
     {
     public FindVacation (DateTime startDate, DateTime endDate, string location, int numberOfPeople)
-     {
+    {
         InitializeComponent ( );
         pageLayout();
-        addHotels(location);
+        addHotels(location, numberOfPeople);
         addFlights(location, startDate, endDate);
-     }
+    }
 
     private void pageLayout()
     {
@@ -31,13 +31,13 @@ public partial class FindVacation : ContentPage
         Back.GestureRecognizers.Add(BackClick);
     }
 
-    private void addHotels(String location)
+    private void addHotels(String location, int numberOfPeople)
     {
         Hotel[] hotels = getAllHotels();
         List<Hotel> hotelsInLocation = new List<Hotel>();
         for (int i = 0; i < hotels.Length; i++)
         {
-            if (hotels[i].city == location)
+            if (hotels[i].city == location && hotels[i].room.amountOfPeople == numberOfPeople)
             {
                 hotelsInLocation.Add(hotels[i]);
             }
@@ -46,12 +46,12 @@ public partial class FindVacation : ContentPage
         bool firstVlag = true;//This is used to set only one radiobutton
         foreach (var i in hotelsInLocation)
         {
-            Hotels.Add(hotelBuilder(firstVlag, i.name, i.city));
+            Hotels.Add(hotelBuilder(firstVlag, i.name, i.city, (i.room.pricePerNightPerPerson * numberOfPeople)));
             firstVlag = false;
         }
     }
 
-    private Grid hotelBuilder(bool first, string name, string city)
+    private Grid hotelBuilder(bool first, string name, string city, double pricePerNight)
     {
         Grid grid = new Grid();
 
@@ -82,7 +82,7 @@ public partial class FindVacation : ContentPage
 
         Label labelPrice = new Label
         {
-            Text = "Prijs per nacht",
+            Text = pricePerNight.ToString(),
             FontAttributes = FontAttributes.Bold,
             HorizontalOptions = LayoutOptions.End,
             VerticalOptions = LayoutOptions.Center
@@ -97,13 +97,13 @@ public partial class FindVacation : ContentPage
     {
         //Deze funtie is tijdelijk, het moet vervangen worden door de apicaller van Wesley
         Hotel[] hotels = new Hotel[7];
-        hotels[0] = new Hotel("Plaza", "New York", 0, 0, new List<Room> { });
-        hotels[1] = new Hotel("Van Der Valk", "Nieuw Amsterdam", 0, 0, new List<Room> { });
-        hotels[2] = new Hotel("Hilton", "Chicago", 0, 0, new List<Room> { });
-        hotels[3] = new Hotel("Overlook", "Colorado", 0, 0, new List<Room> { });
-        hotels[4] = new Hotel("Ceasars Palace", "Las Vegas", 0, 0, new List<Room> { });
-        hotels[5] = new Hotel("Ritz", "Parijs", 0, 0, new List<Room> { });
-        hotels[6] = new Hotel("Hilton", "New York", 0, 0, new List<Room> { });
+        hotels[0] = new Hotel("Plaza", "New York", 0, 0, new Room(1, 5, 25, 2));
+        hotels[1] = new Hotel("Van Der Valk", "Nieuw Amsterdam", 0, 0, new Room(1, 5, 25, 2));
+        hotels[2] = new Hotel("Hilton", "Chicago", 0, 0, new Room(1, 5, 25, 2));
+        hotels[3] = new Hotel("Overlook", "Colorado", 0, 0, new Room(1, 5, 25, 2));
+        hotels[4] = new Hotel("Ceasars Palace", "Las Vegas", 0, 0, new Room(1, 5, 25, 2));
+        hotels[5] = new Hotel("Ritz", "Parijs", 0, 0, new Room(1, 5, 25, 2));
+        hotels[6] = new Hotel("Hilton", "New York", 0, 0, new Room(1, 5, 20, 2));
         return hotels;
     }
 
