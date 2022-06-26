@@ -8,7 +8,7 @@
     <Grid>
 
         
-        <Button Clicked="Button_Clicked" Text="Test Button"></Button>
+        <!--<Button Clicked="Button_Clicked" Text="Test Button"></Button>-->
         
 
         <Grid.ColumnDefinitions>
