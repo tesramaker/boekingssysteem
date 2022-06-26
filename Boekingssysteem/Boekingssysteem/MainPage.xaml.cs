@@ -36,6 +36,9 @@ public partial class MainPage : ContentPage
     private async void Button_Clicked(object sender, EventArgs e)
     {
         ApiCaller apiCaller = new ApiCaller();
-        var y = await apiCaller.GetAllFlights();
+        List<Flight> flights = await apiCaller.GetAllFlights();
+        List<Hotel> hotels = await apiCaller.GetHotelsByCity("Praag");
+
+        var x = 3;
     }
 }

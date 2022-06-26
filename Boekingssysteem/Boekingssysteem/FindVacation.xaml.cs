@@ -35,11 +35,12 @@ public partial class FindVacation : ContentPage
         Back.GestureRecognizers.Add(BackClick);
     }
 
-    private void addHotels(String location, int numberOfPeople)
+    private async void addHotels(String location, int numberOfPeople)
     {
-        Hotel[] hotels = getAllHotels();
+        List<Hotel> hotels = await getAllHotels();
+        var x = 3;
         List<Hotel> hotelsInLocation = new List<Hotel>();
-        for (int i = 0; i < hotels.Length; i++)
+        for (int i = 0; i < hotels.Count; i++)
         {
             if (hotels[i].city == location && hotels[i].room.amountOfPeople == numberOfPeople)
             {
@@ -102,25 +103,29 @@ public partial class FindVacation : ContentPage
         return grid;
     }
 
-    private Hotel[] getAllHotels()
-    {
+    private async Task<List<Hotel>>  getAllHotels()
+    {   //Hotel[]
         //Deze funtie is tijdelijk, het moet vervangen worden door de apicaller van Wesley
-        Hotel[] hotels = new Hotel[7];
-        hotels[0] = new Hotel("Plaza", "New York", 0, 0, new Room(1, 5, 25, 2));
-        hotels[1] = new Hotel("Van Der Valk", "Nieuw Amsterdam", 0, 0, new Room(1, 5, 25, 2));
-        hotels[2] = new Hotel("Hilton", "Chicago", 0, 0, new Room(1, 5, 25, 2));
-        hotels[3] = new Hotel("Overlook", "Colorado", 0, 0, new Room(1, 5, 25, 2));
-        hotels[4] = new Hotel("Ceasars Palace", "Las Vegas", 0, 0, new Room(1, 5, 25, 2));
-        hotels[5] = new Hotel("Ritz", "Parijs", 0, 0, new Room(1, 5, 25, 2));
-        hotels[6] = new Hotel("Hilton", "New York", 0, 0, new Room(1, 5, 20, 2));
+        ApiCaller apiCaller = new ApiCaller();
+        List<Hotel> hotels = await apiCaller.GetHotelsByCity("New York");
+
+        //Hotel[] hotels = new Hotel[7];
+        //hotels[0] = new Hotel("Plaza", "New York", 0, 0, new Room(1, 5, 25, 2));
+        //hotels[1] = new Hotel("Van Der Valk", "Nieuw Amsterdam", 0, 0, new Room(1, 5, 25, 2));
+        //hotels[2] = new Hotel("Hilton", "Chicago", 0, 0, new Room(1, 5, 25, 2));
+        //hotels[3] = new Hotel("Overlook", "Colorado", 0, 0, new Room(1, 5, 25, 2));
+        //hotels[4] = new Hotel("Ceasars Palace", "Las Vegas", 0, 0, new Room(1, 5, 25, 2));
+        //hotels[5] = new Hotel("Ritz", "Parijs", 0, 0, new Room(1, 5, 25, 2));
+        //hotels[6] = new Hotel("Hilton", "New York", 0, 0, new Room(1, 5, 20, 2));
         return hotels;
     }
 
-    private void addFlights(String location, DateTime departureDate, DateTime arrivalDate)
+    private async void addFlights(String location, DateTime departureDate, DateTime arrivalDate)
     {
-        Flight[] flights = getAllFlighs();
+        //Flight[] flights = getAllFlighs();
+        List<Flight> flights = await getAllFlighs();
         List<Flight> flightToRightLocationsAtRightTimes = new List<Flight>();
-        for (int i = 0; i < flights.Length; i++)
+        for (int i = 0; i < flights.Count; i++)
         {
             if (flights[i].destination == location && flights[i].departureDate == departureDate && flights[i].arrivalDate == arrivalDate)
                 flightToRightLocationsAtRightTimes.Add(flights[i]);
@@ -191,14 +196,19 @@ public partial class FindVacation : ContentPage
         return grid;
     }
 
-    private Flight[] getAllFlighs()
+    private async Task<List<Flight>> getAllFlighs()
     {
-        Flight[] flights = new Flight[5];
-        flights[0] = new Flight(1, new Plane(1, "Emerates", 12, 12), 55, "Emmen", new DateTime(2022, 7, 25), "New York", new DateTime(2022, 7, 27), 1);
-        flights[1] = new Flight(2, new Plane(1, "Lufthanza", 12, 12), 55, "Emmen", new DateTime(2022, 7, 20), "Tweede exloermond", new DateTime(2022, 7, 27), 1);
-        flights[2] = new Flight(2, new Plane(1, "Turkey", 12, 12), 55, "Emmen", new DateTime(2022, 7, 7), "Milaan", new DateTime(2022, 7, 27), 1);
-        flights[3] = new Flight(2, new Plane(1, "Klm", 12, 12), 55, "Emmen", new DateTime(2022, 7, 2), "Nieuw Schoonebeek City", new DateTime(2022, 7, 25), 1);
-        flights[4] = new Flight(2, new Plane(1, "Pan Am", 12, 12), 55, "Emmen", new DateTime(2022, 7, 7), "Mariemberg", new DateTime(2022, 7, 27), 1);
+        //Flight[]
+        //Flight[] flights = new Flight[5];
+
+        ApiCaller apiCaller = new ApiCaller();
+        List<Flight> flights = await apiCaller.GetAllFlights();
+        var x = 3;
+        //flights[0] = new Flight(1, new Plane(1, "Emerates", 12, 12), 55, "Emmen", new DateTime(2022, 7, 25), "New York", new DateTime(2022, 7, 27), 1);
+        //flights[1] = new Flight(2, new Plane(1, "Lufthanza", 12, 12), 55, "Emmen", new DateTime(2022, 7, 20), "Tweede exloermond", new DateTime(2022, 7, 27), 1);
+        //flights[2] = new Flight(2, new Plane(1, "Turkey", 12, 12), 55, "Emmen", new DateTime(2022, 7, 7), "Milaan", new DateTime(2022, 7, 27), 1);
+        //flights[3] = new Flight(2, new Plane(1, "Klm", 12, 12), 55, "Emmen", new DateTime(2022, 7, 2), "Nieuw Schoonebeek City", new DateTime(2022, 7, 25), 1);
+        //flights[4] = new Flight(2, new Plane(1, "Pan Am", 12, 12), 55, "Emmen", new DateTime(2022, 7, 7), "Mariemberg", new DateTime(2022, 7, 27), 1);
         return flights;
     }
 

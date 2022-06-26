@@ -77,5 +77,39 @@ namespace Boekingssysteem
             }
             
         }
+
+        public async Task<List<Hotel>> GetHotelsByCity(string city)
+        {
+            List<Hotel> hotels = new List<Hotel>();
+            HttpClient client = new HttpClient();
+
+            using (client)
+            {
+                HttpResponseMessage response = await client.GetAsync(this.uri + "Hotel/GetAllHotelsIsCity/"+city);
+                using (response)
+                {
+                    HttpContent content = response.Content;
+                    using (content)
+                    {
+                        string myContent = await content.ReadAsStringAsync();
+                        dynamic allHotels = JsonConvert.DeserializeObject(myContent);
+
+                        for (int i = 0; i < allHotels.Count; i++)
+                        {
+                            var _hotel = allHotels[i];
+                            var jsonHotel = (JObject)_hotel;
+                            //name, city, xcoord, ycoord, room
+                            Hotel hotel = new Hotel(jsonHotel["name"].Value<string>(), jsonHotel["city"].Value<string>(), 0, 0, new Room(1, 5, 20, 2));
+                            hotels.Add(hotel);
+                            //Plane p = await this.getPlaneById(jsonPlane["planeId"].Value<int>());
+                            //Flight flight = new Flight(jsonPlane["id"].Value<int>(), p, jsonPlane["cost"].Value<double>(), jsonPlane["fromLocation"].Value<string>(), jsonPlane["departDate"].Value<DateTime>(), jsonPlane["toLocation"].Value<string>(), jsonPlane["arrivalDate"].Value<DateTime>(), 0);
+                            //flights.Add(flight);
+                        }
+                    }
+                }
+                return hotels;
+            }
+
+        }
     }
 }
