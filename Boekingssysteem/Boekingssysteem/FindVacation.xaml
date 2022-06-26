@@ -75,6 +75,8 @@
                 Grid.Column="1"
                 Grid.ColumnSpan="2">
 
+                <!--This are hardcoded hotels for testing purposes
+                
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -153,7 +155,7 @@
                            FontAttributes="Bold" 
                            HorizontalOptions="End"
                         VerticalOptions="Center"/>
-                </Grid>
+                </Grid>-->
             </VerticalStackLayout>
 
             <Label Grid.Row="3"
@@ -170,6 +172,7 @@
                 Grid.Column="1"
                 Grid.ColumnSpan="2">
 
+                <!--This are hardcoded flights for frontendtesting purposes
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -266,7 +269,7 @@
                            FontAttributes="Bold" 
                            HorizontalOptions="End"
                         VerticalOptions="Center"/>
-                </Grid>
+                </Grid>-->
             </VerticalStackLayout>
 
             <Button 

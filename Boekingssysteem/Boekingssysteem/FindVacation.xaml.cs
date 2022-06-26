@@ -43,14 +43,15 @@ public partial class FindVacation : ContentPage
             }
         }
 
+        bool firstVlag = true;//This is used to set only one radiobutton
         foreach (var i in hotelsInLocation)
         {
-            Hotels.Add(hotelBuilder(i.name, i.city));
+            Hotels.Add(hotelBuilder(firstVlag, i.name, i.city));
+            firstVlag = false;
         }
-
     }
 
-    private Grid hotelBuilder(string name, string city)
+    private Grid hotelBuilder(bool first, string name, string city)
     {
         Grid grid = new Grid();
 
@@ -65,7 +66,7 @@ public partial class FindVacation : ContentPage
             TextColor = Color.FromHex("A4765E"),
             FontAttributes = FontAttributes.Bold,
             VerticalOptions = LayoutOptions.Center,
-            IsChecked = true,
+            IsChecked = first,
             HorizontalOptions = LayoutOptions.Start
         });
 
@@ -118,13 +119,15 @@ public partial class FindVacation : ContentPage
             }
         }
 
+        bool firstVlag = true;
         foreach (var flight in flightToRightLocationsAtRightTimes)
         {
-            Flights.Add(flightBuilder(flight.plane.airline, flight.departureDate, flight.arrivalDate));
+            Flights.Add(flightBuilder(firstVlag, flight.plane.airline, flight.departureDate, flight.arrivalDate));
+            firstVlag = false;
         }
     }
 
-    private Grid flightBuilder(String airline, DateTime toDate, DateTime froDate)
+    private Grid flightBuilder(bool first, String airline, DateTime toDate, DateTime froDate)
     {
         Grid grid = new Grid();
 
@@ -140,7 +143,7 @@ public partial class FindVacation : ContentPage
             TextColor = Color.FromHex("A4765E"),
             FontAttributes = FontAttributes.Bold,
             VerticalOptions = LayoutOptions.Center,
-            IsChecked = true,
+            IsChecked = first,
             HorizontalOptions = LayoutOptions.Start
         });
 
