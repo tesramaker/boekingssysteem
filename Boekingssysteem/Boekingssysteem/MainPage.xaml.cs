@@ -5,7 +5,7 @@ public partial class MainPage : ContentPage
     public MainPage ( )
         {
         InitializeComponent ( );
-        Layout ( );
+        Layout ();
         }
 
     void Layout()
@@ -32,4 +32,10 @@ public partial class MainPage : ContentPage
             await DisplayAlert ( "Kan niet doorgaan", "Vul alle velden in.", "OK" );
             }
         }
+
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        ApiCaller apiCaller = new ApiCaller();
+        var y = await apiCaller.GetAllFlights();
     }
+}

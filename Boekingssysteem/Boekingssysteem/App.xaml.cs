@@ -7,5 +7,5 @@ public partial class App : Application
 		InitializeComponent();
 
 		MainPage = new Microsoft.Maui.Controls.NavigationPage ( new MainPage ( ) );
-        }
+    }
 }

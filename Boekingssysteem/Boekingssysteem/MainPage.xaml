@@ -6,6 +6,11 @@
              BackgroundImageSource="background.jpg">
 
     <Grid>
+
+        
+        <Button Clicked="Button_Clicked" Text="Test Button"></Button>
+        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="5*"/>

@@ -15,6 +15,7 @@ namespace Boekingssysteem
 
         public Plane(int id, string airline, int seats, int defaultAmountSeats)
         {
+            //System.Diagnostics.Debug.WriteLine("Creating  plane with " + id + airline + seats + defaultAmountSeats);
             Id = id;
             this.airline = airline;
             this.seats = seats;
