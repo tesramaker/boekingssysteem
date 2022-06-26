@@ -9,7 +9,7 @@ namespace Boekingssysteem
     internal class Flight
         {
         int FlightNumber;
-        Plane plane;
+        public Plane plane { get; set; }
         double price;
         String departurePlace;
         public DateTime departureDate { get; set; }

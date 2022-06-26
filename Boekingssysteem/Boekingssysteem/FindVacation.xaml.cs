@@ -120,11 +120,11 @@ public partial class FindVacation : ContentPage
 
         foreach (var flight in flightToRightLocationsAtRightTimes)
         {
-            Flights.Add(flightBuilder());
+            Flights.Add(flightBuilder(flight.plane.airline, flight.departureDate, flight.arrivalDate));
         }
     }
 
-    private Grid flightBuilder()
+    private Grid flightBuilder(String airline, DateTime toDate, DateTime froDate)
     {
         Grid grid = new Grid();
 
@@ -135,7 +135,7 @@ public partial class FindVacation : ContentPage
 
         grid.Children.Add(new RadioButton
         {
-            Content = "Vlucht 1",
+            Content = airline,
             GroupName = "Flights",
             TextColor = Color.FromHex("A4765E"),
             FontAttributes = FontAttributes.Bold,
@@ -146,7 +146,7 @@ public partial class FindVacation : ContentPage
 
         Label toFlight = new Label
         {
-            Text = "Vlucht heen",
+            Text = toDate.ToString(),
             FontAttributes = FontAttributes.Italic,
             HorizontalOptions = LayoutOptions.Center,
             VerticalOptions = LayoutOptions.Center
@@ -156,7 +156,7 @@ public partial class FindVacation : ContentPage
 
         Label froFlight = new Label
         {
-            Text = "Vlucht terug",
+            Text = froDate.ToString(),
             FontAttributes = FontAttributes.Italic,
             HorizontalOptions = LayoutOptions.Center,
             VerticalOptions = LayoutOptions.Center

@@ -9,7 +9,7 @@ namespace Boekingssysteem
     internal class Plane
         {
         int Id;
-        String airline;
+        public String airline { get; set; }
         int seats;
         int DefaultAmountSeats;
 
