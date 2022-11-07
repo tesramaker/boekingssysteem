@@ -21,8 +21,8 @@ public partial class BookVacation : ContentPage
             await Navigation.PopAsync ( );
         };
         Back.GestureRecognizers.Add ( BackClick );
-        addContentToPage(hotel, numberOfPersons, flight);
-    }
+        addContentToPage ( hotel, numberOfPersons, flight );
+        }
 
     internal void addContentToPage(Hotel hotel, int numberOfPersons, Flight flight)
     {
@@ -83,7 +83,7 @@ public partial class BookVacation : ContentPage
 
     async void OnBookVacationButtonClicked ( object sender, EventArgs e )
     {
-        addVacation();
+        addVacation ( );
         await Navigation.PushAsync ( new GetTicket ( ) );
     }
 }

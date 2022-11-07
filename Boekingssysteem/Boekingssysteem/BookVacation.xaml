@@ -54,6 +54,17 @@
             VerticalOptions="Center"
             HorizontalTextAlignment="Center" 
             Text="Boek uw vakantie"/>
+            
+            <Label 
+            Grid.Column="2"
+            Grid.Row="1"
+            TextColor="Black" 
+            FontSize="12" 
+            Margin="-80, -25, -80, 0"
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Center" 
+            Text="Hieronder staan de gegevens van uw gekozen vakantie weergegeven. &#x0a;
+Klopt er iets niet? Ga terug naar de vorige stappen om uw keuze aan te passen."/>
 
             <Label Grid.Row="1"
                    Grid.Column="1"

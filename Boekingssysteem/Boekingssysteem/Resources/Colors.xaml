@@ -21,5 +21,7 @@
     <SolidColorBrush x:Key="LightGrayBrush" Color="{StaticResource LightGray}"/>
     <SolidColorBrush x:Key="MidGrayBrush" Color="{StaticResource MidGray}"/>
     <SolidColorBrush x:Key="DarkGrayBrush" Color="{StaticResource DarkGray}"/>
+    
+
 
 </ResourceDictionary>

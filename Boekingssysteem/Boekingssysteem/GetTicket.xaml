@@ -43,10 +43,12 @@
             <Label 
             Grid.Column="1"
             Grid.Row="1"
-            TextColor="#707070" 
+            TextColor="Black" 
+            FontSize="12"
             HorizontalTextAlignment="Center" 
             VerticalOptions="Center"
-            Text="Scan de QR-code voor uw tickets."/>
+            Text="Scan de QR-code voor uw tickets. &#x0a; 
+Uw tickets kunt u op deze manier weerzien op uw mobiele telefoon."/>
 
             <Image
                 Source="qr_vb.png"
