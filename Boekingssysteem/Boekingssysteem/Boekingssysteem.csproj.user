@@ -11,6 +11,9 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <ItemGroup>
+    <MauiXaml Update="APIFail.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="BookVacation.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

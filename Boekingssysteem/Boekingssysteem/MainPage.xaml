@@ -6,14 +6,11 @@
              BackgroundImageSource="background.jpg">
 
     <Grid>
-
-
         <!--<Button Clicked="Button_Clicked" Text="Test Button"></Button>-->
-
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="800"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -22,7 +19,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="1" Grid.Column="1" BackgroundColor="#DDFFFFFF"/>
+        <Border Grid.Row="1" Grid.Column="1" BackgroundColor="#DDFFFFFF" WidthRequest="800"/>
 
         <Label 
             Grid.Column="1"
@@ -40,28 +37,26 @@
             Grid.Row="1"
             TextColor="Black" 
             FontSize="12" 
-            Margin="0, 80, 0, 0" 
+            Margin="20, 80, 20, 0" 
             VerticalOptions="Start"
             HorizontalTextAlignment="Center" 
             Text="Vul onderstaande gegevens in en wij zoeken een vakantie voor u. &#x0a;
 Geen idee naar welke locatie u wilt reizen? Geen probleem! Wij kiezen een bestemming voor u!"/>
 
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid Grid.Row="1" Grid.Column="1" WidthRequest="800" Margin="10, 0, 10, 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="30"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="20"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -129,17 +124,17 @@ Geen idee naar welke locatie u wilt reizen? Geen probleem! Wij kiezen een bestem
                 Keyboard="Numeric"
                 BackgroundColor="White"/>
 
-            <Button 
-                Grid.Row="2"
-                Grid.Column="4"
-                VerticalOptions="Start"
+        </Grid>
+        
+        <Button 
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalOptions="End"
                 x:Name="SearchBtn"
                 Margin="0, 0, 0, 40"
                 Text="Zoek vakantie"
                 Clicked="OnSearchButtonClicked"
                 HorizontalOptions="Center" />
-
-        </Grid>
 
     </Grid>
 

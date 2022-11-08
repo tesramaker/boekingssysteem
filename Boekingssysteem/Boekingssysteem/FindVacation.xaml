@@ -98,7 +98,7 @@ Klik hieronder uw keuze van het hotel en de vluchten aan."/>
 
                 <!--This are hardcoded hotels for testing purposes-->
                 
-                <!--<Grid>
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -176,7 +176,7 @@ Klik hieronder uw keuze van het hotel en de vluchten aan."/>
                            FontAttributes="Bold" 
                            HorizontalOptions="End"
                         VerticalOptions="Center"/>
-                </Grid>-->
+                </Grid>
             </VerticalStackLayout>
 
             <Label Grid.Row="3"
@@ -204,7 +204,7 @@ Klik hieronder uw keuze van het hotel en de vluchten aan."/>
                 Grid.ColumnSpan="2">
 
                 <!--This are hardcoded flights for frontendtesting purposes-->
-                <!--<Grid>
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -300,7 +300,7 @@ Klik hieronder uw keuze van het hotel en de vluchten aan."/>
                            FontAttributes="Bold" 
                            HorizontalOptions="End"
                         VerticalOptions="Center"/>
-                </Grid>-->
+                </Grid>
             </VerticalStackLayout>
 
             <Button 

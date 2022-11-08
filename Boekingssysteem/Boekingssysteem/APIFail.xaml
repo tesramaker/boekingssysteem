@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Boekingssysteem.APIFail"
+             BackgroundColor="Black">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.RowSpan="3" Grid.ColumnSpan="3" BackgroundColor="Black"/>
+        
+        <Label 
+            Text="Er is geen connectie met de API."
+            FontSize="22"
+            FontAttributes="Bold"
+            HorizontalTextAlignment="Center"
+            TextColor="White"
+            Margin="0, -60, 0, 0"
+            VerticalTextAlignment="Center"
+            Grid.Column="1"
+            Grid.Row="1"/>
+
+        <Label 
+            Text="Excuses voor het ongemak."
+            FontSize="12"
+            HorizontalTextAlignment="Center"
+            TextColor="White"
+            VerticalTextAlignment="Center"
+            Grid.Column="1"
+            Grid.Row="1"/>
+        
+        
+    </Grid>
+</ContentPage>

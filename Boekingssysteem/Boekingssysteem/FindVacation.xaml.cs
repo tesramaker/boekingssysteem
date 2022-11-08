@@ -12,8 +12,8 @@ public partial class FindVacation : ContentPage
         this.numberOfPeople = numberOfPeople;
         InitializeComponent ( );
         pageLayout();
-        addHotels ( location, numberOfPeople );
-        addFlights ( location, startDate, endDate );
+        //addHotels ( location, numberOfPeople );
+        //addFlights ( location, startDate, endDate );
         }
 
     private void pageLayout()
