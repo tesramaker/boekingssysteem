@@ -31,6 +31,8 @@
 
         public User()
         {
+            this.name = "";
+            this.password = "";
             this.loginToken = Guid.Empty;
         }
     }

@@ -1,4 +1,5 @@
-﻿using BoekingssysteemAPI.DbConnection;
+﻿using BoekingssysteemAPI.Authorization;
+using BoekingssysteemAPI.DbConnection;
 using BoekingssysteemAPI.Model;
 
 namespace BoekingssysteemAPI.DataAccessLayer
@@ -17,8 +18,7 @@ namespace BoekingssysteemAPI.DataAccessLayer
             try
             {
                 User tempUser = new User();
-                User dbUser = dbConnection.User.Single<User>(item => item.name == user.name);
-                tempUser = dbUser;
+                tempUser = dbConnection.User.Single<User>(item => item.name == user.name && item.password == user.password);
                 return tempUser;
             }
             catch(Exception)
