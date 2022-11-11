@@ -13,6 +13,18 @@ namespace BoekingssysteemAPI.DataAccessLayer
             dbConnection = new BoekingssysteemContext(@"Server = localhost; Database = Boekingssysteem; Trusted_Connection = True;");
         }
 
+        public List<Plane> GetAllPlanes()
+        {
+            try
+            {
+                return dbConnection.Plane.ToList<Plane>();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public Plane GetPlaneById(int id)
         {
             try

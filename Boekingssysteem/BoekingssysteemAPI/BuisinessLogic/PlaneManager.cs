@@ -12,6 +12,11 @@ namespace BoekingssysteemAPI.BuisinessLogic
             _planeService = new PlaneService();
         }
 
+        public List<Plane> GetAllPlanes()
+        {
+            return _planeService.GetAllPlanes();
+        }
+
         public Plane GetPlaneById(int id)
         {
             return _planeService.GetPlaneById(id);
