@@ -12,6 +12,16 @@ namespace BoekingssysteemAPI.BuisinessLogic
             _userService = new UserService();
         }
 
+        public List<User> GetAllUsers()
+        {
+            return _userService.GetAllUsers();
+        }
+
+        public User GetUserById(int id)
+        {
+            return _userService.GetUserById(id);
+        }
+
         public User Login(User user)
         {
             return _userService.Login(user);

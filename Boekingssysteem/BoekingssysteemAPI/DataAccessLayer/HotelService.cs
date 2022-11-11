@@ -12,6 +12,18 @@ namespace BoekingssysteemAPI.DataAccessLayer
             dbConnection = new BoekingssysteemContext(@"Server = localhost; Database = Boekingssysteem; Trusted_Connection = True;");
         }
 
+        public List<Hotel> GetAllHotels()
+        {
+            try
+            {
+                return dbConnection.Hotel.ToList<Hotel>();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public Hotel GetHotelById(int id)
         {
             try

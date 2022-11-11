@@ -36,6 +36,18 @@ namespace BoekingssysteemAPI.DataAccessLayer
             }
         }
 
+        public List<Room> GetAllRooms()
+        {
+            try
+            {
+                return dbConnection.Room.ToList<Room>();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public bool Create(Room room)
         {
             try

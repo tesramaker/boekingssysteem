@@ -19,6 +19,22 @@ namespace BoekingssysteemAPI.Controllers
         /// Get API requests
         /// </summary>
 
+        // Get: api/<HotelController>/GetAllHotels
+        [HttpGet("GetAllHotels")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<IEnumerable<Hotel>> GetAllHotels()
+        {
+            try
+            {
+                return Ok(_hotelManager.GetAllHotels());
+            }
+            catch (Exception)
+            {
+                return NotFound("Something went wrong!");
+            }
+        }
+
         // GET: api/<HotelController>/GetAllHotelsInCity/<city>
         [HttpGet("GetAllHotelsIsCity/{city}")]
         [ProducesResponseType(StatusCodes.Status200OK)]

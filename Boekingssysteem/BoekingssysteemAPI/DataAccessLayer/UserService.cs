@@ -13,6 +13,29 @@ namespace BoekingssysteemAPI.DataAccessLayer
             dbConnection = new BoekingssysteemContext(@"Server = localhost; Database = Boekingssysteem; Trusted_Connection = True;");
         }
 
+        public List<User> GetAllUsers()
+        {
+            try
+            {
+                return dbConnection.User.ToList<User>();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public User GetUsersById(int id)
+        {
+            try
+            {
+                return dbConnection.User.Single<User>(item => item.id == id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public User Login(User user)
         {
             try

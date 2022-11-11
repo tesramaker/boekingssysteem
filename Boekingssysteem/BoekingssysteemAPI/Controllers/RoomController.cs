@@ -18,6 +18,22 @@ namespace BoekingssysteemAPI.Controllers
         /// <summary>
         /// Get API requests
         /// </summary>
+        
+        // Get: api/<HotelController>/GetAllRooms
+        [HttpGet("GetAllRooms")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<IEnumerable<Room>> GetAllRooms()
+        {
+            try
+            {
+                return Ok(_roomManager.GetAllRooms());
+            }
+            catch (Exception)
+            {
+                return NotFound("Something went wrong!");
+            }
+        }
 
         // Get: api/<HotelController>/GetRoomById/{id}
         [HttpGet("GetRoomById/{id}")]

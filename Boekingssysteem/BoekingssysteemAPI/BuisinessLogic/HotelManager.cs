@@ -27,6 +27,11 @@ namespace BoekingssysteemAPI.BuisinessLogic
             return _hotelService.GetAllHotelsInCity(city);
         }
 
+        public List<Hotel> GetAllHotels()
+        {
+            return _hotelService.GetAllHotels();
+        }
+
         public bool Create(Hotel hotel)
         {
             return _hotelService.Create(hotel);

@@ -19,10 +19,11 @@ namespace BoekingssysteemAPI.Controllers
         /// Get API requests
         /// </summary>
 
+        // GET: api/<PlaneController>/GetAllPlanes
         [HttpGet("GetAllPlanes")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<List<Plane>> GetAllPlanes()
+        public ActionResult<IEnumerable<Plane>> GetAllPlanes()
         {
             try
             {

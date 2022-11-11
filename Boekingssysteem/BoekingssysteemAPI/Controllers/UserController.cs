@@ -14,9 +14,46 @@ namespace BoekingssysteemAPI.Controllers
         }
 
         /// <summary>
+        /// Get API requests
+        /// </summary>
+
+
+        // GET: api/<UserController>/GetAllUsers
+        [HttpGet("GetAllUsers")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<IEnumerable<User>> GetAllUsers()
+        {
+            try
+            {
+                return Ok(_userManager.GetAllUsers());
+            }
+            catch (Exception)
+            {
+                return NotFound("Something went wrong!");
+            }
+        }
+
+        // GET: api/<UserController>/GetUserById
+        [HttpGet("GetUserById")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<IEnumerable<User>> GetUserById(int id)
+        {
+            try
+            {
+                return Ok(_userManager.GetUserById(id));
+            }
+            catch (Exception)
+            {
+                return NotFound("Something went wrong!");
+            }
+        }
+
+        /// <summary>
         /// Post API requests
         /// </summary>
-                
+
         // POST: api/<UserController>/Login/[Body] User
         [HttpPost("Login")]
         [ProducesResponseType(StatusCodes.Status200OK)]
