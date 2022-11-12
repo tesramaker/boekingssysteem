@@ -10,6 +10,7 @@ public partial class MainPage : ContentPage
 
     void Layout()
         {
+
         CheckBox checkbox = FindByName("randomLocation") as CheckBox;
         Entry location = FindByName("location") as Entry;
         var listener = new TapGestureRecognizer();
@@ -19,6 +20,14 @@ public partial class MainPage : ContentPage
         };
         checkbox.GestureRecognizers.Add ( listener );
         Entry numPeople = FindByName("numberOfPeople") as Entry;
+
+        Label Login = FindByName("Login") as Label;
+        var GotoLogin = new TapGestureRecognizer();
+        GotoLogin.Tapped += async ( sender, e ) =>
+        {
+            await Navigation.PushAsync ( new LoginPage ( ) );
+        };
+        Login.GestureRecognizers.Add ( GotoLogin );
         }
 
     async void OnSearchButtonClicked ( object sender, EventArgs e )
