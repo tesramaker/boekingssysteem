@@ -6,6 +6,7 @@ public partial class FindVacation : ContentPage
 {
     Hotel hotelRadio;
     Flight flightRadio;
+    Flight flightBackRadio;
     int numberOfPeople;
     public FindVacation (DateTime startDate, DateTime endDate, string location, int numberOfPeople)
     {
@@ -14,7 +15,7 @@ public partial class FindVacation : ContentPage
         pageLayout();
         addHotels ( location, numberOfPeople );
         addFlights ( location, startDate, endDate );
-        }
+    }
 
     private void pageLayout()
     {
@@ -119,11 +120,11 @@ public partial class FindVacation : ContentPage
         firstVlag = true;
         foreach (var flight in flights)
         {
-            if (flight.arrivalDate >= arrivalDate && flight.arrivalDate < arrivalDate.AddDays(1) && flight.departurePlace == location)//Since DateTime also stores time, this will select all flights for the next 24h
+            if (flight.departureDate >= departureDate && flight.departureDate < departureDate.AddDays(1) && flight.departurePlace == location)//Since DateTime also stores time, this will select all flights for the next 24h
             {
                 if (firstVlag)
-                    flightRadio = flight;
-                FlightsBack.Add(flightBuilder(firstVlag, flight.plane.airline, flight.departureDate, flight.arrivalDate, flight.price));
+                    flightBackRadio = flight;
+                FlightsBack.Add(flightBackBuilder(firstVlag, flight.plane.airline, flight.departureDate, flight.arrivalDate, flight.price));
                 firstVlag = false;
             }
         }
@@ -184,6 +185,61 @@ public partial class FindVacation : ContentPage
         return grid;
     }
 
+    private Grid flightBackBuilder(bool first, String airline, DateTime toDate, DateTime froDate, double priceFlight)
+    {
+        Grid grid = new Grid();
+
+        grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
+        grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
+        grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
+        grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
+
+        RadioButton rB = new RadioButton
+        {
+            Content = airline,
+            GroupName = "Flightsr",
+            TextColor = Color.FromHex("A4765E"),
+            FontAttributes = FontAttributes.Bold,
+            VerticalOptions = LayoutOptions.Center,
+            IsChecked = first,
+            HorizontalOptions = LayoutOptions.Start
+        };
+        rB.CheckedChanged += flightBackRadioChanged;
+        grid.Children.Add(rB);
+
+        Label toFlight = new Label
+        {
+            Text = toDate.ToString(),
+            FontAttributes = FontAttributes.Italic,
+            HorizontalOptions = LayoutOptions.Center,
+            VerticalOptions = LayoutOptions.Center
+        };
+        grid.Children.Add(toFlight);
+        Grid.SetColumn(toFlight, 1);
+
+        Label froFlight = new Label
+        {
+            Text = froDate.ToString(),
+            FontAttributes = FontAttributes.Italic,
+            HorizontalOptions = LayoutOptions.Center,
+            VerticalOptions = LayoutOptions.Center
+        };
+        grid.Children.Add(froFlight);
+        Grid.SetColumn(froFlight, 2);
+
+        Label price = new Label
+        {
+            Text = priceFlight.ToString(),
+            FontAttributes = FontAttributes.Bold,
+            HorizontalOptions = LayoutOptions.End,
+            VerticalOptions = LayoutOptions.Center
+        };
+        grid.Children.Add(price);
+        Grid.SetColumn(price, 3);
+
+        return grid;
+    }
+
 
     void hotelRadioChanged(object sender, CheckedChangedEventArgs e)
     {
@@ -199,8 +255,15 @@ public partial class FindVacation : ContentPage
         flightRadio = flight;
     }
 
-    async void OnGoOnButtonClicked ( object sender, EventArgs e )
-        {
-            await Navigation.PushAsync ( new BookVacation  (hotelRadio, numberOfPeople, flightRadio) );
-        }
+    void flightBackRadioChanged(object sender, CheckedChangedEventArgs e)
+    {
+        RadioButton rb = (RadioButton)sender;
+        Flight flight = (Flight)rb.Value;
+        flightBackRadio = flight;
     }
+
+    async void OnGoOnButtonClicked ( object sender, EventArgs e )
+    {
+         await Navigation.PushAsync ( new BookVacation  (hotelRadio, numberOfPeople, flightRadio, flightBackRadio) );
+    }
+}

@@ -122,28 +122,68 @@ Klopt er iets niet? Ga terug naar de vorige stappen om uw keuze aan te passen."/
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label 
-                    x:Name="Flight"
+                    x:Name="AirlineToFlight"
                     Text="Vlucht 1"
                     VerticalOptions="Center"
                     TextColor="#A4765E"
                     FontAttributes="Bold" 
                     HorizontalOptions="Start"/>
                 <Label 
-                    x:Name="ToFlight"
+                    x:Name="DeparturetimeToFlight"
                     Text="Vlucht heen"
                     Grid.Column="1"
                     FontAttributes="Italic"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"/>
                 <Label 
-                    x:Name="FroFlight"
+                    x:Name="LandingtimeToFlight"
                     Text="Vlucht terug"
                     Grid.Column="2"
                     FontAttributes="Italic"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"/>
                 <Label 
-                    x:Name="FlightPrice"
+                    x:Name="PriceToflight"
+                    Text="Prijs"
+                    FontAttributes="Bold" 
+                    Grid.Column="3"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="4"
+                  Grid.Column="1"
+                  VerticalOptions="Center"
+                  Grid.ColumnSpan="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label 
+                    x:Name="AirlineBackFlight"
+                    Text="Vlucht 1"
+                    VerticalOptions="Center"
+                    TextColor="#A4765E"
+                    FontAttributes="Bold" 
+                    HorizontalOptions="Start"/>
+                <Label 
+                    x:Name="DeparturetimeBackFlight"
+                    Text="Vlucht heen"
+                    Grid.Column="1"
+                    FontAttributes="Italic"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+                <Label 
+                    x:Name="LandingtimeBackFlight"
+                    Text="Vlucht terug"
+                    Grid.Column="2"
+                    FontAttributes="Italic"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+                <Label 
+                    x:Name="PriceBackflight"
                     Text="Prijs"
                     FontAttributes="Bold" 
                     Grid.Column="3"

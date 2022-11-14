@@ -7,7 +7,7 @@ public partial class BookVacation : ContentPage
     Flight flight;
     int numberOfPersons;
     int extraBagage;
-    internal BookVacation( Hotel hotel, int numberOfPersons, Flight flight)
+    internal BookVacation( Hotel hotel, int numberOfPersons, Flight flight, Flight flightBack)
     {
         this.hotel = hotel;
         this.flight = flight;
@@ -21,19 +21,24 @@ public partial class BookVacation : ContentPage
             await Navigation.PopAsync ( );
         };
         Back.GestureRecognizers.Add ( BackClick );
-        addContentToPage ( hotel, numberOfPersons, flight );
+        addContentToPage ( hotel, numberOfPersons, flight, flightBack );
         }
 
-    internal void addContentToPage(Hotel hotel, int numberOfPersons, Flight flight)
+    internal void addContentToPage(Hotel hotel, int numberOfPersons, Flight flight, Flight flightBack)
     {
         Hotel.Text = hotel.name;
         Location.Text = hotel.city;
         PriceHotel.Text = (hotel.room.pricePerNightPerPerson * numberOfPersons).ToString();
 
-        Flight.Text = flight.plane.airline;
-        ToFlight.Text = flight.departureDate.ToString();
-        FroFlight.Text = flight.arrivalDate.ToString();
-        FlightPrice.Text = (flight.price * numberOfPersons).ToString();
+        AirlineToFlight.Text = flight.plane.airline;
+        DeparturetimeToFlight.Text = flight.departureDate.ToString();
+        LandingtimeToFlight.Text = flight.arrivalDate.ToString();
+        PriceToflight.Text = (flight.price * numberOfPersons).ToString();
+
+        AirlineBackFlight.Text = flightBack.plane.airline;
+        DeparturetimeBackFlight.Text = flightBack.departureDate.ToString();
+        LandingtimeBackFlight.Text = flightBack.arrivalDate.ToString();
+        PriceBackflight.Text = (flightBack.price * numberOfPersons).ToString();
 
         total = (hotel.room.pricePerNightPerPerson * numberOfPersons) + (flight.price * numberOfPersons);
         Total.Text = total.ToString();
