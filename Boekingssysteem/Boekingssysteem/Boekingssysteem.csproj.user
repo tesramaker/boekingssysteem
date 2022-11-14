@@ -26,5 +26,8 @@
     <MauiXaml Update="HotelsMap.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="LoginPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
   </ItemGroup>
 </Project>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Boekingssysteem.LoginPage"
+             Title="Login" 
+             BackgroundImageSource="background.jpg">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="800"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="1" Grid.Column="1" BackgroundColor="#DDFFFFFF" WidthRequest="800"/>
+
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label 
+            Grid.Row="0"
+            TextColor="#707070" 
+            FontSize="25" 
+            FontAttributes="Bold" 
+            VerticalOptions="Center"
+            HorizontalTextAlignment="Center" 
+            Text="Login"/>
+
+            <Entry 
+            x:Name="username"
+            Grid.Row="1"
+            WidthRequest="300"
+            MaxLength="20"
+            IsEnabled="True"
+            VerticalOptions="End"
+            HorizontalOptions="Center"
+            TextColor="Black"
+            HeightRequest="20"
+            BackgroundColor="White"
+            Placeholder="Gebruikersnaam"/>
+
+            <Entry 
+            x:Name="password"
+            Grid.Row="2"
+            WidthRequest="300"
+            MaxLength="20"
+            Margin="0, 20, 0, 0"
+            IsPassword="True"
+            IsEnabled="True"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
+            TextColor="Black"
+            HeightRequest="20"
+            BackgroundColor="White"
+            Placeholder="Wachtwoord"/>
+
+            <Button  
+            Grid.Row="4"
+            VerticalOptions="Start"
+            x:Name="loginBtn"
+            Margin="0, 0, 0, 40"
+            Text="Login"
+            HorizontalOptions="Center" />
+        </Grid>
+    </Grid>
+</ContentPage>

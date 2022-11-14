@@ -6,8 +6,6 @@
              BackgroundImageSource="background.jpg">
 
     <Grid>
-        <!--<Button Clicked="Button_Clicked" Text="Test Button"></Button>-->
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="800"/>
@@ -59,6 +57,16 @@ Geen idee naar welke locatie u wilt reizen? Geen probleem! Wij kiezen een bestem
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+
+            <Label 
+            Grid.ColumnSpan="10"
+            VerticalOptions="Start"
+            TextDecorations="Underline"
+            x:Name="Login"
+            Margin="0, 20, 0, 0"
+            HorizontalOptions="End"
+            HorizontalTextAlignment="End" 
+            Text="Login"/>
 
             <DatePicker 
                 x:Name="startDate"
