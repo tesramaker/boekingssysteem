@@ -102,18 +102,30 @@ public partial class FindVacation : ContentPage
         ApiCaller apiCaller = new ApiCaller();
         List<Flight> flights = await apiCaller.GetAllFlightsToCity(location);
 
-        
-
         bool firstVlag = true;
         foreach (var flight in flights)
         {
-            if (flight.arrivalDate >= arrivalDate && flight.arrivalDate < arrivalDate.AddDays(1))
+            if (flight.arrivalDate >= arrivalDate && flight.arrivalDate < arrivalDate.AddDays(1) && flight.departurePlace == "Emmen")//Since DateTime also stores time, this will select all flights for the next 24h
             {
                 if (firstVlag)
                     flightRadio = flight;
                 Flights.Add(flightBuilder(firstVlag, flight.plane.airline, flight.departureDate, flight.arrivalDate, flight.price));
                 firstVlag = false;
             } 
+        }
+
+        flights = await apiCaller.GetAllFlightsToCity("Emmen");//For now we only dilever vacations from Emmen, this might be changed in the future
+
+        firstVlag = true;
+        foreach (var flight in flights)
+        {
+            if (flight.arrivalDate >= arrivalDate && flight.arrivalDate < arrivalDate.AddDays(1) && flight.departurePlace == location)//Since DateTime also stores time, this will select all flights for the next 24h
+            {
+                if (firstVlag)
+                    flightRadio = flight;
+                FlightsBack.Add(flightBuilder(firstVlag, flight.plane.airline, flight.departureDate, flight.arrivalDate, flight.price));
+                firstVlag = false;
+            }
         }
     }
 

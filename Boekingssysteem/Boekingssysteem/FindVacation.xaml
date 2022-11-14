@@ -126,110 +126,11 @@ Klik hieronder uw keuze van het hotel en de vluchten aan."/>
             </VerticalStackLayout>
 
             <VerticalStackLayout 
-                x:Name="Flights2"
+                x:Name="FlightsBack"
                 Grid.Row="5"
                 Margin="0, 10, 0, 0"
                 Grid.Column="1"
                 Grid.ColumnSpan="2">
-
-                <!--This are hardcoded flights for frontendtesting purposes-->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <RadioButton 
-                        Content="Vlucht 33"
-                        GroupName="Flights"
-                        TextColor="#A4765E"
-                        FontAttributes="Bold" 
-                        VerticalOptions="Center"
-                        IsChecked="True"
-                        HorizontalOptions="Start"/>
-                    <Label Text="Vlucht heen"
-                           Grid.Column="1"
-                       FontAttributes="Italic"
-                           HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
-                    <Label Text="Vlucht terug"
-                           Grid.Column="2"
-                       FontAttributes="Italic"
-                           HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
-                    <Label Text="Prijs"
-                           Grid.Column="3"
-                           FontAttributes="Bold" 
-                           HorizontalOptions="End"
-                        VerticalOptions="Center"/>
-                </Grid>
-
-
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <RadioButton 
-                        Content="Vlucht 2"
-                        GroupName="Flights"
-                        TextColor="#A4765E"
-                        FontAttributes="Bold" 
-                        IsChecked="False"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Start"/>
-                    <Label Text="Vlucht heen"
-                           Grid.Column="1"
-                       FontAttributes="Italic"
-                           HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
-                    <Label Text="Vlucht terug"
-                       FontAttributes="Italic"
-                           Grid.Column="2"
-                           HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
-                    <Label Text="Prijs"
-                           Grid.Column="3"
-                           FontAttributes="Bold" 
-                           HorizontalOptions="End"
-                        VerticalOptions="Center"/>
-                </Grid>
-
-
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <RadioButton 
-                        Content="Vlucht 3"
-                        GroupName="Flights"
-                        TextColor="#A4765E"
-                        IsChecked="False"
-                        FontAttributes="Bold" 
-                        VerticalOptions="Center"
-                        HorizontalOptions="Start"/>
-                    <Label Text="Vlucht heen"
-                           Grid.Column="1"
-                       FontAttributes="Italic"
-                           HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
-                    <Label Text="Vlucht terug"
-                       FontAttributes="Italic"
-                           Grid.Column="2"
-                           HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
-                    <Label Text="Prijs"
-                           Grid.Column="3"
-                           FontAttributes="Bold" 
-                           HorizontalOptions="End"
-                        VerticalOptions="Center"/>
-                </Grid>
             </VerticalStackLayout>
 
             <Button 
