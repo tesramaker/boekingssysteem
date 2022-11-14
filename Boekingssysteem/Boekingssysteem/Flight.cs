@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace Boekingssysteem
     {
     internal class Flight
-        {
+    {
         int FlightNumber;
         public Plane plane { get; set; }
         public double price { get; set; }
-        String departurePlace;
+        public String departurePlace { get; set; }
         public DateTime departureDate { get; set; }
         public String destination { get; set; }
         public DateTime arrivalDate { get; set; }
@@ -38,5 +38,5 @@ namespace Boekingssysteem
         {
 
         }
-        }
     }
+}

@@ -132,7 +132,7 @@ Klik hieronder uw keuze van het hotel en de vluchten aan."/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <RadioButton 
-                        Content="Hotel 2"
+                        Content="Hotel 88"
                         GroupName="Hotels"
                         TextColor="#A4765E"
                         FontAttributes="Bold" 

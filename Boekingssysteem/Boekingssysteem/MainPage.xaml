@@ -92,6 +92,8 @@ Geen idee naar welke locatie u wilt reizen? Geen probleem! Wij kiezen een bestem
                 TextColor="Black">
             </DatePicker>
 
+
+
             <Entry 
                 x:Name="location"
                 Grid.Row="1"
@@ -104,6 +106,7 @@ Geen idee naar welke locatie u wilt reizen? Geen probleem! Wij kiezen een bestem
                 BackgroundColor="White"
                 Placeholder="Locatie"/>
 
+ 
             <CheckBox 
                 x:Name="randomLocation"
                 Grid.Row="1"
@@ -144,6 +147,14 @@ Geen idee naar welke locatie u wilt reizen? Geen probleem! Wij kiezen een bestem
                 Clicked="OnSearchButtonClicked"
                 HorizontalOptions="Center" />
 
+        <Picker
+                x:Name="picker">
+        </Picker>
+        <!--Om een reden werkt dit niet als ik het de Grid op de juiste plaats zet-->
+
+
     </Grid>
+    
+    
 
 </ContentPage>
