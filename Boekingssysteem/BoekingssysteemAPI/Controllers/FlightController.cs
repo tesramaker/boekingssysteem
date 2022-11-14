@@ -20,7 +20,7 @@ namespace BoekingssysteemAPI.Controllers
         /// </summary>
 
         // GET: api/<Flightcontroller>/GetAllFLights
-        [HttpGet("GetAllflights")]
+        [HttpGet("GetAllFlights")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<IEnumerable<Flight>> GetAllFLights()
