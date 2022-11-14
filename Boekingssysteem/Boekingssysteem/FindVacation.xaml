@@ -14,6 +14,7 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
         <Border Grid.Row="1" Grid.Column="1" BackgroundColor="#DDFFFFFF"/>
@@ -122,6 +123,14 @@ Klik hieronder uw keuze van het hotel en de vluchten aan."/>
                 Margin="0, 10, 0, 0"
                 Grid.Column="1"
                 Grid.ColumnSpan="2">
+            </VerticalStackLayout>
+
+            <VerticalStackLayout 
+                x:Name="Flights2"
+                Grid.Row="5"
+                Margin="0, 10, 0, 0"
+                Grid.Column="1"
+                Grid.ColumnSpan="2">
 
                 <!--This are hardcoded flights for frontendtesting purposes-->
                 <Grid>
@@ -132,7 +141,7 @@ Klik hieronder uw keuze van het hotel en de vluchten aan."/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <RadioButton 
-                        Content="Vlucht 1"
+                        Content="Vlucht 33"
                         GroupName="Flights"
                         TextColor="#A4765E"
                         FontAttributes="Bold" 

@@ -99,22 +99,21 @@ public partial class FindVacation : ContentPage
 
     private async void addFlights(String location, DateTime departureDate, DateTime arrivalDate)
     {
-        //Flight[] flights = getAllFlighs();
-        List<Flight> flights = await getAllFlighs();
-        List<Flight> flightToRightLocationsAtRightTimes = new List<Flight>();
-        for (int i = 0; i < flights.Count; i++)
-        {
-            if (flights[i].destination == location && flights[i].departureDate == departureDate && flights[i].arrivalDate == arrivalDate)
-                flightToRightLocationsAtRightTimes.Add(flights[i]);
-        }
+        ApiCaller apiCaller = new ApiCaller();
+        List<Flight> flights = await apiCaller.GetAllFlightsToCity(location);
+
+        
 
         bool firstVlag = true;
-        foreach (var flight in flightToRightLocationsAtRightTimes)
+        foreach (var flight in flights)
         {
-            if (firstVlag)
-                flightRadio = flight;
-            Flights.Add(flightBuilder(firstVlag, flight.plane.airline, flight.departureDate, flight.arrivalDate, flight.price));
-            firstVlag = false;
+            if (flight.arrivalDate >= arrivalDate && flight.arrivalDate < arrivalDate.AddDays(1))
+            {
+                if (firstVlag)
+                    flightRadio = flight;
+                Flights.Add(flightBuilder(firstVlag, flight.plane.airline, flight.departureDate, flight.arrivalDate, flight.price));
+                firstVlag = false;
+            } 
         }
     }
 
@@ -173,21 +172,6 @@ public partial class FindVacation : ContentPage
         return grid;
     }
 
-    private async Task<List<Flight>> getAllFlighs()
-    {
-        //Flight[]
-        //Flight[] flights = new Flight[5];
-
-        ApiCaller apiCaller = new ApiCaller();
-        List<Flight> flights = await apiCaller.GetAllFlights();
-        var x = 3;
-        //flights[0] = new Flight(1, new Plane(1, "Emerates", 12, 12), 55, "Emmen", new DateTime(2022, 7, 25), "New York", new DateTime(2022, 7, 27), 1);
-        //flights[1] = new Flight(2, new Plane(1, "Lufthanza", 12, 12), 55, "Emmen", new DateTime(2022, 7, 20), "Tweede exloermond", new DateTime(2022, 7, 27), 1);
-        //flights[2] = new Flight(2, new Plane(1, "Turkey", 12, 12), 55, "Emmen", new DateTime(2022, 7, 7), "Milaan", new DateTime(2022, 7, 27), 1);
-        //flights[3] = new Flight(2, new Plane(1, "Klm", 12, 12), 55, "Emmen", new DateTime(2022, 7, 2), "Nieuw Schoonebeek City", new DateTime(2022, 7, 25), 1);
-        //flights[4] = new Flight(2, new Plane(1, "Pan Am", 12, 12), 55, "Emmen", new DateTime(2022, 7, 7), "Mariemberg", new DateTime(2022, 7, 27), 1);
-        return flights;
-    }
 
     void hotelRadioChanged(object sender, CheckedChangedEventArgs e)
     {
