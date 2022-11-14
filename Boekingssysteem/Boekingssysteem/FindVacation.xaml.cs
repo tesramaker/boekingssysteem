@@ -37,29 +37,23 @@ public partial class FindVacation : ContentPage
 
     private async void addHotels(String location, int numberOfPeople)
     {
-        List<Hotel> hotels = await getAllHotels();
-        var x = 3;
-        List<Hotel> hotelsInLocation = new List<Hotel>();
-        for (int i = 0; i < hotels.Count; i++)
-        {
-            if (hotels[i].city == location && hotels[i].room.amountOfPeople == numberOfPeople)
-            {
-                hotelsInLocation.Add(hotels[i]);
-            }
-        }
+        //Get all hotels in certain city from apiCaller and add them to menu
+        ApiCaller apiCaller = new ApiCaller();
+        List<Hotel> hotels = await apiCaller.GetAllHotelsByCity(location);
 
-        bool firstVlag = true;//This is used to set only one radiobutton
-        foreach (var i in hotelsInLocation)
+        bool firstVlag = true;//This is used to preset only one radiobutton
+        foreach (var hotel in hotels)
         {
             if (firstVlag)
-                hotelRadio = i;
-            Hotels.Add(hotelBuilder(i, firstVlag, i.name, i.city, (i.room.pricePerNightPerPerson * numberOfPeople)));
+                hotelRadio = hotel;
+            Hotels.Add(hotelBuilder(hotel, firstVlag, hotel.name, hotel.city, (hotel.room.pricePerNightPerPerson * numberOfPeople)));
             firstVlag = false;
         }
     }
 
     private Grid hotelBuilder(Hotel hotel, bool first, string name, string city, double pricePerNight)
     {
+        //This will build the frontend of the hotel selector menu
         Grid grid = new Grid();
 
         grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
@@ -101,23 +95,6 @@ public partial class FindVacation : ContentPage
         Grid.SetColumn(labelPrice, 2);
 
         return grid;
-    }
-
-    private async Task<List<Hotel>>  getAllHotels()
-    {   //Hotel[]
-        //Deze funtie is tijdelijk, het moet vervangen worden door de apicaller van Wesley
-        ApiCaller apiCaller = new ApiCaller();
-        List<Hotel> hotels = await apiCaller.GetHotelsByCity("New York");
-
-        //Hotel[] hotels = new Hotel[7];
-        //hotels[0] = new Hotel("Plaza", "New York", 0, 0, new Room(1, 5, 25, 2));
-        //hotels[1] = new Hotel("Van Der Valk", "Nieuw Amsterdam", 0, 0, new Room(1, 5, 25, 2));
-        //hotels[2] = new Hotel("Hilton", "Chicago", 0, 0, new Room(1, 5, 25, 2));
-        //hotels[3] = new Hotel("Overlook", "Colorado", 0, 0, new Room(1, 5, 25, 2));
-        //hotels[4] = new Hotel("Ceasars Palace", "Las Vegas", 0, 0, new Room(1, 5, 25, 2));
-        //hotels[5] = new Hotel("Ritz", "Parijs", 0, 0, new Room(1, 5, 25, 2));
-        //hotels[6] = new Hotel("Hilton", "New York", 0, 0, new Room(1, 5, 20, 2));
-        return hotels;
     }
 
     private async void addFlights(String location, DateTime departureDate, DateTime arrivalDate)

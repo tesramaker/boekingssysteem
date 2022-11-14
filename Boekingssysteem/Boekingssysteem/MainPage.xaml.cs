@@ -25,7 +25,6 @@ public partial class MainPage : ContentPage
         ApiCaller apiCaller = new ApiCaller();
 
         List<Hotel> hotels = await apiCaller.GetAllHotels();
-        location.Placeholder = apiCaller.GetAllHotels().ToString();
         List<String> hotelStrings = new List<String>();
         foreach (Hotel hotel in hotels)
         {
