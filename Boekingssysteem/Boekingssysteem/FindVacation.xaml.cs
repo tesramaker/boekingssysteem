@@ -8,14 +8,14 @@ public partial class FindVacation : ContentPage
     Flight flightRadio;
     Flight flightBackRadio;
     int numberOfPeople;
-    public FindVacation (DateTime startDate, DateTime endDate, string location, int numberOfPeople)
+    public FindVacation ( DateTime startDate, DateTime endDate, string location, int numberOfPeople )
     {
         this.numberOfPeople = numberOfPeople;
         InitializeComponent ( );
-        pageLayout();
+        pageLayout ( );
         addHotels ( location, numberOfPeople );
         addFlights ( location, startDate, endDate );
-    }
+        }
 
     private void pageLayout()
     {
@@ -23,7 +23,7 @@ public partial class FindVacation : ContentPage
         var seeMapClick = new TapGestureRecognizer();
         seeMapClick.Tapped += async (sender, e) =>
         {
-            await Navigation.PushAsync(new HotelsMap());
+            NavigateToBuilding25 ( );
         };
         seeMap.GestureRecognizers.Add(seeMapClick);
 
@@ -261,6 +261,22 @@ public partial class FindVacation : ContentPage
         Flight flight = (Flight)rb.Value;
         flightBackRadio = flight;
     }
+
+    public async Task NavigateToBuilding25 ( )
+        //TODO: See if there's another option. 
+        {
+        var location = new Location(47.645160, -122.1306032);
+        var options = new MapLaunchOptions { Name = "Microsoft Building 25" };
+
+        try
+            {
+            await Map.Default.OpenAsync ( location, options );
+            }
+        catch ( Exception ex )
+            {
+            // No map application available to open
+            }
+        }
 
     async void OnGoOnButtonClicked ( object sender, EventArgs e )
     {

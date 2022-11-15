@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:Class="Boekingssysteem.HotelsMap"
              Title="Boekingssysteem"
              BackgroundImageSource="background.jpg">
@@ -49,12 +50,12 @@
             Text="Hotels in deze regio"/>
 
             <!--Kaart-->
-            <WebView
+            <!--<WebView
                 Grid.Column="1"
                 Grid.ColumnSpan="3"
                 Grid.Row="2"
                 Margin="20,0,20,50"
-                Source="https://earth.google.com/web/search/Hotel+parijs/@48.85614567,2.33881605,42.34266202a,15275.576229d,35y,306.7545344h,60t,0r/data=CigiJgokCTp-OXAztDRAEWPDp_cRpjRAGat1sfou2VnAIc_hFGcG3FnAKAI" />
+                Source="https://earth.google.com/web/search/Hotel+parijs/@48.85614567,2.33881605,42.34266202a,15275.576229d,35y,306.7545344h,60t,0r/data=CigiJgokCTp-OXAztDRAEWPDp_cRpjRAGat1sfou2VnAIc_hFGcG3FnAKAI" />-->
             
         </Grid>
     </Grid>

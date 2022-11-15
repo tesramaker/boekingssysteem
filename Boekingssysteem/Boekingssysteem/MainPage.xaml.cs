@@ -26,11 +26,11 @@ public partial class MainPage : ContentPage
 
         List<Hotel> hotels = await apiCaller.GetAllHotels();
         List<String> hotelStrings = new List<String>();
-        foreach (Hotel hotel in hotels)
-        {
-            if (!hotelStrings.Contains(hotel.city))
-                hotelStrings.Add(hotel.city);
-        }
+        foreach ( Hotel hotel in hotels )
+            {
+            if ( !hotelStrings.Contains ( hotel.city ) )
+                hotelStrings.Add ( hotel.city );
+            }
         picker.ItemsSource = hotelStrings;
 
         checkbox.GestureRecognizers.Add ( listener );
@@ -43,14 +43,14 @@ public partial class MainPage : ContentPage
             await Navigation.PushAsync ( new LoginPage ( ) );
         };
         Login.GestureRecognizers.Add ( GotoLogin );
-    }
+        }
 
     async void OnSearchButtonClicked ( object sender, EventArgs e )
     {
         try
         {
-            await Navigation.PushAsync ( new FindVacation ( startDate.Date, endDate.Date, picker.SelectedItem.ToString(), Int16.Parse ( numberOfPeople.Text ) ) );
-        }
+            await Navigation.PushAsync ( new FindVacation ( startDate.Date, endDate.Date, picker.SelectedItem.ToString ( ), Int16.Parse ( numberOfPeople.Text ) ) );
+            }
         catch
         {
             await DisplayAlert ( "Kan niet doorgaan", "Vul alle velden in.", "OK" );

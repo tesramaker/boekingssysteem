@@ -1,3 +1,5 @@
+using Microsoft.Maui.ApplicationModel;
+
 namespace Boekingssysteem;
 
 public partial class HotelsMap : ContentPage
