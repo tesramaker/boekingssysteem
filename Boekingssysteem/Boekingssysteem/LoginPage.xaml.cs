@@ -6,4 +6,16 @@ public partial class LoginPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    async void OnLoginButtonClicked ( object sender, EventArgs e )
+        {
+        try
+            {
+            // do something
+            }
+        catch
+            {
+            await DisplayAlert ( "Kan niet doorgaan", "Vul alle velden in.", "OK" );
+            }
+        }
 }
