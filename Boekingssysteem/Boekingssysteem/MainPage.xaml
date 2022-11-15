@@ -47,8 +47,8 @@ Geen idee naar welke locatie u wilt reizen? Geen probleem! Wij kiezen een bestem
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="120"/>
-                <ColumnDefinition Width="120"/>
-                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="120"/>
@@ -93,8 +93,20 @@ Geen idee naar welke locatie u wilt reizen? Geen probleem! Wij kiezen een bestem
             </DatePicker>
 
 
+            <Picker
+                Grid.Row="1"
+                Grid.Column="4"
+                IsEnabled="True"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                WidthRequest="120"
+                TextColor="Black"
+                BackgroundColor="White"
+                x:Name="picker">
+            </Picker>
+            <!--Om een reden werkt dit niet als ik het de Grid op de juiste plaats zet-->
 
-            <Entry 
+            <!--<Entry 
                 x:Name="location"
                 Grid.Row="1"
                 Grid.Column="4"
@@ -104,7 +116,7 @@ Geen idee naar welke locatie u wilt reizen? Geen probleem! Wij kiezen een bestem
                 TextColor="Black"
                 HeightRequest="20"
                 BackgroundColor="White"
-                Placeholder="Locatie"/>
+                Placeholder="Locatie"/>-->
 
  
             <CheckBox 
@@ -146,11 +158,6 @@ Geen idee naar welke locatie u wilt reizen? Geen probleem! Wij kiezen een bestem
                 Text="Zoek vakantie"
                 Clicked="OnSearchButtonClicked"
                 HorizontalOptions="Center" />
-
-        <Picker
-                x:Name="picker">
-        </Picker>
-        <!--Om een reden werkt dit niet als ik het de Grid op de juiste plaats zet-->
 
 
     </Grid>
