@@ -1,4 +1,5 @@
-﻿using System.Data.Common;
+﻿using Boekingssysteem.ApiModels;
+using System.Data.Common;
 
 namespace Boekingssysteem;
 
@@ -64,5 +65,19 @@ public partial class MainPage : ContentPage
         List<Hotel> hotels = await apiCaller.GetHotelsByCity("Praag");
 
         var x = 3;
+    }
+
+    async void OnTesterButtonClicked ( object sender, EventArgs e)
+    {
+        ApiCaller apiCaller = new ApiCaller();
+        VacationApiModel vacation = new VacationApiModel(1, 1, 1, 1, DateTime.Now, DateTime.Now, 00.00, 1);
+        try
+        {
+            await apiCaller.GetHotelsByCity("New York");
+        }
+        catch(Exception)
+        {
+            throw;
+        }
     }
 }

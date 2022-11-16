@@ -73,7 +73,7 @@ namespace BoekingssysteemAPI.Controllers
         /// </summary>
 
         // POST: api/<VacationController>/Create/[Body]<Hotel>
-        [HttpPost]
+        [HttpPost("Create")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<bool> Create([FromBody] Vacation vacation)
