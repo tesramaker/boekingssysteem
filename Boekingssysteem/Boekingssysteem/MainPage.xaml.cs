@@ -8,19 +8,18 @@ public partial class MainPage : ContentPage
     public MainPage ( )
     {
         InitializeComponent ( );
-        Layout ( );
+        //Layout ( );
         }
 
-    async void Layout()
-    {
+    async void Layout ( )
+        {
 
         CheckBox checkbox = FindByName("randomLocation") as CheckBox;
-        Entry location = FindByName("location") as Entry;
-        Picker picker = FindByName("picker") as Picker;
+        Picker picker = FindByName("location") as Picker;
         var listener = new TapGestureRecognizer();
         listener.Tapped += ( sender, e ) =>
         {
-            location.IsEnabled = !checkbox.IsChecked;
+            picker.IsEnabled = !checkbox.IsChecked;
         };
 
         ApiCaller apiCaller = new ApiCaller();
@@ -50,7 +49,7 @@ public partial class MainPage : ContentPage
     {
         try
         {
-            await Navigation.PushAsync ( new FindVacation ( startDate.Date, endDate.Date, picker.SelectedItem.ToString ( ), Int16.Parse ( numberOfPeople.Text ) ) );
+            //await Navigation.PushAsync ( new FindVacation ( startDate.Date, endDate.Date, picker.SelectedItem.ToString ( ), Int16.Parse ( numberOfPeople.Text ) ) );
             }
         catch
         {
@@ -62,7 +61,7 @@ public partial class MainPage : ContentPage
     {
         ApiCaller apiCaller = new ApiCaller();
         List<Flight> flights = await apiCaller.GetAllFlights();
-        List<Hotel> hotels = await apiCaller.GetHotelsByCity("Praag");
+        _ = await apiCaller.GetHotelsByCity ( "Praag" );
 
         var x = 3;
     }
