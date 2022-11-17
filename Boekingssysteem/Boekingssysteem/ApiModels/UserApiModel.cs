@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Boekingssysteem
+namespace Boekingssysteem.ApiModels
 {
-    internal class User
+    internal class UserApiModel
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string password { get; set; }
+        public int? id { get; set; }
+        public string? name { get; set; }
+        public string? password { get; set; }
         public DateTime lastLoginDate { get; set; }
         public Guid loginToken { get; set; }
         public bool cancellationInsurance { get; set; }
-        
-        public User(int id, string name, string password, DateTime lastLoginDate, Guid loginToken, bool cancellationInsurance)
+
+        public UserApiModel(int id, string name, string password, DateTime lastLoginDate, Guid loginToken, bool cancellationInsurance)
         {
             this.id = id;
             this.name = name;
@@ -23,15 +23,15 @@ namespace Boekingssysteem
             this.lastLoginDate = lastLoginDate;
             this.loginToken = loginToken;
             this.cancellationInsurance = cancellationInsurance;
-         }
+        }
 
-        public User(string name, string password)
+        public UserApiModel(string name, string password)
         {
             this.name = name;
             this.password = password;
         }
 
-        public User(int id, Guid logoinToken)
+        public UserApiModel(int id, Guid logoinToken)
         {
             this.id = id;
             this.loginToken = loginToken;

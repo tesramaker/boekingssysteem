@@ -8,7 +8,7 @@ namespace Boekingssysteem
     {
     internal class Flight
     {
-        int FlightNumber;
+        public int flightNumber { get; set; }
         public Plane plane { get; set; }
         public double price { get; set; }
         public String departurePlace { get; set; }
@@ -19,7 +19,7 @@ namespace Boekingssysteem
 
         public Flight(int flightNumber, Plane plane, double price, string departurePlace, DateTime departureDate, string destination, DateTime arrivalDate, int amountOfPlaces)
         {
-            FlightNumber = flightNumber;
+            this.flightNumber = flightNumber;
             this.plane = plane;
             this.price = price;
             this.departurePlace = departurePlace;

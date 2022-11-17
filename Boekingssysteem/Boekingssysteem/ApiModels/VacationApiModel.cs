@@ -13,8 +13,8 @@ namespace Boekingssysteem.ApiModels
         public int outboundTrip { get; set; }
         public int returnTrip { get; set; }
         public int amountOfPeople { get; set; }
-        public DateTime startDate;
-        public DateTime endDate;
+        public DateTime startDate { get; set; }
+        public DateTime endDate { get; set; }
         public double extraBagageInKg { get; set; }
         public int userId { get; set; }
 

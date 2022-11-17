@@ -10,10 +10,10 @@ namespace Boekingssysteem
     {
         public String name { get; set; }
         public String city { get; set; }
-        double xCoord;
-        double yCoord;
-        public Room room { get; set; }//At this moment in time, a hotel has only one room. 
-        List<Room> rooms;//This list is not yet used
+        public double xCoord { get; set; }
+        public double yCoord { get; set; }
+        //public Room room { get; set; }//At this moment in time, a hotel has only one room. 
+        List<Room> rooms { get; set; }//This list is not yet used
 
         public Hotel(string name, string city, double xCoord, double yCoord, Room room)
         {
@@ -21,17 +21,23 @@ namespace Boekingssysteem
             this.city = city;
             this.xCoord = xCoord;
             this.yCoord = yCoord;
-            this.room = room;
-        }
-
-        public Room GetRoom()
-        {
-            return room;
         }
 
         public List<Room> GetListAvailableRooms()
         {
             return rooms;
+        }
+
+        public Room GetRoomById(int id)
+        {
+            foreach(Room value in this.rooms)
+            {
+                if(value.id == id)
+                {
+                    return value;
+                }
+            }
+            return null;
         }
     }
 }
