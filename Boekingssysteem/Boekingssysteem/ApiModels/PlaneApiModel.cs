@@ -8,7 +8,7 @@ namespace Boekingssysteem.ApiModels
 {
     internal class PlaneApiModel
     {
-        public int? id { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
         public int seats { get; set; }
         public string airline { get; set; }
@@ -22,13 +22,14 @@ namespace Boekingssysteem.ApiModels
             this.defaultAmountSeats = defaultAmountSeats;
         }
 
-        public PlaneApiModel(int id, string name, int seats, string airline, int defaultAmountSeats)
-        {
-            this.id = id;
-            this.name = name;
-            this.seats = seats;
-            this.airline = airline;
-            this.defaultAmountSeats = defaultAmountSeats;
-        }
+        //TODO: Fix questionmark
+        //public PlaneApiModel(int id, string name, int seats, string airline, int defaultAmountSeats)
+        //{
+        //    this.id = id;
+        //    this.name = name;
+        //    this.seats = seats;
+        //    this.airline = airline;
+        //    this.defaultAmountSeats = defaultAmountSeats;
+        //}
     }
 }

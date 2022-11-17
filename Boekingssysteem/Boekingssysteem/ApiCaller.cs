@@ -20,9 +20,11 @@ namespace Boekingssysteem
             this.uri = new Uri("https://localhost:7173/");
         }
 
-        public async Task<List<Flight>> GetAllFlights()
+        //FLIGHT Create, read, update, delete. -COMPLETE
+        //GET
+        public async Task<List<FlightApiModel>> GetAllFlights()
         {
-            List<Flight> flights = new List<Flight>();
+            List<FlightApiModel> flights = new List<FlightApiModel>();
             HttpClient client = new HttpClient();
 
             using (client)
@@ -34,26 +36,15 @@ namespace Boekingssysteem
                     using (content)
                     {
                         string myContent = await content.ReadAsStringAsync();
-                        dynamic allFlights = JsonConvert.DeserializeObject(myContent);
-
-                        for(int i = 0; i < allFlights.Count; i++)
-                        {
-                            var _flight = allFlights[i];
-                            var jsonPlane = (JObject)_flight;
-
-                            Plane p = await this.getPlaneById(jsonPlane["planeId"].Value<int>());
-                            Flight flight = new Flight(jsonPlane["id"].Value<int>(), p, jsonPlane["cost"].Value<double>(), jsonPlane["fromLocation"].Value<string>(), jsonPlane["departDate"].Value<DateTime>(), jsonPlane["toLocation"].Value<string>(), jsonPlane["arrivalDate"].Value<DateTime>(), 0);
-                            flights.Add(flight);
-                        }
+                        flights = System.Text.Json.JsonSerializer.Deserialize<List<FlightApiModel>>(myContent);
                     }
                 }
                 return flights;
-            } 
+            }
         }
-
-        public async Task<List<Flight>> GetAllFlightsToCity(string location)
+        public async Task<List<FlightApiModel>> GetAllFlightsToCity(string location)
         {
-            List<Flight> flights = new List<Flight>();
+            List<FlightApiModel> flights = new List<FlightApiModel>();
             HttpClient client = new HttpClient();
 
             using (client)
@@ -64,27 +55,62 @@ namespace Boekingssysteem
                     HttpContent content = response.Content;
                     using (content)
                     {
+                        //string myContent = await content.ReadAsStringAsync();
+                        //dynamic allFlights = JsonConvert.DeserializeObject(myContent);
+
                         string myContent = await content.ReadAsStringAsync();
-                        dynamic allFlights = JsonConvert.DeserializeObject(myContent);
-
-                        for (int i = 0; i < allFlights.Count; i++)
-                        {
-                            var _flight = allFlights[i];
-                            var jsonPlane = (JObject)_flight;
-
-                            Plane p = await this.getPlaneById(jsonPlane["planeId"].Value<int>());
-                            Flight flight = new Flight(jsonPlane["id"].Value<int>(), p, jsonPlane["cost"].Value<double>(), jsonPlane["fromLocation"].Value<string>(), jsonPlane["departDate"].Value<DateTime>(), jsonPlane["toLocation"].Value<string>(), jsonPlane["arrivalDate"].Value<DateTime>(), 0);
-                            flights.Add(flight);
-                        }
-                    }
+                        flights = System.Text.Json.JsonSerializer.Deserialize<List<FlightApiModel>>(myContent);
+                }
                 }
                 return flights;
             }
         }
-
-        public async Task<List<Hotel>> GetAllHotels()
+        public async Task<FlightApiModel> GetFlightById(int id)
         {
-            List<Hotel> hotels = new List<Hotel>();
+        FlightApiModel flight;
+            HttpClient client = new HttpClient();
+
+            using (client)
+            {
+                HttpResponseMessage response = await client.GetAsync(this.uri + "Flight/GetFlightById/" + id);
+                using (response)
+                {
+                    HttpContent content = response.Content;
+                    using (content)
+                    {
+
+                    string myContent = await content.ReadAsStringAsync();
+                    flight = System.Text.Json.JsonSerializer.Deserialize<FlightApiModel>(myContent);
+                }
+
+                return flight;
+                }
+            }
+        }
+
+        //CREATE
+        public async Task<bool> CreateFlight(FlightApiModel flight)
+        {
+            HttpClient client = new HttpClient();
+            string json = JsonConvert.SerializeObject(flight);
+            StringContent stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+            HttpContent httpContent = stringContent;
+
+            HttpResponseMessage response = new HttpResponseMessage();
+            using (client)
+            {
+                // Sends a POST request to create a vacation
+                response = await client.PostAsync(this.uri + "Flight/Create", httpContent);
+            }
+            // Returns true if the statuscode is between 200 and 299
+            return response.IsSuccessStatusCode;
+        }
+
+        //HOTEL Create, read, update, delete. -COMPLETE
+        //GET
+        public async Task<List<HotelApiModel>> GetAllHotels()
+        {
+            List<HotelApiModel> hotels = new List<HotelApiModel>();
             HttpClient client = new HttpClient();
 
             using (client)
@@ -96,26 +122,15 @@ namespace Boekingssysteem
                     using (content)
                     {
                         string myContent = await content.ReadAsStringAsync();
-                        dynamic allHotels = JsonConvert.DeserializeObject(myContent);
-
-                        for (int i = 0; i < allHotels.Count; i++)
-                        {
-                            var _hotel = allHotels[i];
-                            var jsonHotel = (JObject)_hotel;
-
-                            Hotel hotel = new Hotel(jsonHotel["name"].Value<string>(), jsonHotel["city"].Value<string>(), 0, 0, new Room(0, 0, 0, 0, 0));
-                            hotels.Add(hotel);
-                        }
+                        hotels = System.Text.Json.JsonSerializer.Deserialize<List<HotelApiModel>>(myContent);
                     }
                 }
                 return hotels;
             }
-
         }
-
-        public async Task<List<Hotel>> GetAllHotelsByCity(string location)
+        public async Task<List<HotelApiModel>> GetAllHotelsInCity(string location)
         {
-            List<Hotel> hotels = new List<Hotel>();
+            List<HotelApiModel> hotels = new List<HotelApiModel>();
             HttpClient client = new HttpClient();
 
             using (client)
@@ -126,83 +141,276 @@ namespace Boekingssysteem
                     HttpContent content = response.Content;
                     using (content)
                     {
+                        //string myContent = await content.ReadAsStringAsync();
+                        //dynamic allHotels = JsonConvert.DeserializeObject(myContent);
+
                         string myContent = await content.ReadAsStringAsync();
-                        dynamic allHotels = JsonConvert.DeserializeObject(myContent);
-
-                        for (int i = 0; i < allHotels.Count; i++)
-                        {
-                            var _hotel = allHotels[i];
-                            var jsonHotel = (JObject)_hotel;
-
-                            Hotel hotel = new Hotel(jsonHotel["name"].Value<string>(), jsonHotel["city"].Value<string>(), 0, 0, new Room(0, 0, 0, 0, 0));
-                            hotels.Add(hotel);
-                        }
-                    }
-                }
-                return hotels;
-            }
-
-        }
-
-
-        public async Task<Plane> getPlaneById(int id)
-        {
-
-            HttpClient client = new HttpClient();
-            using (client)
-            {
-                HttpResponseMessage response = await client.GetAsync(this.uri + "Plane/GetPlaneById/id?id="+id.ToString());
-                using (response)
-                {
-                    HttpContent content = response.Content;
-                    using (content)
-                    {
-                        string myContent = await content.ReadAsStringAsync();
-
-                        var json = (JObject)JsonConvert.DeserializeObject(myContent);
-
-                        //int _id = json["id"].Value<int>();
-                        //var _airline = json["airline"].Value<string>();
-                        //var _seats = json["seats"].Value<int>();
-
-                        Plane plane = new Plane(json["id"].Value<int>().ToString(), json["airline"].Value<string>(), json["seats"].Value<int>(), 0);
-                        return plane;
-                    }
-                }
-            }
-            
-        }
-
-        public async Task<List<HotelApiModel>> GetHotelsByCity(string city)
-        {
-            List<HotelApiModel> hotels = new List<HotelApiModel>();
-            HttpClient client = new HttpClient();
-
-            using (client)
-            {
-                HttpResponseMessage response = await client.GetAsync(this.uri + "Hotel/GetAllHotelsIsCity/" + city);
-                using (response)
-                {
-                    HttpContent content = response.Content;
-                    using (content)
-                    {
-                        string myContent = await content.ReadAsStringAsync();
-
-                        // Creates a list of HotelApiModel objects based on the incoming JSON response
                         hotels = System.Text.Json.JsonSerializer.Deserialize<List<HotelApiModel>>(myContent);
                     }
                 }
                 return hotels;
             }
+
+        }
+        public async Task<HotelApiModel> GetHotelByName(string name)
+        {
+            HotelApiModel hotel;
+            HttpClient client = new HttpClient();
+
+            using (client)
+            {
+                HttpResponseMessage response = await client.GetAsync(this.uri + "Hotel/GetHotelByName/" + name);
+                using (response)
+                {
+                    HttpContent content = response.Content;
+                    using (content)
+                    {
+                        //string myContent = await content.ReadAsStringAsync();
+                        //dynamic allHotels = JsonConvert.DeserializeObject(myContent);
+
+                        string myContent = await content.ReadAsStringAsync();
+                        hotel = System.Text.Json.JsonSerializer.Deserialize<HotelApiModel>(myContent);
+                    }
+                }
+                return hotel;
+            }
+
+        }
+        public async Task<HotelApiModel> GetHotelById(int id)
+        {
+            HotelApiModel hotel;
+            HttpClient client = new HttpClient();
+
+            using (client)
+            {
+                HttpResponseMessage response = await client.GetAsync(this.uri + "Hotel/GetHotelById/" + id);
+                using (response)
+                {
+                    HttpContent content = response.Content;
+                    using (content)
+                    {
+
+                        string myContent = await content.ReadAsStringAsync();
+                        hotel = System.Text.Json.JsonSerializer.Deserialize<HotelApiModel>(myContent);
+                    }
+
+                    return hotel;
+                }
+            }
+        }
+        //CREATE
+        public async Task<bool> CreateHotel(HotelApiModel hotel)
+        {
+            HttpClient client = new HttpClient();
+            string json = JsonConvert.SerializeObject(hotel);
+            StringContent stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+            HttpContent httpContent = stringContent;
+
+            HttpResponseMessage response = new HttpResponseMessage();
+            using (client)
+            {
+                // Sends a POST request to create a vacation
+                response = await client.PostAsync(this.uri + "Hotel/Create", httpContent);
+            }
+            // Returns true if the statuscode is between 200 and 299
+            return response.IsSuccessStatusCode;
         }
 
+        //PLANE Create, read, update, delete. -COMPLETE
+        //GET
+        public async Task<List<PlaneApiModel>> GetAllPlanes()
+        {
+            List<PlaneApiModel> planes = new List<PlaneApiModel>();
+            HttpClient client = new HttpClient();
+
+            using (client)
+            {
+                HttpResponseMessage response = await client.GetAsync(this.uri + "Plane/GetAllPlanes");
+                using (response)
+                {
+                    HttpContent content = response.Content;
+                    using (content)
+                    {
+                        string myContent = await content.ReadAsStringAsync();
+                        planes = System.Text.Json.JsonSerializer.Deserialize<List<PlaneApiModel>>(myContent);
+                    }
+                }
+                return planes;
+            }
+        }
+        public async Task<PlaneApiModel> GetPlaneById(int id)
+        {
+            PlaneApiModel plane;
+            HttpClient client = new HttpClient();
+
+            using (client)
+            {
+                HttpResponseMessage response = await client.GetAsync(this.uri + "Plane/GetPlaneById/id?id=" + id);
+                using (response)
+                {
+                    HttpContent content = response.Content;
+                    using (content)
+                    {
+
+                        string myContent = await content.ReadAsStringAsync();
+                        plane = System.Text.Json.JsonSerializer.Deserialize<PlaneApiModel>(myContent);
+                    }
+
+                    return plane;
+                }
+            }
+        }
+        //CREATE
+        public async Task<bool> CreatePlane(PlaneApiModel plane)
+        {
+            HttpClient client = new HttpClient();
+            string json = JsonConvert.SerializeObject(plane);
+            StringContent stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+            HttpContent httpContent = stringContent;
+
+            HttpResponseMessage response = new HttpResponseMessage();
+            using (client)
+            {
+                // Sends a POST request to create a vacation
+                response = await client.PostAsync(this.uri + "Plane/Create", httpContent);
+            }
+            // Returns true if the statuscode is between 200 and 299
+            return response.IsSuccessStatusCode;
+        }
+
+
+        //ROOM Create, read, update, delete. -COMPLETE
+        //GET
+        public async Task<List<RoomApiModel>> GetAllRooms()
+        {
+            List<RoomApiModel> rooms = new List<RoomApiModel>();
+            HttpClient client = new HttpClient();
+
+            using (client)
+            {
+                HttpResponseMessage response = await client.GetAsync(this.uri + "Room/GetAllRooms");
+                using (response)
+                {
+                    HttpContent content = response.Content;
+                    using (content)
+                    {
+                        string myContent = await content.ReadAsStringAsync();
+                        rooms = System.Text.Json.JsonSerializer.Deserialize<List<RoomApiModel>>(myContent);
+                    }
+                }
+                return rooms;
+            }
+        }
+        public async Task<List<RoomApiModel>> GetRoomsByHotelId(int id)
+        {
+            List<RoomApiModel> rooms = new List<RoomApiModel>();
+            HttpClient client = new HttpClient();
+
+            using (client)
+            {
+                HttpResponseMessage response = await client.GetAsync(this.uri + "Room/GetRoomsByHotelId/" + id);
+                using (response)
+                {
+                    HttpContent content = response.Content;
+                    using (content)
+                    {
+                        string myContent = await content.ReadAsStringAsync();
+                        rooms = System.Text.Json.JsonSerializer.Deserialize<List<RoomApiModel>>(myContent);
+                    }
+                }
+                return rooms;
+            }
+        }
+        public async Task<RoomApiModel> GetRoomById(int id)
+        {
+            RoomApiModel room;
+            HttpClient client = new HttpClient();
+
+            using (client)
+            {
+                HttpResponseMessage response = await client.GetAsync(this.uri + "Room/GetRoomById/" + id);
+                using (response)
+                {
+                    HttpContent content = response.Content;
+                    using (content)
+                    {
+
+                        string myContent = await content.ReadAsStringAsync();
+                        room = System.Text.Json.JsonSerializer.Deserialize<RoomApiModel>(myContent);
+                    }
+
+                    return room;
+                }
+            }
+        }
+        //CREATE
+        public async Task<bool> CreateRoom(RoomApiModel room)
+        {
+            HttpClient client = new HttpClient();
+            string json = JsonConvert.SerializeObject(room);
+            StringContent stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+            HttpContent httpContent = stringContent;
+
+            HttpResponseMessage response = new HttpResponseMessage();
+            using (client)
+            {
+                // Sends a POST request to create a vacation
+                response = await client.PostAsync(this.uri + "Room/Create", httpContent);
+            }
+            // Returns true if the statuscode is between 200 and 299
+            return response.IsSuccessStatusCode;
+        }
+
+
+        //VACATION Create, read, update, delete. -COMPLETE
+        //GET
+        public async Task<List<VacationApiModel>> GetAllVacations()
+        {
+            List<VacationApiModel> vacations = new List<VacationApiModel>();
+            HttpClient client = new HttpClient();
+
+            using (client)
+            {
+                HttpResponseMessage response = await client.GetAsync(this.uri + "Vacation/GetAllVacations");
+                using (response)
+                {
+                    HttpContent content = response.Content;
+                    using (content)
+                    {
+                        string myContent = await content.ReadAsStringAsync();
+                        vacations = System.Text.Json.JsonSerializer.Deserialize<List<VacationApiModel>>(myContent);
+                    }
+                }
+                return vacations;
+            }
+        }
+        public async Task<VacationApiModel> GetVacationById(int id)
+        {
+            VacationApiModel vacation;
+            HttpClient client = new HttpClient();
+
+            using (client)
+            {
+                HttpResponseMessage response = await client.GetAsync(this.uri + "Vacation/GetVacationById/" + id);
+                using (response)
+                {
+                    HttpContent content = response.Content;
+                    using (content)
+                    {
+
+                        string myContent = await content.ReadAsStringAsync();
+                        vacation = System.Text.Json.JsonSerializer.Deserialize<VacationApiModel>(myContent);
+                    }
+
+                    return vacation;
+                }
+            }
+        }
+        //CREATE
         public async Task<bool> CreateVacation(VacationApiModel vacation)
         {
             HttpClient client = new HttpClient();
-
-            // Turnes a Object into a JSON string
             string json = JsonConvert.SerializeObject(vacation);
-            // Creates a stringContent class which is used in a HttpContent object
             StringContent stringContent = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
             HttpContent httpContent = stringContent;
 
@@ -215,5 +423,6 @@ namespace Boekingssysteem
             // Returns true if the statuscode is between 200 and 299
             return response.IsSuccessStatusCode;
         }
+
     }
 }

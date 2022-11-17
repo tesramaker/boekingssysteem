@@ -9,7 +9,7 @@ public partial class MainPage : ContentPage
     private Picker picker;
     private ApiCaller apiCaller;
     private string selectedCity;
-    private List<Hotel> hotels;
+    private List<HotelApiModel> hotels;
     private List<String> hotelStrings;
 
 
@@ -23,7 +23,7 @@ public partial class MainPage : ContentPage
         this.selectedCity = "";
         this.hotelStrings = new List<String>();
 
-        Layout ();
+        //Layout ();
     }
 
     async void Layout ()
@@ -38,7 +38,8 @@ public partial class MainPage : ContentPage
 
         this.hotels = await this.apiCaller.GetAllHotels();
 
-        foreach (Hotel hotel in hotels)
+        //TODO : Manager
+        foreach (HotelApiModel hotel in hotels)
         {
             if ( !hotelStrings.Contains(hotel.city))
             hotelStrings.Add ( hotel.city );
@@ -77,19 +78,19 @@ public partial class MainPage : ContentPage
     private async void Button_Clicked(object sender, EventArgs e)
     {
         ApiCaller apiCaller = new ApiCaller();
-        List<Flight> flights = await apiCaller.GetAllFlights();
-        _ = await apiCaller.GetHotelsByCity ( "Praag" );
-
-        var x = 3;
+        //TODO : Manager
+        List<FlightApiModel> flights = await apiCaller.GetAllFlights();
+        //_ = await apiCaller.GetHotelsByCity ( "Praag" );
     }
 
     async void OnTesterButtonClicked ( object sender, EventArgs e)
     {
+        //TODO : Delete Test Buttons
         ApiCaller apiCaller = new ApiCaller();
         VacationApiModel vacation = new VacationApiModel(1, 1, 1, 1, DateTime.Now, DateTime.Now, 00.00, 1);
         try
         {
-            await apiCaller.GetHotelsByCity("New York");
+            //await apiCaller.GetHotelsByCity("New York");
         }
         catch(Exception)
         {
@@ -103,11 +104,21 @@ public partial class MainPage : ContentPage
         //VacationApiModel vacation = new VacationApiModel(1, 1, 1, 1, DateTime.Now, DateTime.Now, 00.00, 1);
         try
         {
-            //await apiCaller.GetHotelsByCity("New York");
-            Flight flight = await apiCaller.GetFlightById(8);
-            
+            //TODO : Delete Test Buttons
+            //GetAllFlights, 
+            //GetAllHotelsInCity
+            //GetPlaneById
+            //CreateRoom
+            //GetVacationById
+
+            //var any1 = await apiCaller.GetAllFlights();
+            //var any2 = await apiCaller.GetAllHotelsInCity("Emmen");
+            //var any3 = await apiCaller.GetPlaneById(3);
+            //var any4 = await apiCaller.CreateRoom(new RoomApiModel(1, 1, 1, 2, DateTime.Now, DateTime.Now, 2));
+            //var any5 = await apiCaller.GetVacationById(4
+
         }
-        catch (Exception ex)
+        catch (Exception  ex)
         {
             throw ex;
         }

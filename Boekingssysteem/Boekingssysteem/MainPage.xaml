@@ -151,13 +151,13 @@ Geen idee naar welke locatie u wilt reizen? Geen probleem! Wij kiezen een bestem
             x:Name="tester"
             Clicked="OnTesterButtonClicked"
             Text="Maak vakantie">
-        </Button>
+        </Button>-->
 
         <Button
             x:Name="tester2"
             Clicked="OnTesterButtonClicked2"
             Text="Test2">
-        </Button>-->
+        </Button>
         
     </Grid>
 </ContentPage>
