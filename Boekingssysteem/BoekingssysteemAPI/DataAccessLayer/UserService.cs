@@ -40,8 +40,7 @@ namespace BoekingssysteemAPI.DataAccessLayer
         {
             try
             {
-                User tempUser = new User();
-                tempUser = dbConnection.User.Single<User>(item => item.name == user.name && item.password == user.password);
+                User tempUser = dbConnection.User.Single<User>(item => item.name == user.name && item.password == user.password);
                 return tempUser;
             }
             catch(Exception)
