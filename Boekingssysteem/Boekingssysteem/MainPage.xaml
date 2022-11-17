@@ -100,8 +100,11 @@ Geen idee naar welke locatie u wilt reizen? Geen probleem! Wij kiezen een bestem
                 HorizontalOptions="Center"
                 WidthRequest="120"
                 TextColor="Black"
-                BackgroundColor="White"
-                x:Name="location" />
+                BackgroundColor="Red"
+                x:Name="location"
+                SelectedIndexChanged="location_SelectedIndexChanged"
+            >
+            </Picker>
 
             <CheckBox 
                 x:Name="randomLocation"
@@ -144,10 +147,17 @@ Geen idee naar welke locatie u wilt reizen? Geen probleem! Wij kiezen een bestem
                 HorizontalOptions="Center" />
 
         <!-- Test button -->
-        <Button
+        <!--<Button
             x:Name="tester"
             Clicked="OnTesterButtonClicked"
             Text="Maak vakantie">
         </Button>
+
+        <Button
+            x:Name="tester2"
+            Clicked="OnTesterButtonClicked2"
+            Text="Test2">
+        </Button>-->
+        
     </Grid>
 </ContentPage>

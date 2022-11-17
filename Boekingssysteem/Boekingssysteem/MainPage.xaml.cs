@@ -4,53 +4,70 @@ using System.Data.Common;
 namespace Boekingssysteem;
 
 public partial class MainPage : ContentPage
-    {
+{
+    private CheckBox checkbox;
+    private Picker picker;
+    private ApiCaller apiCaller;
+    private string selectedCity;
+    private List<Hotel> hotels;
+    private List<String> hotelStrings;
+
+
     public MainPage ( )
     {
-        InitializeComponent ( );
-        //Layout ( );
-        }
+        InitializeComponent ();
 
-    async void Layout ( )
-        {
+        this.checkbox = FindByName("randomLocation") as CheckBox;
+        this.picker = FindByName("location") as Picker;
+        this.apiCaller = new ApiCaller();
+        this.selectedCity = "";
+        this.hotelStrings = new List<String>();
 
-        CheckBox checkbox = FindByName("randomLocation") as CheckBox;
-        Picker picker = FindByName("location") as Picker;
-        var listener = new TapGestureRecognizer();
+        Layout ();
+    }
+
+    async void Layout ()
+    {
+
+        TapGestureRecognizer listener = new TapGestureRecognizer();
+
         listener.Tapped += ( sender, e ) =>
         {
             picker.IsEnabled = !checkbox.IsChecked;
         };
 
-        ApiCaller apiCaller = new ApiCaller();
+        this.hotels = await this.apiCaller.GetAllHotels();
 
-        List<Hotel> hotels = await apiCaller.GetAllHotels();
-        List<String> hotelStrings = new List<String>();
-        foreach ( Hotel hotel in hotels )
-            {
-            if ( !hotelStrings.Contains ( hotel.city ) )
-                hotelStrings.Add ( hotel.city );
-            }
+        foreach (Hotel hotel in hotels)
+        {
+            if ( !hotelStrings.Contains(hotel.city))
+            hotelStrings.Add ( hotel.city );
+        }
+
         picker.ItemsSource = hotelStrings;
+        picker.SelectedIndex = 0;
 
         checkbox.GestureRecognizers.Add ( listener );
         Entry numPeople = FindByName("numberOfPeople") as Entry;
 
         Label Login = FindByName("Login") as Label;
-        var GotoLogin = new TapGestureRecognizer();
+        TapGestureRecognizer GotoLogin = new TapGestureRecognizer();
         GotoLogin.Tapped += async ( sender, e ) =>
         {
-            await Navigation.PushAsync ( new LoginPage ( ) );
+            await Navigation.PushAsync( new LoginPage ( ) );
         };
-        Login.GestureRecognizers.Add ( GotoLogin );
-        }
+        Login.GestureRecognizers.Add( GotoLogin );
 
-    async void OnSearchButtonClicked ( object sender, EventArgs e )
+        
+
+    }
+
+    async void OnSearchButtonClicked( object sender, EventArgs e )
     {
         try
         {
-            //await Navigation.PushAsync ( new FindVacation ( startDate.Date, endDate.Date, picker.SelectedItem.ToString ( ), Int16.Parse ( numberOfPeople.Text ) ) );
-            }
+            await Navigation.PushAsync ( new FindVacation ( startDate.Date, endDate.Date, picker.SelectedItem.ToString ( ), Int16.Parse ( numberOfPeople.Text ) ) );
+        }
         catch
         {
             await DisplayAlert ( "Kan niet doorgaan", "Vul alle velden in.", "OK" );
@@ -78,5 +95,28 @@ public partial class MainPage : ContentPage
         {
             throw;
         }
+    }
+
+    async void OnTesterButtonClicked2(object sender, EventArgs e)
+    {
+        ApiCaller apiCaller = new ApiCaller();
+        //VacationApiModel vacation = new VacationApiModel(1, 1, 1, 1, DateTime.Now, DateTime.Now, 00.00, 1);
+        try
+        {
+            //await apiCaller.GetHotelsByCity("New York");
+            Flight flight = await apiCaller.GetFlightById(8);
+            
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+    private void location_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string currentlySelected = this.picker.SelectedItem.ToString();
+        int selectedIndex = this.picker.SelectedIndex;
+        this.selectedCity = this.picker.SelectedItem.ToString();
     }
 }
