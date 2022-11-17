@@ -36,7 +36,7 @@ namespace BoekingssysteemAPI.Controllers
         }
 
         // GET: api/<HotelController>/GetAllHotelsInCity/<city>
-        [HttpGet("GetAllHotelsIsCity/{city}")]
+        [HttpGet("GetAllHotelsInCity/{city}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<IEnumerable<Hotel>> GetAllHotelsInCity(string city)
