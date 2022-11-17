@@ -135,7 +135,7 @@ namespace Boekingssysteem
 
             using (client)
             {
-                HttpResponseMessage response = await client.GetAsync(this.uri + "Hotel/GetAllHotelsIsCity/" + location);
+                HttpResponseMessage response = await client.GetAsync(this.uri + "Hotel/GetAllHotelsInCity/" + location);
                 using (response)
                 {
                     HttpContent content = response.Content;
