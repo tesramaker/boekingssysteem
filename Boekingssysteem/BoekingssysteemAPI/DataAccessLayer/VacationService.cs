@@ -42,9 +42,9 @@ namespace BoekingssysteemAPI.DataAccessLayer
             {
                 return dbConnection.Vacation.ToList<Vacation>();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                throw e;
             }
         }
 

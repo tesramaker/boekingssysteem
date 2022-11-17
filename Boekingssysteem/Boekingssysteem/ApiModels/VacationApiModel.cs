@@ -8,7 +8,8 @@ namespace Boekingssysteem.ApiModels
 {
     public class VacationApiModel
     {
-        public int? id { get; set; }
+        //TODO: Fix questionmark
+        //public int id { get; set; }
         public int hotelId { get; set; }
         public int outboundTrip { get; set; }
         public int returnTrip { get; set; }
