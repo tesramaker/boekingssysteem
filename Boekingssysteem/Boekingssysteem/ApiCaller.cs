@@ -103,7 +103,7 @@ namespace Boekingssysteem
                             var _hotel = allHotels[i];
                             var jsonHotel = (JObject)_hotel;
 
-                            Hotel hotel = new Hotel(jsonHotel["name"].Value<string>(), jsonHotel["city"].Value<string>(), 0, 0, new Room(0, 0, 0, 0));
+                            Hotel hotel = new Hotel(jsonHotel["name"].Value<string>(), jsonHotel["city"].Value<string>(), 0, 0, new Room(0, 0, 0, 0, 0));
                             hotels.Add(hotel);
                         }
                     }
@@ -134,7 +134,7 @@ namespace Boekingssysteem
                             var _hotel = allHotels[i];
                             var jsonHotel = (JObject)_hotel;
 
-                            Hotel hotel = new Hotel(jsonHotel["name"].Value<string>(), jsonHotel["city"].Value<string>(), 0, 0, new Room(0, 0, 0, 0));
+                            Hotel hotel = new Hotel(jsonHotel["name"].Value<string>(), jsonHotel["city"].Value<string>(), 0, 0, new Room(0, 0, 0, 0, 0));
                             hotels.Add(hotel);
                         }
                     }
@@ -165,7 +165,7 @@ namespace Boekingssysteem
                         //var _airline = json["airline"].Value<string>();
                         //var _seats = json["seats"].Value<int>();
 
-                        Plane plane = new Plane(json["id"].Value<int>(), json["airline"].Value<string>(), json["seats"].Value<int>(), 0);
+                        Plane plane = new Plane(json["id"].Value<int>().ToString(), json["airline"].Value<string>(), json["seats"].Value<int>(), 0);
                         return plane;
                     }
                 }
