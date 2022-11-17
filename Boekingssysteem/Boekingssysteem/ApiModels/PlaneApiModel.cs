@@ -12,7 +12,6 @@ namespace Boekingssysteem.ApiModels
         public string name { get; set; }
         public int seats { get; set; }
         public string airline { get; set; }
-
         public int defaultAmountSeats { get; set; }
 
         public PlaneApiModel(string name, int seats, string airline, int defaultAmountSeats)

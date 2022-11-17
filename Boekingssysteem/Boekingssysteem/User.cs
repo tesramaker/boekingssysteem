@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Boekingssysteem
 {
-    internal class User
+    public class User
     {
         public int id { get; set; }
         public string name { get; set; }

@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Boekingssysteem
+{
+    public class Vacation
     {
-    internal class Vacation
-        {
         public int id { get; set; }
         public Hotel hotel { get; set; }
         public Flight outboundTrip { get; set; }

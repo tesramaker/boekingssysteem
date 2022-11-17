@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Boekingssysteem.ApiModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,38 +7,49 @@ using System.Threading.Tasks;
 
 namespace Boekingssysteem
 {
-    internal class Manager
+    public class Manager
     {
-        Service service;
-        Vacation vacation;
-        Flight flight;
-        Hotel hotel;
-        Plane plane;
+        private readonly ApiCaller _apiCaller;
 
-
-        public Vacation GetVacation() 
+        public Manager()
         {
-            return vacation;
+            this._apiCaller = new ApiCaller();
         }
 
-        public Flight GetFlightById()
+        public List<Vacation> GetAllVacations() 
         {
-            return flight;
+            List<Vacation> vacations = new List<Vacation>();
+            //var apiVacationList = _apiCaller.GetAllVacations();
+
+            return vacations;
+        }
+        //public Vacation GetVacationByUserId()
+        //{
+        //    return vacation;
+        //}
+
+        //public Flight GetFlightById()
+        //{
+        //    return flight;
+        //}
+        //public Plane GetPlaneById()
+        //{
+        //    return plane;
+        //}
+
+        public List<Hotel> GetAllHotels()
+        {
+            List<Hotel> hotels = new List<Hotel>();
+
+            var apiHotels = _apiCaller.GetAllHotels();
+
+            return hotels;
         }
 
-        public Hotel GetHotelById()
-        {
-            return hotel;
-        }
+        //public Hotel GetHotelById()
+        //{
+        //    return hotel;
+        //}
 
-        public Plane GetPlaneById()
-        {
-            return plane;
-        }
-
-        public Vacation GetVacationByUserId()
-        {
-            return vacation;
-        }
     }
 }

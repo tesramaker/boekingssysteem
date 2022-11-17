@@ -13,6 +13,17 @@ namespace BoekingssysteemAPI.Model
         public DateTime? reservedTill { get; set; }
         public int typeOfRoom { get; set; }
 
+        public Room(int id, int hotelId, int roomNumber, int amountOfPeople, decimal price, DateTime reservedFrom, DateTime reservedTill)
+        {
+            this.id = id;
+            this.hotelId = hotelId;
+            this.roomNumber = roomNumber;
+            this.amountOfPeople = amountOfPeople;
+            this.price = price;
+            this.reservedFrom = reservedFrom;
+            this.reservedTill = reservedTill;
+        }
+
         public Room(int hotelId, int roomNumber, int amountOfPeople, decimal price, DateTime reservedFrom, DateTime reservedTill)
         {
             this.hotelId = hotelId;
@@ -21,6 +32,15 @@ namespace BoekingssysteemAPI.Model
             this.price = price;
             this.reservedFrom = reservedFrom;
             this.reservedTill = reservedTill;
+        }
+
+        public Room(int id, int hotelId, int roomNumber, int amountOfPeople, decimal price)
+        {
+            this.id = id;
+            this.hotelId = hotelId;
+            this.roomNumber = roomNumber;
+            this.amountOfPeople = amountOfPeople;
+            this.price = price;
         }
 
         public Room(int hotelId, int roomNumber, int amountOfPeople, decimal price)

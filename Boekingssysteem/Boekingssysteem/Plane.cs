@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Boekingssysteem
 {
-    internal class Plane
+    public class Plane
     {
         public int? id { get; set; }
         public string name { get; set; }
@@ -25,7 +25,7 @@ namespace Boekingssysteem
 
         public Plane(string name, string airline, int seats, int defaultAmountSeats)
         {
-            this.id = id;
+            this.name = name;
             this.airline = airline;
             this.seats = seats;
             this.defaultAmountSeats = defaultAmountSeats;

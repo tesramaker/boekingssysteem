@@ -9,7 +9,7 @@ namespace Boekingssysteem.ApiModels
     public class VacationApiModel
     {
         public int? id { get; set; }
-        public int hotel { get; set; }
+        public int hotelId { get; set; }
         public int outboundTrip { get; set; }
         public int returnTrip { get; set; }
         public int amountOfPeople { get; set; }
@@ -18,9 +18,9 @@ namespace Boekingssysteem.ApiModels
         public double extraBagageInKg { get; set; }
         public int userId { get; set; }
 
-        public VacationApiModel(int hotel, int outboundTrip, int returnTrip, int amountOfPeople, DateTime startDate, DateTime endDate, double extraBagageInKg, int userId)
+        public VacationApiModel(int hotelId, int outboundTrip, int returnTrip, int amountOfPeople, DateTime startDate, DateTime endDate, double extraBagageInKg, int userId)
         {
-            this.hotel = hotel;
+            this.hotelId = hotelId;
             this.outboundTrip = outboundTrip;
             this.returnTrip = returnTrip;
             this.amountOfPeople = amountOfPeople;
