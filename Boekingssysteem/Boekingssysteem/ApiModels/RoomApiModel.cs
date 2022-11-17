@@ -15,8 +15,9 @@ namespace Boekingssysteem.ApiModels
         public decimal price { get; set; }
         public DateTime reservedFrom { get; set; }
         public DateTime reservedTill { get; set; }
+        public int typeOfRoom { get; set; }
 
-        public RoomApiModel(int hotelId, int roomNumber, int amountOfPeople, decimal price, DateTime reservedFrom, DateTime reservedTill)
+        public RoomApiModel(int hotelId, int roomNumber, int amountOfPeople, decimal price, DateTime reservedFrom, DateTime reservedTill, nt typeOfRoom)
         {
             this.hotelId = hotelId;
             this.roomNumber = roomNumber;
@@ -24,6 +25,7 @@ namespace Boekingssysteem.ApiModels
             this.price = price;
             this.reservedFrom = reservedFrom;
             this.reservedTill = reservedTill;
+            this.typeOfRoom = typeOfRoom;
         }
     }
 }

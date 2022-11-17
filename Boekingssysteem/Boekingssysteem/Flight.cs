@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Boekingssysteem
-    {
-    internal class Flight
+{
+    public class Flight
     {
         public int flightNumber { get; set; }
         public Plane plane { get; set; }

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Boekingssysteem
 {
-    internal class Hotel
+    public class Hotel
     {
         public String name { get; set; }
         public String city { get; set; }
         public double xCoord { get; set; }
         public double yCoord { get; set; }
-        //public Room room { get; set; }//At this moment in time, a hotel has only one room. 
+        public Room room { get; set; }//At this moment in time, a hotel has only one room. 
         List<Room> rooms { get; set; }//This list is not yet used
 
         public Hotel(string name, string city, double xCoord, double yCoord, Room room)
@@ -21,11 +21,17 @@ namespace Boekingssysteem
             this.city = city;
             this.xCoord = xCoord;
             this.yCoord = yCoord;
+            this.room = room;
         }
 
         public List<Room> GetListAvailableRooms()
         {
             return rooms;
+        }
+
+        public Room GetRoom()
+        {
+            return this.room;
         }
 
         public Room GetRoomById(int id)
