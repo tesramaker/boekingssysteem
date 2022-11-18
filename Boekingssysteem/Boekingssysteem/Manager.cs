@@ -106,14 +106,7 @@ namespace Boekingssysteem
 
             foreach (HotelApiModel hotelApiModel in hotelApiModels)
             {
-                List<Room> rooms = new List<Room>();
-                foreach (RoomApiModel roomApiModel in roomsApiModels)
-                {
-                    if (hotelApiModel.id != null)
-                    {
-                        hotels.Add(await this.GetHotelById((int)hotelApiModel.id));
-                    }
-                }
+                      hotels.Add(await this.GetHotelById((int)hotelApiModel.id));
             }
             return hotels;
         }
