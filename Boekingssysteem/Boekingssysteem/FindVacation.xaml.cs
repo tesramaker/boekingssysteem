@@ -40,8 +40,7 @@ public partial class FindVacation : ContentPage
 
     private async void addHotels(String location, int numberOfPeople)
     {
-        //Get all hotels in certain city from apiCaller and add them to menu
-        ApiCaller apiCaller = new ApiCaller();
+        //Get all hotels in certain city from manager and add them to menu
         List<Hotel> hotels = await this.manager.GetHotelByCity(location);
 
         bool firstVlag = true;//This is used to preset only one radiobutton
@@ -50,10 +49,17 @@ public partial class FindVacation : ContentPage
         {
             if (firstVlag)
                 hotelRadio = hotel;
-            Hotels.Add(hotelBuilder(hotel, firstVlag, hotel.name, hotel.city, (hotel.rooms[0].pricePerNightPerPerson * numberOfPeople)));
+            try
+            {
+                Hotels.Add(hotelBuilder(hotel, firstVlag, hotel.name, hotel.city, (hotel.rooms[0].pricePerNightPerPerson * numberOfPeople)));
+            }
+            catch
+            {
+                await DisplayAlert("Er zijn hotels gevonden zonder kamers.", "Neem contact op met de beheerder en zeg hem dat ieder hotel in ieder geval een room moet hebben in de database.", "OK");
+            }
             firstVlag = false;
             hotelAdded = true;
-        }
+            }
         if (!hotelAdded)
         {
             //If no hotel can be found, the search button will be greyed out
@@ -109,7 +115,12 @@ public partial class FindVacation : ContentPage
 
     private async void addFlights(String location, DateTime departureDate, DateTime arrivalDate)
     {
-        ApiCaller apiCaller = new ApiCaller();
+        addFlightsTo(location, arrivalDate);
+        addFlightsBack(location, departureDate);
+    }
+
+    async void addFlightsTo(String location, DateTime arrivalDate)
+    {
         List<Flight> flights = await this.manager.GetAllFlightsToCity(location);
 
         bool firstVlag = true;
@@ -123,17 +134,20 @@ public partial class FindVacation : ContentPage
                 Flights.Add(flightBuilder(firstVlag, flight.plane.airline, flight.departureDate, flight.arrivalDate, flight.price));
                 firstVlag = false;
                 flightAdded = true;
-            } 
+            }
         }
         if (!flightAdded)
         {
             //If no flight can be found, the search button will be greyed out
             SearchBtn.IsEnabled = false;
         }
+    }
 
+    async void addFlightsBack(String location, DateTime departureDate)
+    {
         List<Flight> flightsBack = await this.manager.GetAllFlightsToCity("Emmen");//For now we only dilever vacations from Emmen, this might be changed in the future
 
-        firstVlag = true;
+        bool firstVlag = true;
         bool flightBackAdded = false;
         foreach (var flight in flightsBack)
         {
@@ -152,7 +166,6 @@ public partial class FindVacation : ContentPage
             SearchBtn.IsEnabled = false;
         }
     }
-    
 
 private Grid flightBuilder(bool first, String airline, DateTime toDate, DateTime froDate, double priceFlight)
     {
