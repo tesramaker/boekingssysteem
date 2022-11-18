@@ -135,7 +135,7 @@ Geen idee naar welke locatie u wilt reizen? Geen probleem! Wij kiezen een bestem
                 BackgroundColor="White"/>
 
         </Grid>
-        
+
         <Button 
                 Grid.Row="1"
                 Grid.Column="1"
@@ -145,19 +145,5 @@ Geen idee naar welke locatie u wilt reizen? Geen probleem! Wij kiezen een bestem
                 Text="Zoek vakantie"
                 Clicked="OnSearchButtonClicked"
                 HorizontalOptions="Center" />
-
-        <!-- Test button -->
-        <!--<Button
-            x:Name="tester"
-            Clicked="OnTesterButtonClicked"
-            Text="Maak vakantie">
-        </Button>-->
-
-        <Button
-            x:Name="tester2"
-            Clicked="OnTesterButtonClicked2"
-            Text="Test2">
-        </Button>
-        
     </Grid>
 </ContentPage>

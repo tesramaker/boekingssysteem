@@ -88,32 +88,6 @@ public partial class MainPage : ContentPage
         }
         return locationToGo;
     }
-    async void OnTesterButtonClicked2(object sender, EventArgs e)
-    {
-        ApiCaller apiCaller = new ApiCaller();
-        //VacationApiModel vacation = new VacationApiModel(1, 1, 1, 1, DateTime.Now, DateTime.Now, 00.00, 1);
-        try
-        {
-            //TODO : Delete Test Buttons
-            //GetAllFlights, 
-            //GetAllHotelsInCity
-            //GetPlaneById
-            //CreateRoom
-            //GetVacationById
-
-            //var any1 = await apiCaller.GetAllFlights();
-            //var any2 = await apiCaller.GetVacationById(3);
-            //var any25 = await apiCaller.CreateVacation(new(1, 1, 2, 3, DateTime.Now, DateTime.Now, 0.0, 1));
-            //var any3 = await apiCaller.GetPlaneById(3);
-            //var any4 = await apiCaller.CreateRoom(new RoomApiModel(1, 1, 1, 2, DateTime.Now, DateTime.Now, 2));
-            //var any5 = await apiCaller.GetVacationById(4);
-
-        }
-        catch (Exception  ex)
-        {
-            throw ex;
-        }
-    }
 
     private void location_SelectedIndexChanged(object sender, EventArgs e)
     {
