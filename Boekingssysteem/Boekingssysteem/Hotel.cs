@@ -8,6 +8,7 @@ namespace Boekingssysteem
 {
     public class Hotel
     {
+        public int id { get; set; }
         public String name { get; set; }
         public String city { get; set; }
         public double xCoord { get; set; }

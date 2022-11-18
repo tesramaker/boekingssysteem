@@ -8,6 +8,7 @@ namespace Boekingssysteem
 {
     public class Flight
     {
+        public int id { get; set; }
         public int flightNumber { get; set; }
         public Plane plane { get; set; }
         public double price { get; set; }
