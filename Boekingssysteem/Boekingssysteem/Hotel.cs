@@ -24,6 +24,15 @@ namespace Boekingssysteem
             this.room = room;
         }
 
+        public Hotel(string name, string city, double xCoord, double yCoord, List<Room> rooms)
+        {
+            this.name = name;
+            this.city = city;
+            this.xCoord = xCoord;
+            this.yCoord = yCoord;
+            this.rooms = rooms;
+        }
+
         public List<Room> GetListAvailableRooms()
         {
             return rooms;

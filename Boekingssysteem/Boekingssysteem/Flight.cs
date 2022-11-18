@@ -29,6 +29,17 @@ namespace Boekingssysteem
             this.amountOfPlaces = amountOfPlaces;
         }
 
+        public Flight(int flightNumber, Plane plane, double price, string departurePlace, DateTime departureDate, string destination, DateTime arrivalDate)
+        {
+            this.flightNumber = flightNumber;
+            this.plane = plane;
+            this.price = price;
+            this.departurePlace = departurePlace;
+            this.departureDate = departureDate;
+            this.destination = destination;
+            this.arrivalDate = arrivalDate;
+        }
+
         public Plane GetPlane ( )
         {
             return plane;
