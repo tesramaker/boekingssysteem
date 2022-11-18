@@ -91,6 +91,7 @@ public partial class BookVacation : ContentPage
         VacationApiModel vacationApiModel = new(this.hotel.id, this.flight.id, this.flight.id, this.numberOfPersons, this.flight.departureDate, this.flight.arrivalDate, this.extraBagage, 1);
         //Wesley, this Vacation must be send to the api to create in the database
         //Daniel, Alstublieft -Arjan
+        //Arjan, deze code werkt niet, die id's bestaan helemaal niet
         await apiCaller.CreateVacation(vacationApiModel);
     }
 
