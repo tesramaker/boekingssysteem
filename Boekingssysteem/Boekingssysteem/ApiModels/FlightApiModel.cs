@@ -15,9 +15,9 @@ namespace Boekingssysteem.ApiModels
         public string toLocation { get; set; }
         public DateTime departDate { get; set; }
         public DateTime arrivalDate { get; set; }
-        public decimal cost { get; set; }
+        public double cost { get; set; }
 
-        public FlightApiModel(int planeId, string fromLocation, string toLocation, DateTime departDate, DateTime arrivalDate, decimal cost)
+        public FlightApiModel(int planeId, string fromLocation, string toLocation, DateTime departDate, DateTime arrivalDate, double cost)
         {
             this.planeId = planeId;
             this.fromLocation = fromLocation;

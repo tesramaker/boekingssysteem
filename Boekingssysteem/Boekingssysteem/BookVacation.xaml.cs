@@ -1,3 +1,5 @@
+using Boekingssysteem.ApiModels;
+
 namespace Boekingssysteem;
 
 public partial class BookVacation : ContentPage
@@ -7,6 +9,8 @@ public partial class BookVacation : ContentPage
     Flight flight;
     int numberOfPersons;
     int extraBagage;
+    private ApiCaller apiCaller = new ApiCaller();
+
     internal BookVacation( Hotel hotel, int numberOfPersons, Flight flight, Flight flightBack)
     {
         this.hotel = hotel;
@@ -80,10 +84,14 @@ public partial class BookVacation : ContentPage
         }
     }
 
-    public void addVacation()
+    public async void addVacation()
     {
+        //TODO : This needs to be changed, it uses the same flight for both flights
         Vacation vacation = new Vacation(0, this.hotel, this.flight, this.flight, this.numberOfPersons, this.flight.departureDate, this.flight.arrivalDate, this.extraBagage);
+        VacationApiModel vacationApiModel = new(this.hotel.id, this.flight.id, this.flight.id, this.numberOfPersons, this.flight.departureDate, this.flight.arrivalDate, this.extraBagage, 1);
         //Wesley, this Vacation must be send to the api to create in the database
+        //Daniel, Alstublieft -Arjan
+        await apiCaller.CreateVacation(vacationApiModel);
     }
 
     async void OnBookVacationButtonClicked ( object sender, EventArgs e )

@@ -8,6 +8,8 @@ public partial class FindVacation : ContentPage
     Flight flightRadio;
     Flight flightBackRadio;
     int numberOfPeople;
+    Manager manager = new Manager();
+
     public FindVacation ( DateTime startDate, DateTime endDate, string location, int numberOfPeople )
     {
         this.numberOfPeople = numberOfPeople;
@@ -40,7 +42,7 @@ public partial class FindVacation : ContentPage
     {
         //Get all hotels in certain city from apiCaller and add them to menu
         ApiCaller apiCaller = new ApiCaller();
-        List<Hotel> hotels = await apiCaller.GetAllHotelsByCity(location);
+        List<Hotel> hotels = await this.manager.GetHotelByCity(location);
 
         bool firstVlag = true;//This is used to preset only one radiobutton
         foreach (var hotel in hotels)
@@ -101,7 +103,7 @@ public partial class FindVacation : ContentPage
     private async void addFlights(String location, DateTime departureDate, DateTime arrivalDate)
     {
         ApiCaller apiCaller = new ApiCaller();
-        List<Flight> flights = await apiCaller.GetAllFlightsToCity(location);
+        List<Flight> flights = await this.manager.GetAllFlightsToCity(location);
 
         bool firstVlag = true;
         foreach (var flight in flights)
@@ -115,7 +117,7 @@ public partial class FindVacation : ContentPage
             } 
         }
 
-        flights = await apiCaller.GetAllFlightsToCity("Emmen");//For now we only dilever vacations from Emmen, this might be changed in the future
+        flights = await this.manager.GetAllFlightsToCity("Emmen");//For now we only dilever vacations from Emmen, this might be changed in the future
 
         firstVlag = true;
         foreach (var flight in flights)

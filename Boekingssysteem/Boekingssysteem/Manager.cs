@@ -18,6 +18,7 @@ namespace Boekingssysteem
 
         public List<Vacation> GetAllVacations() 
         {
+            //TODO : Continue making objects in the Manager class
             List<Vacation> vacations = new List<Vacation>();
             //var apiVacationList = _apiCaller.GetAllVacations();
 
@@ -36,6 +37,21 @@ namespace Boekingssysteem
             foreach (FlightApiModel flightApiModel in flightApiModels)
             {
                 if (flightApiModel.id != null)
+                {
+                    flights.Add(await this.GetFlightById((int)flightApiModel.id));
+                }
+            }
+            return flights;
+        }
+
+        public async Task<List<Flight>> GetAllFlightsToCity(string location)
+        {
+            List<Flight> flights = new List<Flight>();
+            List<FlightApiModel> flightApiModels = await _apiCaller.GetAllFlightsToCity(location);
+
+            foreach(FlightApiModel flightApiModel in flightApiModels)
+            {
+                if(flightApiModel.id != null)
                 {
                     flights.Add(await this.GetFlightById((int)flightApiModel.id));
                 }
@@ -67,7 +83,7 @@ namespace Boekingssysteem
         public async Task<List<Plane>> GetAllPlanes()
         {
             List<Plane> planes = new List<Plane>();
-            List<PlaneApiModel> planeApiModels = _apiCaller.GetAllPlanes();
+            List<PlaneApiModel> planeApiModels = await _apiCaller.GetAllPlanes();
 
             foreach (PlaneApiModel planeApiModel in planeApiModels)
             {
@@ -90,8 +106,8 @@ namespace Boekingssysteem
         public async Task<List<Hotel>> GetHotelByCity(string city)
         {
             List<Hotel> hotels = new List<Hotel>();
-            List<RoomApiModel> roomsApiModels = _apiCaller.GetAllRooms();
-            List<HotelApiModel> hotelApiModels = await _apiCaller.GetAllHotels();
+            List<RoomApiModel> roomsApiModels = await _apiCaller.GetAllRooms();
+            List<HotelApiModel> hotelApiModels = await _apiCaller.GetAllHotelsInCity(city);
 
             foreach (HotelApiModel hotelApiModel in hotelApiModels)
             {
@@ -110,7 +126,7 @@ namespace Boekingssysteem
         public async Task<List<Hotel>> GetAllHotels()
         {
             List<Hotel> hotels = new List<Hotel>();
-            List<RoomApiModel> roomsApiModels = _apiCaller.GetAllRooms();
+            List<RoomApiModel> roomsApiModels = await _apiCaller.GetAllRooms();
             List<HotelApiModel> hotelApiModels = await _apiCaller.GetAllHotels();
 
             foreach (HotelApiModel hotelApiModel in hotelApiModels)
@@ -144,13 +160,13 @@ namespace Boekingssysteem
 
         public async Task<Hotel> GetHotelById(int id)
         {
-            HotelApiModel hotelApiModel = await _apiCaller.GetHotelsById(id);
+            HotelApiModel hotelApiModel = await _apiCaller.GetHotelById(id);
             List<RoomApiModel> roomsApiModels = await _apiCaller.GetAllRooms();
             List<Room> rooms = new List<Room>();
 
             foreach (RoomApiModel roomApiModel in roomsApiModels)
             {
-                if (roomApiModel.hotelId == hotelApiModel.id)
+                //if (roomApiModel.hotelId == hotelApiModel.id)
                 {
                     rooms.Add(await this.GetRoomById(roomApiModel.id));
                 }
@@ -168,7 +184,7 @@ namespace Boekingssysteem
         public async Task<List<Room>> GetAllRooms()
         {
             List<Room> rooms = new List<Room>();
-            List<RoomApiModel> roomApiModels = _apiCaller.GetAllRooms();
+            List<RoomApiModel> roomApiModels = await _apiCaller.GetAllRooms();
             
             foreach(RoomApiModel roomApiModel in roomApiModels)
             {
@@ -180,7 +196,13 @@ namespace Boekingssysteem
         public async Task<Room> GetRoomById(int id)
         {
             RoomApiModel roomApiModel = await _apiCaller.GetRoomById(id);
-            Room room = new(roomApiModel.id, roomApiModel.roomNumber, roomApiModel.amountOfPeople, roomApiModel.price, roomApiModel.typeOfRoom);
+            Room room = new(
+                roomApiModel.id, 
+                roomApiModel.roomNumber, 
+                roomApiModel.amountOfPeople, 
+                (double) roomApiModel.price, 
+                roomApiModel.typeOfRoom
+            );
             
             return room;
         }

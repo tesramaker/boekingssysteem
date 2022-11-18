@@ -9,8 +9,9 @@ public partial class MainPage : ContentPage
     private Picker picker;
     private ApiCaller apiCaller;
     private string selectedCity;
-    private List<HotelApiModel> hotels;
+    private List<Hotel> hotels;
     private List<String> hotelStrings;
+    private Manager manager = new Manager();
 
 
     public MainPage ( )
@@ -23,7 +24,7 @@ public partial class MainPage : ContentPage
         this.selectedCity = "";
         this.hotelStrings = new List<String>();
 
-        //Layout ();
+        Layout ();
     }
 
     async void Layout ()
@@ -36,10 +37,9 @@ public partial class MainPage : ContentPage
             picker.IsEnabled = !checkbox.IsChecked;
         };
 
-        this.hotels = await this.apiCaller.GetAllHotels();
+        this.hotels = await this.manager.GetAllHotels();
 
-        //TODO : Manager
-        foreach (HotelApiModel hotel in hotels)
+        foreach (Hotel hotel in hotels)
         {
             if ( !hotelStrings.Contains(hotel.city))
             hotelStrings.Add ( hotel.city );
@@ -58,9 +58,6 @@ public partial class MainPage : ContentPage
             await Navigation.PushAsync( new LoginPage ( ) );
         };
         Login.GestureRecognizers.Add( GotoLogin );
-
-        
-
     }
 
     async void OnSearchButtonClicked( object sender, EventArgs e )
@@ -78,8 +75,7 @@ public partial class MainPage : ContentPage
     private async void Button_Clicked(object sender, EventArgs e)
     {
         ApiCaller apiCaller = new ApiCaller();
-        //TODO : Manager
-        List<FlightApiModel> flights = await apiCaller.GetAllFlights();
+        List<Flight> flights = await this.manager.GetAllFlights();
         //_ = await apiCaller.GetHotelsByCity ( "Praag" );
     }
 
@@ -112,10 +108,11 @@ public partial class MainPage : ContentPage
             //GetVacationById
 
             //var any1 = await apiCaller.GetAllFlights();
-            //var any2 = await apiCaller.GetAllHotelsInCity("Emmen");
+            //var any2 = await apiCaller.GetVacationById(3);
+            //var any25 = await apiCaller.CreateVacation(new(1, 1, 2, 3, DateTime.Now, DateTime.Now, 0.0, 1));
             //var any3 = await apiCaller.GetPlaneById(3);
             //var any4 = await apiCaller.CreateRoom(new RoomApiModel(1, 1, 1, 2, DateTime.Now, DateTime.Now, 2));
-            //var any5 = await apiCaller.GetVacationById(4
+            //var any5 = await apiCaller.GetVacationById(4);
 
         }
         catch (Exception  ex)
