@@ -72,28 +72,6 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private async void Button_Clicked(object sender, EventArgs e)
-    {
-        ApiCaller apiCaller = new ApiCaller();
-        List<Flight> flights = await this.manager.GetAllFlights();
-        //_ = await apiCaller.GetHotelsByCity ( "Praag" );
-    }
-
-    async void OnTesterButtonClicked ( object sender, EventArgs e)
-    {
-        //TODO : Delete Test Buttons
-        ApiCaller apiCaller = new ApiCaller();
-        VacationApiModel vacation = new VacationApiModel(1, 1, 1, 1, DateTime.Now, DateTime.Now, 00.00, 1);
-        try
-        {
-            //await apiCaller.GetHotelsByCity("New York");
-        }
-        catch(Exception)
-        {
-            throw;
-        }
-    }
-
     async void OnTesterButtonClicked2(object sender, EventArgs e)
     {
         ApiCaller apiCaller = new ApiCaller();
