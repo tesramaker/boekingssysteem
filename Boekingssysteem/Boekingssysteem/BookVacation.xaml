@@ -151,7 +151,7 @@ Klopt er iets niet? Ga terug naar de vorige stappen om uw keuze aan te passen."/
                     VerticalOptions="Center"/>
             </Grid>
 
-            <Grid Grid.Row="4"
+            <Grid Grid.Row="5"
                   Grid.Column="1"
                   VerticalOptions="Center"
                   Grid.ColumnSpan="4">
@@ -191,7 +191,7 @@ Klopt er iets niet? Ga terug naar de vorige stappen om uw keuze aan te passen."/
                     VerticalOptions="Center"/>
             </Grid>
 
-            <Grid Grid.Row="5"
+            <Grid Grid.Row="6"
                   Grid.Column="1"
                   VerticalOptions="Center"
                   Grid.ColumnSpan="3">
@@ -221,7 +221,7 @@ Klopt er iets niet? Ga terug naar de vorige stappen om uw keuze aan te passen."/
                     VerticalOptions="Center"/>
             </Grid>
 
-            <Grid Grid.Row="6"
+            <Grid Grid.Row="7"
                   Grid.Column="1"
                   VerticalOptions="Center"
                   Grid.ColumnSpan="3">
@@ -251,7 +251,7 @@ Klopt er iets niet? Ga terug naar de vorige stappen om uw keuze aan te passen."/
                     VerticalOptions="Center"/>
             </Grid>
 
-            <Grid Grid.Row="7"
+            <Grid Grid.Row="8"
                   Grid.Column="3"
                   VerticalOptions="Center">
                 <Grid.ColumnDefinitions>
@@ -273,7 +273,7 @@ Klopt er iets niet? Ga terug naar de vorige stappen om uw keuze aan te passen."/
             </Grid>
 
             <Button 
-            Grid.Row="8"
+            Grid.Row="9"
             Grid.Column="2"
             VerticalOptions="End"
             x:Name="SearchBtn"

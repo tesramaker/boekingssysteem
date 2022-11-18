@@ -15,6 +15,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
             <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
         <Border Grid.Row="1" Grid.Column="1" BackgroundColor="#DDFFFFFF"/>
