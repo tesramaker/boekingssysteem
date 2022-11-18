@@ -44,7 +44,7 @@ public partial class BookVacation : ContentPage
         LandingtimeBackFlight.Text = flightBack.arrivalDate.ToString();
         PriceBackflight.Text = (flightBack.price * numberOfPersons).ToString();
 
-        total = (hotel.room.pricePerNightPerPerson * numberOfPersons) + (flight.price * numberOfPersons);
+        total = (hotel.rooms[0].pricePerNightPerPerson * numberOfPersons) + (flight.price * numberOfPersons);
         Total.Text = total.ToString();
     }
 

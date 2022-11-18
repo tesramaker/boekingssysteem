@@ -173,6 +173,7 @@ namespace Boekingssysteem
             }
 
             return new Hotel(
+                hotelApiModel.id,
                 hotelApiModel.name,
                 hotelApiModel.city,
                 hotelApiModel.xCoord,

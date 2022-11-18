@@ -50,7 +50,7 @@ public partial class FindVacation : ContentPage
         {
             if (firstVlag)
                 hotelRadio = hotel;
-            Hotels.Add(hotelBuilder(hotel, firstVlag, hotel.name, hotel.city, (hotel.room.pricePerNightPerPerson * numberOfPeople)));
+            Hotels.Add(hotelBuilder(hotel, firstVlag, hotel.name, hotel.city, (hotel.rooms[0].pricePerNightPerPerson * numberOfPeople)));
             firstVlag = false;
             hotelAdded = true;
         }
@@ -131,11 +131,11 @@ public partial class FindVacation : ContentPage
             SearchBtn.IsEnabled = false;
         }
 
-        flights = await this.manager.GetAllFlightsToCity("Emmen");//For now we only dilever vacations from Emmen, this might be changed in the future
+        List<Flight> flightsBack = await this.manager.GetAllFlightsToCity("Emmen");//For now we only dilever vacations from Emmen, this might be changed in the future
 
         firstVlag = true;
         bool flightBackAdded = false;
-        foreach (var flight in flights)
+        foreach (var flight in flightsBack)
         {
             if (flight.departureDate >= departureDate && flight.departureDate < departureDate.AddDays(1) && flight.departurePlace == location)//Since DateTime also stores time, this will select all flights for the next 24h
             {

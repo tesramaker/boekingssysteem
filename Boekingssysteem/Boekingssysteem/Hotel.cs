@@ -13,17 +13,19 @@ namespace Boekingssysteem
         public String city { get; set; }
         public double xCoord { get; set; }
         public double yCoord { get; set; }
-        public Room room { get; set; }//At this moment in time, a hotel has only one room. 
+        //public Room room { get; set; }//At this moment in time, a hotel has only one room. 
         public List<Room> rooms { get; set; }//This list is not yet used
 
-        public Hotel(string name, string city, double xCoord, double yCoord, Room room)
+        public Hotel(int id, string name, string city, double xCoord, double yCoord, List<Room> rooms)
         {
+            this.id = id;
             this.name = name;
             this.city = city;
             this.xCoord = xCoord;
             this.yCoord = yCoord;
-            this.room = room;
+            this.rooms = rooms;
         }
+
 
         public Hotel(string name, string city, double xCoord, double yCoord, List<Room> rooms)
         {
@@ -37,11 +39,6 @@ namespace Boekingssysteem
         public List<Room> GetListAvailableRooms()
         {
             return rooms;
-        }
-
-        public Room GetRoom()
-        {
-            return this.room;
         }
 
         public Room GetRoomById(int id)
