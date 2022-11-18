@@ -32,7 +32,7 @@ public partial class BookVacation : ContentPage
     {
         Hotel.Text = hotel.name;
         Location.Text = hotel.city;
-        PriceHotel.Text = (hotel.room.pricePerNightPerPerson * numberOfPersons).ToString();
+        PriceHotel.Text = (hotel.rooms[0].pricePerNightPerPerson * numberOfPersons).ToString();
 
         AirlineToFlight.Text = flight.plane.airline;
         DeparturetimeToFlight.Text = flight.departureDate.ToString();

@@ -14,7 +14,7 @@ namespace Boekingssysteem
         public double xCoord { get; set; }
         public double yCoord { get; set; }
         public Room room { get; set; }//At this moment in time, a hotel has only one room. 
-        List<Room> rooms { get; set; }//This list is not yet used
+        public List<Room> rooms { get; set; }//This list is not yet used
 
         public Hotel(string name, string city, double xCoord, double yCoord, Room room)
         {
