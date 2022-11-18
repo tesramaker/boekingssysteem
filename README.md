@@ -3,6 +3,7 @@
 Om dit programma correct uit te voeren, dienen zowel de api, het boekingssysteem, als de database tegelijk te draaien.
 
 Om een vakantie te kunnen boeken, moeten gegevens worden ingevoerd die in de database staan. In deze GitHub staan staat een database met testdata, deze dient handmatig in MS SQL Server Managment Studio geimporteerd te worden.
+Om dit te doen, druk je met de rechtermuisknop op het mapje Databases > Restore Database... Source zet je op Device en selecteer dan het gedownloade bestand uit deze GitHub.
 
 Data toevoegen kan direct in de database of via de api. Let bij het aanmaken van data op een aantal dingen:
 * Als je een hotel aanmaakt, maakt dan ook altijd een room aan met dit hotel-id. Een hotel zonder rooms kan niet bestaan.
