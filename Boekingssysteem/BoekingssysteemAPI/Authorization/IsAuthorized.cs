@@ -16,11 +16,6 @@ namespace BoekingssysteemAPI.Authorization
 
         public bool AccessLevel(int accessLevel)
         {
-            //TODO implement this when the accesslevel is implemented in the User class
-            //if (user.accesslevel == accessLevel)
-            //{
-                //return true;
-            //}
             return false;
         }
     }

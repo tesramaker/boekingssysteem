@@ -8,7 +8,5 @@
         public DateTime? lastLoginDate { get; set; }
         public Guid? loginToken { get; set; }
         public bool? cancellationInsurance { get; set; }
-        //TODO AccessLevel not yet implemented, perhaps for future version (customer, company, admin etc), not yet implemented in the DB
-        //public int accessLevel { get; set; }
     }
 }
