@@ -92,6 +92,7 @@ public partial class BookVacation : ContentPage
         //Wesley, this Vacation must be send to the api to create in the database
         //Daniel, Alstublieft -Arjan
         //Arjan, deze code werkt niet, die id's bestaan helemaal niet
+        //Is al klaar gemaakt
         await apiCaller.CreateVacation(vacationApiModel);
     }
 

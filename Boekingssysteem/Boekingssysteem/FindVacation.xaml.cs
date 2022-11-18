@@ -45,12 +45,19 @@ public partial class FindVacation : ContentPage
         List<Hotel> hotels = await this.manager.GetHotelByCity(location);
 
         bool firstVlag = true;//This is used to preset only one radiobutton
+        bool hotelAdded = false;
         foreach (var hotel in hotels)
         {
             if (firstVlag)
                 hotelRadio = hotel;
             Hotels.Add(hotelBuilder(hotel, firstVlag, hotel.name, hotel.city, (hotel.room.pricePerNightPerPerson * numberOfPeople)));
             firstVlag = false;
+            hotelAdded = true;
+        }
+        if (!hotelAdded)
+        {
+            //If no hotel can be found, the search button will be greyed out
+            SearchBtn.IsEnabled = false;
         }
     }
 
@@ -106,6 +113,7 @@ public partial class FindVacation : ContentPage
         List<Flight> flights = await this.manager.GetAllFlightsToCity(location);
 
         bool firstVlag = true;
+        bool flightAdded = false;
         foreach (var flight in flights)
         {
             if (flight.arrivalDate >= arrivalDate && flight.arrivalDate < arrivalDate.AddDays(1) && flight.departurePlace == "Emmen")//Since DateTime also stores time, this will select all flights for the next 24h
@@ -114,12 +122,19 @@ public partial class FindVacation : ContentPage
                     flightRadio = flight;
                 Flights.Add(flightBuilder(firstVlag, flight.plane.airline, flight.departureDate, flight.arrivalDate, flight.price));
                 firstVlag = false;
+                flightAdded = true;
             } 
+        }
+        if (!flightAdded)
+        {
+            //If no flight can be found, the search button will be greyed out
+            SearchBtn.IsEnabled = false;
         }
 
         flights = await this.manager.GetAllFlightsToCity("Emmen");//For now we only dilever vacations from Emmen, this might be changed in the future
 
         firstVlag = true;
+        bool flightBackAdded = false;
         foreach (var flight in flights)
         {
             if (flight.departureDate >= departureDate && flight.departureDate < departureDate.AddDays(1) && flight.departurePlace == location)//Since DateTime also stores time, this will select all flights for the next 24h
@@ -128,11 +143,18 @@ public partial class FindVacation : ContentPage
                     flightBackRadio = flight;
                 FlightsBack.Add(flightBackBuilder(firstVlag, flight.plane.airline, flight.departureDate, flight.arrivalDate, flight.price));
                 firstVlag = false;
+                flightBackAdded = true;
             }
         }
+        if (!flightBackAdded)
+        {
+            //If no flight can be found, the search button will be greyed out
+            SearchBtn.IsEnabled = false;
+        }
     }
+    
 
-    private Grid flightBuilder(bool first, String airline, DateTime toDate, DateTime froDate, double priceFlight)
+private Grid flightBuilder(bool first, String airline, DateTime toDate, DateTime froDate, double priceFlight)
     {
         Grid grid = new Grid();
 
@@ -282,6 +304,6 @@ public partial class FindVacation : ContentPage
 
     async void OnGoOnButtonClicked ( object sender, EventArgs e )
     {
-         await Navigation.PushAsync ( new BookVacation  (hotelRadio, numberOfPeople, flightRadio, flightBackRadio) );
+        await Navigation.PushAsync ( new BookVacation  (hotelRadio, numberOfPeople, flightRadio, flightBackRadio) );
     }
 }

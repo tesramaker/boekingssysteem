@@ -113,7 +113,7 @@ Klik hieronder uw keuze van het hotel en de vluchten aan."/>
                    Margin="20, -5, 0, 0"
                    FontSize="12"
                    TextColor="Black"
-                   Text="De retourvluchten van de verschillende luchthavens van deze locatie."
+                   Text="De heenvluchten van de verschillende luchthavens van deze locatie."
                    HorizontalOptions="Start"
                    VerticalOptions="Start"/>
 
@@ -124,6 +124,15 @@ Klik hieronder uw keuze van het hotel en de vluchten aan."/>
                 Grid.Column="1"
                 Grid.ColumnSpan="2">
             </VerticalStackLayout>
+
+            <Label Grid.Row="5"
+                   Grid.Column="1"
+                   Margin="20, -5, 0, 0"
+                   FontSize="12"
+                   TextColor="Black"
+                   Text="De terugvluchten van de verschillende luchthavens van deze locatie."
+                   HorizontalOptions="Start"
+                   VerticalOptions="Start"/>
 
             <VerticalStackLayout 
                 x:Name="FlightsBack"
