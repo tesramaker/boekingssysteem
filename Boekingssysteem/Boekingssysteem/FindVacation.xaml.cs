@@ -45,12 +45,19 @@ public partial class FindVacation : ContentPage
         List<Hotel> hotels = await this.manager.GetHotelByCity(location);
 
         bool firstVlag = true;//This is used to preset only one radiobutton
+        bool hotelAdded = false;
         foreach (var hotel in hotels)
         {
             if (firstVlag)
                 hotelRadio = hotel;
             Hotels.Add(hotelBuilder(hotel, firstVlag, hotel.name, hotel.city, (hotel.room.pricePerNightPerPerson * numberOfPeople)));
             firstVlag = false;
+            hotelAdded = true;
+        }
+        if (!hotelAdded)
+        {
+            //If no hotel can be found, the search button will be greyed out
+            SearchBtn.IsEnabled = false;
         }
     }
 
@@ -282,6 +289,6 @@ public partial class FindVacation : ContentPage
 
     async void OnGoOnButtonClicked ( object sender, EventArgs e )
     {
-         await Navigation.PushAsync ( new BookVacation  (hotelRadio, numberOfPeople, flightRadio, flightBackRadio) );
+        await Navigation.PushAsync ( new BookVacation  (hotelRadio, numberOfPeople, flightRadio, flightBackRadio) );
     }
 }
