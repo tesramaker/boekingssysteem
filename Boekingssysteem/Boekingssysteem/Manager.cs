@@ -36,10 +36,7 @@ namespace Boekingssysteem
 
             foreach (FlightApiModel flightApiModel in flightApiModels)
             {
-                if (flightApiModel.id != null)
-                {
-                    flights.Add(await this.GetFlightById((int)flightApiModel.id));
-                }
+                flights.Add(await this.GetFlightById(flightApiModel.id));
             }
             return flights;
         }
@@ -51,10 +48,7 @@ namespace Boekingssysteem
 
             foreach(FlightApiModel flightApiModel in flightApiModels)
             {
-                if(flightApiModel.id != null)
-                {
-                    flights.Add(await this.GetFlightById((int)flightApiModel.id));
-                }
+                flights.Add(await this.GetFlightById(flightApiModel.id));
             }
             return flights;
         }
@@ -69,16 +63,17 @@ namespace Boekingssysteem
             {
                 if(planeApiModel.id == flightApiModel.planeId)
                 {
-                    if (planeApiModel.id != null)
-                    {
-                        planeId = (int) planeApiModel.id;
-                    }
+                    planeId = planeApiModel.id;
                 }
             }
 
             Flight flight = new(flightApiModel.id, await this.GetPlaneById(planeId), flightApiModel.cost ,flightApiModel.fromLocation, flightApiModel.departDate, flightApiModel.toLocation, flightApiModel.arrivalDate);
             return flight;
         }
+
+        /// <summary>
+        /// Planes
+        /// </summary>
 
         public async Task<List<Plane>> GetAllPlanes()
         {
@@ -87,13 +82,9 @@ namespace Boekingssysteem
 
             foreach (PlaneApiModel planeApiModel in planeApiModels)
             {
-                if (planeApiModel.id != null)
-                {
-                    planes.Add(await this.GetPlaneById((int) planeApiModel.id));
-                }
+                planes.Add(await this.GetPlaneById(planeApiModel.id));
             }
             return planes;
-
         }
 
         public async Task<Plane> GetPlaneById(int id)
@@ -102,6 +93,10 @@ namespace Boekingssysteem
             Plane plane = new(planeApiModel.name, planeApiModel.airline, planeApiModel.seats, planeApiModel.defaultAmountSeats);
             return plane;
         }
+
+        /// <summary>
+        /// Hotels
+        /// </summary>
 
         public async Task<List<Hotel>> GetHotelByCity(string city)
         {
@@ -131,29 +126,7 @@ namespace Boekingssysteem
 
             foreach (HotelApiModel hotelApiModel in hotelApiModels)
             {
-                if (hotelApiModel.id != null)
-                {
-                    hotels.Add(await this.GetHotelById((int) hotelApiModel.id));
-                }
-
-                //    List<Room> rooms = new List<Room>();
-                //    foreach (RoomApiModel roomApiModel in roomsApiModels)
-                //    {
-                //        if(roomApiModel.hotelId == hotelApiModel.id)
-                //        {
-                //            rooms.Add(this.GetRoomById(roomApiModel.id));
-                //        }
-                //    }
-                //    hotels.Add(new Hotel(
-                //        hotelApiModel.name,
-                //        hotelApiModel.city,
-                //        hotelApiModel.xCoord,
-                //        hotelApiModel.yCoord,
-                //        rooms
-                //    ));
-                //}
-                //return hotels;
-
+                hotels.Add(await this.GetHotelById(hotelApiModel.id));
             }
             return hotels;
         }
@@ -166,7 +139,7 @@ namespace Boekingssysteem
 
             foreach (RoomApiModel roomApiModel in roomsApiModels)
             {
-                //if (roomApiModel.hotelId == hotelApiModel.id)
+                if (roomApiModel.hotelId == hotelApiModel.id)
                 {
                     rooms.Add(await this.GetRoomById(roomApiModel.id));
                 }
@@ -181,6 +154,10 @@ namespace Boekingssysteem
                 rooms
             );
         }
+
+        /// <summary>
+        /// Rooms
+        /// </summary>
 
         public async Task<List<Room>> GetAllRooms()
         {
