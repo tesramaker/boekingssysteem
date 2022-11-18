@@ -60,11 +60,11 @@ public partial class MainPage : ContentPage
         Login.GestureRecognizers.Add( GotoLogin );
     }
 
-    async void OnSearchButtonClicked( object sender, EventArgs e )
+    async void OnSearchButtonClicked(object sender, EventArgs e)
     {
         try
         {
-            await Navigation.PushAsync ( new FindVacation ( startDate.Date, endDate.Date, picker.SelectedItem.ToString ( ), Int16.Parse ( numberOfPeople.Text ) ) );
+            await Navigation.PushAsync ( new FindVacation ( startDate.Date, endDate.Date, getRandomLocationOrNot(), Int16.Parse ( numberOfPeople.Text ) ) );
         }
         catch
         {
@@ -72,6 +72,22 @@ public partial class MainPage : ContentPage
         }
     }
 
+    string getRandomLocationOrNot()
+    {
+        String locationToGo = "";
+        if (randomLocation.IsChecked)//Check if randomcheckbox is set and then select random value from picker
+        {
+            String[] arrayFromPicker = picker.GetItemsAsArray();
+            Random random = new Random();
+            int randomIndex = random.Next(0, arrayFromPicker.Length);
+            locationToGo = arrayFromPicker[randomIndex];
+        }
+        else
+        {
+            locationToGo = picker.SelectedItem.ToString();
+        }
+        return locationToGo;
+    }
     async void OnTesterButtonClicked2(object sender, EventArgs e)
     {
         ApiCaller apiCaller = new ApiCaller();
