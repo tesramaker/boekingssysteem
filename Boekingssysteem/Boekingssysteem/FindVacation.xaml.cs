@@ -113,6 +113,7 @@ public partial class FindVacation : ContentPage
         List<Flight> flights = await this.manager.GetAllFlightsToCity(location);
 
         bool firstVlag = true;
+        bool flightAdded = false;
         foreach (var flight in flights)
         {
             if (flight.arrivalDate >= arrivalDate && flight.arrivalDate < arrivalDate.AddDays(1) && flight.departurePlace == "Emmen")//Since DateTime also stores time, this will select all flights for the next 24h
@@ -121,12 +122,19 @@ public partial class FindVacation : ContentPage
                     flightRadio = flight;
                 Flights.Add(flightBuilder(firstVlag, flight.plane.airline, flight.departureDate, flight.arrivalDate, flight.price));
                 firstVlag = false;
+                flightAdded = true;
             } 
+        }
+        if (!flightAdded)
+        {
+            //If no flight can be found, the search button will be greyed out
+            SearchBtn.IsEnabled = false;
         }
 
         flights = await this.manager.GetAllFlightsToCity("Emmen");//For now we only dilever vacations from Emmen, this might be changed in the future
 
         firstVlag = true;
+        bool flightBackAdded = false;
         foreach (var flight in flights)
         {
             if (flight.departureDate >= departureDate && flight.departureDate < departureDate.AddDays(1) && flight.departurePlace == location)//Since DateTime also stores time, this will select all flights for the next 24h
@@ -135,11 +143,18 @@ public partial class FindVacation : ContentPage
                     flightBackRadio = flight;
                 FlightsBack.Add(flightBackBuilder(firstVlag, flight.plane.airline, flight.departureDate, flight.arrivalDate, flight.price));
                 firstVlag = false;
+                flightBackAdded = true;
             }
         }
+        if (!flightBackAdded)
+        {
+            //If no flight can be found, the search button will be greyed out
+            SearchBtn.IsEnabled = false;
+        }
     }
+    
 
-    private Grid flightBuilder(bool first, String airline, DateTime toDate, DateTime froDate, double priceFlight)
+private Grid flightBuilder(bool first, String airline, DateTime toDate, DateTime froDate, double priceFlight)
     {
         Grid grid = new Grid();
 
